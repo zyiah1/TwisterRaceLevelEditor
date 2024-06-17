@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://brial5jpqkt2o"
+path="res://.godot/imported/Captain Falcon's Twister Race- Gate - Nintendo Land Soundtrack [Complete].mp3-2acc52d94718fa384ce0fcf6206a61ed.mp3str"
+
+[deps]
+
+source_file="res://sfx/Captain Falcon's Twister Race- Gate - Nintendo Land Soundtrack [Complete].mp3"
+dest_files=["res://.godot/imported/Captain Falcon's Twister Race- Gate - Nintendo Land Soundtrack [Complete].mp3-2acc52d94718fa384ce0fcf6206a61ed.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=400.0
+beat_count=205
+bar_beats=4

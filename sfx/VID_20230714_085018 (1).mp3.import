@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cdmq5j7ogrlbc"
+path="res://.godot/imported/VID_20230714_085018 (1).mp3-9ddb97df07eced1b6476858bce1420e9.mp3str"
+
+[deps]
+
+source_file="res://sfx/VID_20230714_085018 (1).mp3"
+dest_files=["res://.godot/imported/VID_20230714_085018 (1).mp3-9ddb97df07eced1b6476858bce1420e9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
