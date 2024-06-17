@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://cmqyq6acq27sr"]
+[gd_scene load_steps=64 format=3 uid="uid://cmqyq6acq27sr"]
 
 [ext_resource type="Script" path="res://button.gd" id="2"]
 [ext_resource type="Script" path="res://Track.gd" id="2_nq3cm"]
@@ -34,6 +34,7 @@
 [ext_resource type="Script" path="res://preview.gd" id="26_itfsx"]
 [ext_resource type="FontFile" uid="uid://b223go71xybu5" path="res://ui/fonts/Boeing.ttf" id="26_k2omm"]
 [ext_resource type="PackedScene" uid="uid://dqorhxvg76bk" path="res://wind.tscn" id="27_kb7a0"]
+[ext_resource type="Texture2D" uid="uid://cv46tdqttwwdf" path="res://ui/fonts/setup.png" id="27_kk0hx"]
 [ext_resource type="PackedScene" uid="uid://cbghysdmvry50" path="res://dartpile.tscn" id="28_skpjq"]
 [ext_resource type="PackedScene" uid="uid://bgw0ym3f1ria8" path="res://dash.tscn" id="31_egx7r"]
 [ext_resource type="PackedScene" uid="uid://ddle12bsgamuu" path="res://star.tscn" id="34_0qskd"]
@@ -766,6 +767,16 @@ offset_bottom = 893.0
 focus_mode = 0
 theme = ExtResource("3_pogl6")
 icon = ExtResource("19_0ggaa")
+icon_alignment = 1
+
+[node name="setup" type="Button" parent="nonmoving"]
+offset_left = 1449.0
+offset_top = 5.0
+offset_right = 1599.0
+offset_bottom = 105.0
+focus_mode = 0
+theme = ExtResource("3_pogl6")
+icon = ExtResource("27_kk0hx")
 icon_alignment = 1
 
 [node name="back" type="Button" parent="nonmoving"]

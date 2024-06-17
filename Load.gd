@@ -40,7 +40,7 @@ func LoadLevel(name):
 	for nodes in get_tree().get_nodes_in_group("delete"):
 		nodes.queue_free()
 	content = content.split("\n")
-	var cycle = 116
+	var cycle = 89
 	
 	get_node("../New").hide()
 	get_node("../Settings").hide()
@@ -54,7 +54,7 @@ func LoadLevel(name):
 	scene.get_node("nonmoving/name").text = name
 	var nextid = 0
 	var overide = 0
-	if content[0] != "Version: 1":
+	if not content[0].begins_with("Version: 1"):
 		print("invalid")
 		return
 	for line in content.size():
@@ -63,12 +63,11 @@ func LoadLevel(name):
 		if cycle + 1 > 0:
 			content.remove_at(0)
 		else:
-			
 			if content[8].begins_with("            name: Fzr_FieldParts"):
 				cycle = 27
-				content[8] = content[8].lstrip("            name: Fzr_FieldParts")
-				print(content[8])
-				match content[8]:
+				var tracktype = content[8].lstrip("            name: Fzr_FieldParts")
+				print(tracktype)
+				match tracktype:
 					"01":
 						scene.itemqueue.append("straight")
 					"02":
@@ -90,10 +89,16 @@ func LoadLevel(name):
 					"14":
 						scene.itemqueue.append("rhard")
 			else:
-				if not content[8].begins_with("            name: "):
-					scene.load = true
-					return
+				#if not content[8].begins_with("            name: "):
+					#scene.load = true
+					#print("whoops ",content[8])
+					#return
+				cycle = 27
 				var inst = null
+				
+				if content[8].begins_with("            name: Fzr_GoalLine"):
+					scene.itemqueue.append("end")
+				
 				if content[8].begins_with("            name: Fzr_Bomb"):
 					inst = preload("res://bomb.tscn").instantiate()
 				if content[8].begins_with("            name: Fzr_Jump"):
@@ -118,7 +123,7 @@ func LoadLevel(name):
 					inst.position = Vector3(float(content[21].lstrip("            pos_x: ")),float(content[22].lstrip("            pos_y: ")),float(content[23].lstrip("            pos_z: ")))
 					scene.get_node("Objects").add_child(inst)
 					scene.objnodes.append(inst)
-					cycle = 27
+					
 		if cycle < 0:
 			print("ERR Not Recognized:" + content[0])
 			content.remove_at(0)

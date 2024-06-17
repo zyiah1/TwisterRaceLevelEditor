@@ -292,7 +292,7 @@ position = Vector2(-314.421, -225.5)
 texture = ExtResource("1_g2ghb")
 
 [node name="FileDialog" type="FileDialog" parent="CanvasLayer/Load"]
-title = " "
+title = "Open a File"
 position = Vector2i(0, 36)
 size = Vector2i(1400, 850)
 theme = SubResource("Theme_ccspx")
