@@ -290,6 +290,22 @@ func _ready():
 	#endinst.rotation_degrees.y = 90
 	#endinst.position.x = 7100
 	#add_child(endinst)
+	#x = 6400 is where the track ends
+	#addend()
+
+func addend():
+	var inst = endtrack.instantiate()
+	connect("EXPORT", Callable(inst, "EXPORT"))
+	inst.position = Vector3(0,0,6400)
+	nodes.append(inst)
+	$Track.add_child(inst)
+	trackid += 1
+	inst = straight.instantiate()
+	connect("EXPORT", Callable(inst, "EXPORT"))
+	inst.position = Vector3(0,0,6400)
+	nodes.append(inst)
+	$Track.add_child(inst)
+	trackid += 1
 
 var load = false
 var cycle = 0
@@ -338,7 +354,10 @@ func _physics_process(delta):
 			randomize()
 			$audio/clack.pitch_scale = randf_range(.8,1.3)
 			$audio/clack/delay.start(.1)
-			item = "none"
+			if item == "end":
+				item = "straight"
+			else:
+				item = "none"
 			connect("EXPORT", Callable(straightinst, "EXPORT"))
 			straightinst.position = totaloffset
 			nodes.append(straightinst)
