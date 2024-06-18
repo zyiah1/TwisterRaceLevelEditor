@@ -96,8 +96,8 @@ func LoadLevel(name):
 				cycle = 27
 				var inst = null
 				
-				#if content[8].begins_with("            name: Fzr_GoalLine"):
-				#	scene.itemqueue.append("end")
+				if content[8].begins_with("            name: Fzr_GoalLine"):
+					scene.itemqueue.append("end")
 				
 				if content[8].begins_with("            name: Fzr_Bomb"):
 					inst = preload("res://bomb.tscn").instantiate()

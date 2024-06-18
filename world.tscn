@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://cmqyq6acq27sr"]
+[gd_scene load_steps=65 format=3 uid="uid://cmqyq6acq27sr"]
 
 [ext_resource type="Script" path="res://button.gd" id="2"]
 [ext_resource type="Script" path="res://Track.gd" id="2_nq3cm"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://by658b6pokqq1" path="res://ui/track/srcurve.png" id="10_qab5u"]
 [ext_resource type="Texture2D" uid="uid://b7wp3sfhfqsql" path="res://ui/track/lhard.png" id="11_iqday"]
 [ext_resource type="Texture2D" uid="uid://cs2ouh1ilayq4" path="res://ui/track/rhard.png" id="12_56x6s"]
+[ext_resource type="Texture2D" uid="uid://dxujpuhwuujun" path="res://ui/track/end.png" id="15_tckdm"]
 [ext_resource type="Texture2D" uid="uid://b57ippmv7ems8" path="res://ui/fonts/export.png" id="17_4qmb4"]
 [ext_resource type="Script" path="res://toggle.gd" id="17_dhc3k"]
 [ext_resource type="Texture2D" uid="uid://bgh2kahibvhdf" path="res://ui/objects/dash2.png" id="17_ond4o"]
@@ -540,7 +541,7 @@ script = ExtResource("3")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4100, 0, 0)
 script = ExtResource("2_nq3cm")
 
-[node name="offset" type="Node3D" parent="Track"]
+[node name="offset" type="Node3D" parent="Track" groups=["ignore"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
 [node name="Objects" type="Node3D" parent="."]
@@ -637,7 +638,7 @@ script = ExtResource("2")
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("3_pogl6")
-icon = ExtResource("12_56x6s")
+icon = ExtResource("15_tckdm")
 icon_alignment = 1
 script = ExtResource("2")
 
@@ -798,7 +799,7 @@ offset_right = 1449.0
 offset_bottom = 762.0
 text = "saving..."
 
-[node name="name" type="LineEdit" parent="nonmoving"]
+[node name="name" type="LineEdit" parent="nonmoving" groups=["enter"]]
 offset_left = 20.0
 offset_top = 16.0
 offset_right = 477.0
@@ -806,6 +807,16 @@ offset_bottom = 105.0
 theme_override_fonts/font = ExtResource("26_k2omm")
 theme_override_font_sizes/font_size = 34
 placeholder_text = "untitled"
+alignment = 1
+
+[node name="testoffset" type="LineEdit" parent="nonmoving" groups=["enter"]]
+offset_left = 985.0
+offset_top = 8.0
+offset_right = 1442.0
+offset_bottom = 97.0
+theme_override_fonts/font = ExtResource("26_k2omm")
+theme_override_font_sizes/font_size = 34
+placeholder_text = "0"
 alignment = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -887,10 +898,6 @@ transform = Transform3D(1, 1.42109e-14, -6.77626e-21, 0, 1, 1.42109e-13, 8.47033
 mesh = SubResource("ArrayMesh_unfuh")
 skin = SubResource("Skin_10j05")
 
-[node name="undodelay" type="Timer" parent="."]
-wait_time = 0.3
-one_shot = true
-
 [node name="Previews" type="Node3D" parent="."]
 
 [node name="bomb" parent="Previews" instance=ExtResource("25_q7y0b")]
@@ -955,5 +962,4 @@ one_shot = true
 [connection signal="pressed" from="nonmoving/export" to="." method="_on_export_pressed"]
 [connection signal="pressed" from="nonmoving/done" to="." method="_on_done_pressed"]
 [connection signal="pressed" from="nonmoving/back" to="." method="_on_back_pressed"]
-[connection signal="timeout" from="undodelay" to="." method="_on_undodelay_timeout"]
 [connection signal="timeout" from="audio/clack/delay" to="." method="_on_delay_timeout"]

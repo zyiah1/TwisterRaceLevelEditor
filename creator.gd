@@ -294,6 +294,7 @@ func _ready():
 	#addend()
 
 func addend():
+	#delete this function, please
 	var inst = endtrack.instantiate()
 	connect("EXPORT", Callable(inst, "EXPORT"))
 	inst.position = Vector3(0,0,6400)
@@ -354,12 +355,14 @@ func _physics_process(delta):
 			randomize()
 			$audio/clack.pitch_scale = randf_range(.8,1.3)
 			$audio/clack/delay.start(.1)
+			var offset = totaloffset
 			if item == "end":
 				item = "straight"
+				offset.z -= 700
 			else:
 				item = "none"
 			connect("EXPORT", Callable(straightinst, "EXPORT"))
-			straightinst.position = totaloffset
+			straightinst.position = offset
 			nodes.append(straightinst)
 			$Track.add_child(straightinst)
 			current = straightinst
@@ -436,7 +439,8 @@ func _physics_process(delta):
 func get_input(delta):
 	if Input.is_action_just_pressed("enter"):
 		$Camera3D.paused = false
-		$nonmoving/name.release_focus()
+		for node in get_tree().get_nodes_in_group("enter"):#any node that wants release focus when entered
+			node.release_focus()
 	if Input.is_action_just_pressed("Copy"):
 		_on_export_pressed()
 		var path
@@ -474,13 +478,15 @@ func get_input(delta):
 				totaloffset -= nodes[nodes.size() - 1].offset.position
 				undo(nodes[nodes.size() - 1])
 				nodes[nodes.size()-1].get_node("AnimationPlayer").play("undo")
+				
 				self.disconnect("EXPORT", Callable(nodes[nodes.size() - 1], "EXPORT"))
+				nodes[nodes.size()-1].queue_free()
 				nodes.remove_at(nodes.size() - 1)
-				if nodes.size() != 0:
-					current = nodes[nodes.size()-1]
-				else:
-					current = $Track
-				$undodelay.start()
+				#if nodes.size() != 0:
+				#	current = nodes[nodes.size()-1]
+				#else:
+				#	current = $Track
+				
 		if objnodes.size() != 0:
 			if mode != "track":
 				objnodes[objnodes.size()-1].queue_free()
@@ -505,6 +511,9 @@ func _on_export_pressed():
 			$nonmoving/name.text = "untitled"
 		filename = $nonmoving/name.text
 		$nonmoving/saving.show()
+		for node in $Track.get_children():
+			if not node.is_in_group("ignore"):
+				node.position.z += float($nonmoving/testoffset.text)
 		emit_signal("EXPORT")
 		
 		var path = Options.filepath + "/" + $nonmoving/name.text + ".txt"
@@ -550,8 +559,7 @@ func undo(object):
 
 
 
-func _on_undodelay_timeout():
-	stored.queue_free()
+
 
 
 

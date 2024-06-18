@@ -288,10 +288,10 @@ skeleton = NodePath("../Armature/Skeleton3D")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 700)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "add"
 libraries = {
 "": SubResource("AnimationLibrary_mq3w0")
 }
+autoplay = "add"
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(100, -3.48787e-14, 3.48787e-14, 3.48787e-14, 100, -1.62921e-05, -3.48787e-14, 1.62921e-05, 100, 0, 0, 0)
