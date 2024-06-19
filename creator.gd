@@ -31,13 +31,14 @@ var namefocus = false
 var nodes = []
 var objnodes = []
 var offsets = []
-signal EXPORT
 var objects = []
 var track = []
 var trackid = 18
 var cam2 = "none"
 var itemqueue = []
 var rails = []
+
+signal EXPORT
 
 var map = ["Version: 1",
 "IsBigEndian: True",
@@ -318,17 +319,18 @@ func _physics_process(delta):
 			randomize()
 			$audio/clack.pitch_scale = randf_range(.8,1.3)
 			$audio/clack/delay.start(.1)
-			var offset = totaloffset
+			var offset = current.offset.global_position
 			if item == "end":
 				item = "straight"
-				offset.z -= 700
 			else:
 				item = "none"
 			connect("EXPORT", Callable(straightinst, "EXPORT"))
-			straightinst.position = offset
-			nodes.append(straightinst)
 			$Track.add_child(straightinst)
+			straightinst.global_position = offset
+			straightinst.applyoffset()
+			nodes.append(straightinst)
 			current = straightinst
+			highlighttrack(current)
 			offsets.append(current.offset)
 			totaloffset += current.offset.position
 			trackid += 1
@@ -361,9 +363,10 @@ func _physics_process(delta):
 	
 	if not intersection.is_empty():
 		if mode == "track":
-			var track = intersection.collider.get_parent()
+			var track = intersection.collider.get_parent().get_parent()
 			if Input.is_action_just_pressed("add"):
-				track.hide()
+				highlighttrack(track)
+				current = track
 		
 		if mode == "object":
 			$Previews.show()
@@ -447,10 +450,11 @@ func get_input(delta):
 				self.disconnect("EXPORT", Callable(nodes[nodes.size() - 1], "EXPORT"))
 				nodes[nodes.size()-1].queue_free()
 				nodes.remove_at(nodes.size() - 1)
-				#if nodes.size() != 0:
-				#	current = nodes[nodes.size()-1]
-				#else:
-				#	current = $Track
+				if nodes.size() != 0:
+					current = nodes[nodes.size()-1]
+				else:
+					current = $Track
+				highlighttrack(current)
 				
 		if objnodes.size() != 0:
 			if mode != "track":
@@ -468,6 +472,12 @@ func get_input(delta):
 			
 		
 		
+
+func highlighttrack(track):
+	if track.get_node_or_null("RootNode/road") != null:
+		for node in get_tree().get_nodes_in_group("track"):
+			node.get_node("RootNode/road").material_overlay = null
+		track.get_node("RootNode/road").material_overlay = load("res://track select.tres")
 
 func _on_export_pressed():
 	if namefocus == false:

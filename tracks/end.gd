@@ -7,7 +7,9 @@ var data
 @onready var trackid = creator.trackid
 
 
-
+func applyoffset():
+	add_to_group("track")
+	position.z -= 700
 
 
 func EXPORT():

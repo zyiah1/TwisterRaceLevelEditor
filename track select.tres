@@ -1,8 +1,7 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cgom53dha0ufk"]
-
-[ext_resource type="Texture2D" uid="uid://nnu47jolyxi4" path="res://fzero/Fzr_Tesu_ao_0_Alb.png" id="1_w8rao"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cgom53dha0ufk"]
 
 [resource]
-albedo_texture = ExtResource("1_w8rao")
+transparency = 1
+albedo_color = Color(0, 0.510239, 0.842816, 0.482353)
 emission_enabled = true
 emission = Color(0, 0, 0.54902, 1)

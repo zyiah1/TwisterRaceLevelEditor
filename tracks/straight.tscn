@@ -274,10 +274,10 @@ mesh = SubResource("ArrayMesh_rhwnk")
 skin = SubResource("Skin_qbpal")
 skeleton = NodePath("../Armature")
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="RootNode"]
+[node name="StaticBody3D" type="StaticBody3D" parent="RootNode"]
 transform = Transform3D(1, -4.0698e-23, 4.45644e-23, 4.45644e-23, 1, -4.45644e-23, -4.0698e-23, 4.0698e-23, 1, 0, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RootNode/StaticBody3D2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RootNode/StaticBody3D"]
 transform = Transform3D(0.01, 1.92659e-25, -1.99236e-25, -1.92659e-25, 0.01, 1.99236e-25, 1.99236e-25, -1.99236e-25, 0.01, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_tg0gl")
 

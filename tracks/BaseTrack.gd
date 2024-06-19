@@ -26,10 +26,10 @@ extends Node3D
 
 var data
 
-func _ready():
+func applyoffset():
+	add_to_group("track")
 	if positionoffset != Vector3.ZERO:
 		position += positionoffset
-		$offset.position += positionoffset
 
 func EXPORT():
 	data = [
