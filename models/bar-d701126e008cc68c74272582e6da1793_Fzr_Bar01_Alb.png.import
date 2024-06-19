@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lgrc6gruajxi"
-path.s3tc="res://.godot/imported/Fzr_Bomb01_Alb.png-6b826adfb1cc862521cbab02195b005a.s3tc.ctex"
+uid="uid://ck2fd22cic03i"
+path.s3tc="res://.godot/imported/bar-d701126e008cc68c74272582e6da1793_Fzr_Bar01_Alb.png-e75c4e24baf559002c42e392426a7f00.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "e4f610a893fafcb1d58306554119fcfd"
+}
 
 [deps]
 
-source_file="res://import/Fzr_Bomb01_Alb.png"
-dest_files=["res://.godot/imported/Fzr_Bomb01_Alb.png-6b826adfb1cc862521cbab02195b005a.s3tc.ctex"]
+source_file="res://models/bar-d701126e008cc68c74272582e6da1793_Fzr_Bar01_Alb.png"
+dest_files=["res://.godot/imported/bar-d701126e008cc68c74272582e6da1793_Fzr_Bar01_Alb.png-e75c4e24baf559002c42e392426a7f00.s3tc.ctex"]
 
 [params]
 

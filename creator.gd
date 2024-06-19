@@ -74,33 +74,6 @@ var map = ["Version: 1",
 "            scale_x: 1.00000",
 "            scale_y: 1.00000",
 "            scale_z: 1.00000",
-#"          - comment: !l -1",
-#"            dir_x: 0.00000",
-#"            dir_y: 270.00000",
-#"            dir_z: 0.00000",
-#"            id_name: obj1",
-#"            layer: LC",
-#"            link_info: []",
-#"            link_num: !l 0",
-#"            name: Fzr_GoalLine",
-#"            param0: 0.00000",
-#"            param1: -1.00000",
-#"            param10: -1.00000",
-#"            param11: -1.00000",
-#"            param2: -1.00000",
-#"            param3: -1.00000",
-#"            param4: -1.00000",
-#"            param5: -1.00000",
-#"            param6: -1.00000",
-#"            param7: -1.00000",
-#"            param8: -1.00000",
-#"            param9: -1.00000",
-#"            pos_x: 6400.00000",
-#"            pos_y: 0.00000",
-#"            pos_z: 0.00000",
-#"            scale_x: 200.00000",
-#"            scale_y: 1.00000",
-#"            scale_z: 1.00000",
 "          - comment: !l -1",
 "            dir_x: 0.00000",
 "            dir_y: 90.00000",
@@ -156,7 +129,8 @@ var map = ["Version: 1",
 "            scale_y: 1.00000",
 "            scale_z: 1.00000"]
 
-var end = ["      LayerName: LC",
+var end = [
+"      LayerName: LC",
 "    - Infos:",
 "        ObjInfo: []",
 "        RailInfos:",
@@ -292,21 +266,6 @@ func _ready():
 	#add_child(endinst)
 	#x = 6400 is where the track ends
 	#addend()
-
-func addend():
-	#delete this function, please
-	var inst = endtrack.instantiate()
-	connect("EXPORT", Callable(inst, "EXPORT"))
-	inst.position = Vector3(0,0,6400)
-	nodes.append(inst)
-	$Track.add_child(inst)
-	trackid += 1
-	inst = straight.instantiate()
-	connect("EXPORT", Callable(inst, "EXPORT"))
-	inst.position = Vector3(0,0,6400)
-	nodes.append(inst)
-	$Track.add_child(inst)
-	trackid += 1
 
 var load = false
 var cycle = 0
@@ -474,7 +433,7 @@ func get_input(delta):
 		if nodes.size() != 0:
 			if mode == "track":
 				totaloffset -= nodes[nodes.size() - 1].offset.position
-				undo(nodes[nodes.size() - 1])
+				stored = nodes[nodes.size() - 1]
 				nodes[nodes.size()-1].get_node("AnimationPlayer").play("undo")
 				
 				self.disconnect("EXPORT", Callable(nodes[nodes.size() - 1], "EXPORT"))
@@ -549,16 +508,6 @@ func cam2out():
 	cam2 = "out"
 
 var stored
-
-func undo(object):
-	stored = object
-	
-
-
-
-
-
-
 
 
 

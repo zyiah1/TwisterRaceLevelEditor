@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lgrc6gruajxi"
-path.s3tc="res://.godot/imported/Fzr_Bomb01_Alb.png-6b826adfb1cc862521cbab02195b005a.s3tc.ctex"
+uid="uid://bvlerdk3do3bw"
+path.s3tc="res://.godot/imported/JumpColors.png-6538d9ec452061969845cdeef3d1ccc9.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://import/Fzr_Bomb01_Alb.png"
-dest_files=["res://.godot/imported/Fzr_Bomb01_Alb.png-6b826adfb1cc862521cbab02195b005a.s3tc.ctex"]
+source_file="res://textures/JumpColors.png"
+dest_files=["res://.godot/imported/JumpColors.png-6538d9ec452061969845cdeef3d1ccc9.s3tc.ctex"]
 
 [params]
 

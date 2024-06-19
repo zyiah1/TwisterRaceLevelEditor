@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lgrc6gruajxi"
-path.s3tc="res://.godot/imported/Fzr_Bomb01_Alb.png-6b826adfb1cc862521cbab02195b005a.s3tc.ctex"
+uid="uid://drlgomwwd2rcx"
+path.s3tc="res://.godot/imported/bomb.png-92e55f3425f2a70cc1b4eba69463a1d0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://import/Fzr_Bomb01_Alb.png"
-dest_files=["res://.godot/imported/Fzr_Bomb01_Alb.png-6b826adfb1cc862521cbab02195b005a.s3tc.ctex"]
+source_file="res://textures/bomb.png"
+dest_files=["res://.godot/imported/bomb.png-92e55f3425f2a70cc1b4eba69463a1d0.s3tc.ctex"]
 
 [params]
 
