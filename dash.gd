@@ -10,7 +10,7 @@ var small = false
 func _physics_process(delta):
 	id = creator.nodes.find(self)
 	if visible == false:
-		if Input.is_action_just_pressed("add"):
+		if Input.is_action_just_pressed("click"):
 			creator.trackid -= 1
 			queue_free()
 

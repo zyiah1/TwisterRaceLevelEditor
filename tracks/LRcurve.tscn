@@ -236,7 +236,7 @@ _data = {
 
 [node name="LRcurve" type="Node3D"]
 script = ExtResource("1_4hs6b")
-TrackName = "Fzr_FieldParts06"
+TrackName = "FieldParts06"
 positionoffset = Vector3(-425, 2.08165e-12, 2.08165e-12)
 
 [node name="RootNode" type="Node3D" parent="."]

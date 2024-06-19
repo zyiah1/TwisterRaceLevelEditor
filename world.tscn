@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://cmqyq6acq27sr"]
+[gd_scene load_steps=67 format=3 uid="uid://cmqyq6acq27sr"]
 
 [ext_resource type="Script" path="res://button.gd" id="2"]
 [ext_resource type="Script" path="res://Track.gd" id="2_nq3cm"]
@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://7rpyij0irkgt" path="res://ui/objects/jump.png" id="21_gg1ep"]
 [ext_resource type="Texture2D" uid="uid://bilv5lbcvktm3" path="res://ui/objects/car.png" id="21_qv3hg"]
 [ext_resource type="Texture2D" uid="uid://b35o0c3p4q0xk" path="res://ui/objects/trash.png" id="22_optkn"]
+[ext_resource type="Texture2D" uid="uid://bgydvpv7rmnfx" path="res://ui/objects/light.png" id="24_crc6g"]
 [ext_resource type="PackedScene" uid="uid://bftbbin31pfej" path="res://bomb.tscn" id="25_q7y0b"]
 [ext_resource type="Script" path="res://preview.gd" id="26_itfsx"]
 [ext_resource type="FontFile" uid="uid://b223go71xybu5" path="res://ui/fonts/Boeing.ttf" id="26_k2omm"]
@@ -43,6 +44,7 @@
 [ext_resource type="PackedScene" uid="uid://k6ah4g0ki07r" path="res://car.tscn" id="36_gkiws"]
 [ext_resource type="AudioStream" uid="uid://c2p85b344tmcq" path="res://sfx/clack-85854.mp3" id="36_moef1"]
 [ext_resource type="PackedScene" uid="uid://faxky36xraxs" path="res://trash.tscn" id="39_i6oxl"]
+[ext_resource type="PackedScene" uid="uid://bkqvt1dq2vdrv" path="res://models/Light.fbx" id="43_d08nw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j3oyk"]
 sky_top_color = Color(0.14902, 0.435294, 0.611765, 1)
@@ -721,6 +723,15 @@ icon = ExtResource("18_0ayhg")
 icon_alignment = 1
 script = ExtResource("17_dhc3k")
 
+[node name="light" type="Button" parent="CanvasLayer/Obstacles"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_pogl6")
+toggle_mode = true
+icon = ExtResource("24_crc6g")
+icon_alignment = 1
+script = ExtResource("17_dhc3k")
+
 [node name="tools" type="HBoxContainer" parent="CanvasLayer"]
 offset_left = 208.0
 offset_top = 690.0
@@ -927,6 +938,9 @@ script = ExtResource("26_itfsx")
 [node name="trash" parent="Previews" instance=ExtResource("39_i6oxl")]
 script = ExtResource("26_itfsx")
 
+[node name="light" parent="Previews" instance=ExtResource("43_d08nw")]
+script = ExtResource("26_itfsx")
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.736203, -0.676761, -1.20318e-08, 0.0493045, 0.0536351, 0.997343, -0.674962, -0.734247, 0.0728536, 0, 43.7753, -200.575)
 
@@ -958,6 +972,7 @@ one_shot = true
 [connection signal="pressed" from="CanvasLayer/Obstacles/car" to="CanvasLayer/Obstacles/car" method="_on_straight_pressed"]
 [connection signal="pressed" from="CanvasLayer/Obstacles/carline" to="CanvasLayer/Obstacles/carline" method="_on_straight_pressed"]
 [connection signal="pressed" from="CanvasLayer/Obstacles/bomb" to="CanvasLayer/Obstacles/bomb" method="_on_straight_pressed"]
+[connection signal="pressed" from="CanvasLayer/Obstacles/light" to="CanvasLayer/Obstacles/light" method="_on_straight_pressed"]
 [connection signal="pressed" from="CanvasLayer/tools/trash" to="CanvasLayer/tools/trash" method="_on_straight_pressed"]
 [connection signal="pressed" from="nonmoving/export" to="." method="_on_export_pressed"]
 [connection signal="pressed" from="nonmoving/done" to="." method="_on_done_pressed"]

@@ -240,7 +240,7 @@ _data = {
 
 [node name="wide" type="Node3D"]
 script = ExtResource("1_y8oc2")
-TrackName = "Fzr_FieldParts02"
+TrackName = "FieldParts02"
 
 [node name="RootNode" type="Node3D" parent="."]
 transform = Transform3D(10000, -3.48787e-12, 3.48787e-12, 3.48787e-12, 10000, -3.48787e-12, -3.48787e-12, 3.48787e-12, 10000, 0, 700, 0)

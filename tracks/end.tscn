@@ -666,25 +666,25 @@ skin = SubResource("4")
 skeleton = NodePath("../Armature")
 
 [node name="ton01_DL__Mat_Fzr_tonnel_mae_R" type="MeshInstance3D" parent="RootNode"]
-transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+transform = Transform3D(100, -7.04667e-21, -8.03968e-13, 3.98288e-21, 100, 2.52952e-21, 1.10415e-12, 5.27425e-21, 100, 0, 0, 0)
 mesh = SubResource("5")
 skin = SubResource("6")
 skeleton = NodePath("../Armature")
 
 [node name="ton01_DL__Mat_Fzr_tonnel_ura" type="MeshInstance3D" parent="RootNode"]
-transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+transform = Transform3D(100, -4.03534e-20, -6.26094e-12, 3.98288e-21, 100, 1.6082e-20, 5.5745e-12, 3.85809e-20, 100, 0, 0, 0)
 mesh = SubResource("7")
 skin = SubResource("8")
 skeleton = NodePath("../Armature")
 
 [node name="ton01_DR__Mat_Fzr_tonnel_mae_L" type="MeshInstance3D" parent="RootNode"]
-transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+transform = Transform3D(100, -1.81489e-20, -2.62296e-12, 3.98288e-21, 100, 1.6082e-20, 2.59427e-12, 1.63765e-20, 100, 0, 0, 0)
 mesh = SubResource("9")
 skin = SubResource("10")
 skeleton = NodePath("../Armature")
 
 [node name="ton01_DR__Mat_Fzr_tonnel_ura" type="MeshInstance3D" parent="RootNode"]
-transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+transform = Transform3D(100, -1.25978e-20, -1.71346e-12, 3.98288e-21, 100, 9.30578e-21, 1.84921e-12, 1.08254e-20, 100, 0, 0, 0)
 mesh = SubResource("11")
 skin = SubResource("12")
 skeleton = NodePath("../Armature")
@@ -784,13 +784,13 @@ skin = SubResource("16")
 skeleton = NodePath("../Armature001")
 
 [node name="Fzr_T022__Mat_Fzr_side" type="MeshInstance3D" parent="RootNode"]
-transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+transform = Transform3D(100, -7.04667e-21, -8.03968e-13, 3.98288e-21, 100, 2.52952e-21, 1.10415e-12, 5.27425e-21, 100, 0, 0, 0)
 mesh = SubResource("17")
 skin = SubResource("18")
 skeleton = NodePath("../Armature001")
 
 [node name="Fzr_T023__Mat_Fzr_ki" type="MeshInstance3D" parent="RootNode"]
-transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+transform = Transform3D(100, -1.25978e-20, -1.71346e-12, 3.98288e-21, 100, 9.30578e-21, 1.84921e-12, 1.08254e-20, 100, 0, 0, 0)
 mesh = SubResource("19")
 skin = SubResource("20")
 skeleton = NodePath("../Armature001")

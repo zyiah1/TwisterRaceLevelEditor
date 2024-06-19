@@ -25,7 +25,7 @@ var data
 func _physics_process(delta):
 	id = creator.nodes.find(self)
 	if visible == false:
-		if Input.is_action_just_pressed("add"):
+		if Input.is_action_just_pressed("click"):
 			queue_free()
 
 func EXPORT():
@@ -67,4 +67,3 @@ func _on_area_3d_area_entered(area):
 func _on_area_3d_area_exited(area):
 	show()
 
-#Fzr_DenchuSTL is the poles

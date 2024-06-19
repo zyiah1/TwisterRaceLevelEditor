@@ -11,6 +11,7 @@ var dash = preload("res://dash.tscn")
 var dart = preload("res://dartpile.tscn")
 var wind = preload("res://wind.tscn")
 var bomb = preload("res://bomb.tscn")
+var light = preload("res://light.tscn")
 
 var straight = preload("res://tracks/straight.tscn")
 var wide = preload("res://tracks/wide.tscn")
@@ -267,6 +268,7 @@ func _ready():
 	#add_child(endinst)
 	#x = 6400 is where the track ends
 	#addend()
+	load = false
 
 var load = false
 var cycle = 0
@@ -282,14 +284,6 @@ func _physics_process(delta):
 	if cam2 == "outfix":
 		$Camera2.position = $Camera2.position.move_toward(Vector3(2700,5000,3500),500 * delta)
 	if mode == "track":
-		if load == true:
-			if cycle < itemqueue.size():
-				print("yup")
-				item = itemqueue[cycle]
-				cycle += 1
-			else:
-				load = false
-				print(itemqueue.size())
 		var straightinst = null
 		if item == "straight":
 			straightinst = straight.instantiate()
@@ -326,6 +320,11 @@ func _physics_process(delta):
 				item = "none"
 			connect("EXPORT", Callable(straightinst, "EXPORT"))
 			$Track.add_child(straightinst)
+			#if Input.is_action_pressed("backwards"):
+				#offset.x -= current.offset.position.z*2
+				#offset.z = -offset.z
+				#straightinst.positionoffset.x = straightinst.positionoffset.x*9/14
+				#straightinst.positionoffset.z = -straightinst.positionoffset.z
 			straightinst.global_position = offset
 			straightinst.applyoffset()
 			nodes.append(straightinst)
@@ -392,6 +391,8 @@ func _physics_process(delta):
 						inst = star.instantiate()
 					"car":
 						inst = car.instantiate()
+					"light":
+						inst = light.instantiate()
 			if item != "none":
 				get_node("Previews/" + item).position = pos -Vector3(0,pos.y,0)
 			if inst != null:

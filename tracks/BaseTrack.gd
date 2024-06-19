@@ -6,7 +6,7 @@ extends Node3D
 @onready var offset = get_node("offset")
 @onready var trackid = creator.trackid
 
-@export var TrackName = "Fzr_FieldParts01"
+@export var TrackName = "FieldParts01"
 @export var notes = ""
 
 @export var Param0: float = -1

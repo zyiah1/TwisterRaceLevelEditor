@@ -236,7 +236,7 @@ _data = {
 
 [node name="Lsmall" type="Node3D"]
 script = ExtResource("1_bucai")
-TrackName = "Fzr_FieldParts03"
+TrackName = "FieldParts03"
 positionoffset = Vector3(200, 2.08165e-12, 2.08165e-12)
 
 [node name="RootNode" type="Node3D" parent="."]
