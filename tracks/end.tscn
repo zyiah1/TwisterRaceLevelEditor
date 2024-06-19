@@ -1,7 +1,7 @@
 [gd_scene load_steps=47 format=3 uid="uid://b66t5wyem3rei"]
 
 [ext_resource type="Texture2D" uid="uid://ctlmr3q65wld4" path="res://import/Fzr_Tonnel_Alb.png" id="1"]
-[ext_resource type="Script" path="res://end.gd" id="1_4o522"]
+[ext_resource type="Script" path="res://tracks/end.gd" id="1_4o522"]
 [ext_resource type="Texture2D" uid="uid://2cbes167u2r1" path="res://import/Fzr_Door_mae_Alb.1.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://lsd68xkgx8sj" path="res://import/Fzr_Door_Alb.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://chvxx20ra7gyv" path="res://import/Fzr_Tonnel_gara01_Alb.png" id="4"]

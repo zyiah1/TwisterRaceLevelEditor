@@ -1,5 +1,9 @@
 extends Node3D
 
+@onready var filename = $nonmoving/name.text
+@onready var totaloffset = Vector3.ZERO
+@onready var current = $Track
+
 var car = preload("res://car.tscn")
 var star = preload("res://star.tscn")
 var jump = preload("res://jump.tscn")
@@ -7,36 +11,32 @@ var dash = preload("res://dash.tscn")
 var dart = preload("res://dartpile.tscn")
 var wind = preload("res://wind.tscn")
 var bomb = preload("res://bomb.tscn")
-var rhard = preload("res://hard_r.tscn")
-var lhard = preload("res://hard_l.tscn")
-var srcurve = preload("res://srcurve.tscn")
-var slcurve = preload("res://slcurve.tscn")
-var lrcurve = preload("res://LRcurve.tscn")
-var llcurve = preload("res://LLcurve.tscn")
-var rsmall = preload("res://Rsmall.tscn")
-var lsmall = preload("res://Lsmall.tscn")
+
 var straight = preload("res://tracks/straight.tscn")
-var wide = preload("res://wide.tscn")
+var wide = preload("res://tracks/wide.tscn")
+var rhard = preload("res://tracks/hard_r.tscn")
+var lhard = preload("res://tracks/hard_l.tscn")
+var srcurve = preload("res://tracks/srcurve.tscn")
+var slcurve = preload("res://tracks/slcurve.tscn")
+var lrcurve = preload("res://tracks/LRcurve.tscn")
+var llcurve = preload("res://tracks/LLcurve.tscn")
+var rsmall = preload("res://tracks/Rsmall.tscn")
+var lsmall = preload("res://tracks/Lsmall.tscn")
+var endtrack = preload("res://tracks/end.tscn")
+
 var item = "none"
 var shift = false
-@onready var current = $Track
 var mode = "track"
 var namefocus = false
 var nodes = []
 var objnodes = []
 var offsets = []
-@onready var totaloffset = Vector3.ZERO
 signal EXPORT
 var objects = []
 var track = []
 var trackid = 18
-var endtrack = preload("res://end.tscn")
 var cam2 = "none"
 var itemqueue = []
-@onready var filename = $nonmoving/name.text
-
-
-
 var rails = []
 
 var map = ["Version: 1",
@@ -433,8 +433,6 @@ func _physics_process(delta):
 		else:
 			$Previews.hide()
 	get_input(delta)
-	
-	
 
 func get_input(delta):
 	if Input.is_action_just_pressed("enter"):

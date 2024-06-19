@@ -1,8 +1,8 @@
 [gd_scene load_steps=15 format=3 uid="uid://bcqyqqxrtcyup"]
 
 [ext_resource type="Texture2D" uid="uid://cvg3pop5hhsro" path="res://fzero/Fzr_side_01_Alb.png" id="1"]
+[ext_resource type="Script" path="res://tracks/BaseTrack.gd" id="1_ib372"]
 [ext_resource type="Texture2D" uid="uid://nnu47jolyxi4" path="res://fzero/Fzr_Tesu_ao_0_Alb.png" id="2"]
-[ext_resource type="Script" path="res://tracks/straight.gd" id="3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o4tla"]
 albedo_texture = ExtResource("2")
@@ -235,7 +235,7 @@ _data = {
 }
 
 [node name="part1" type="Node3D"]
-script = ExtResource("3")
+script = ExtResource("1_ib372")
 
 [node name="RootNode" type="Node3D" parent="."]
 transform = Transform3D(10000, -3.48787e-12, 3.48787e-12, 3.48787e-12, 10000, -3.48787e-12, -3.48787e-12, 3.48787e-12, 10000, 0, 700, 0)
