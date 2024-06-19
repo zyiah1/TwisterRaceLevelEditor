@@ -65,28 +65,28 @@ func LoadLevel(name):
 		else:
 			if content[8].begins_with("            name: Fzr_FieldParts"):
 				cycle = 27
-				var tracktype = content[8].lstrip("            name: Fzr_FieldParts")
+				var tracktype = int(content[8].lstrip("            name: Fzr_FieldParts"))
 				print(tracktype)
 				match tracktype:
-					"01":
+					1:
 						scene.itemqueue.append("straight")
-					"02":
+					2:
 						scene.itemqueue.append("wide")
-					"03":
+					3:
 						scene.itemqueue.append("Lsmall")
-					"04":
+					4:
 						scene.itemqueue.append("Rsmall")
-					"05":
+					5:
 						scene.itemqueue.append("llcurve")
-					"06":
+					6:
 						scene.itemqueue.append("lrcurve")
-					"07":
+					7:
 						scene.itemqueue.append("slcurve")
-					"08":
+					8:
 						scene.itemqueue.append("srcurve")
-					"13":
+					13:
 						scene.itemqueue.append("lhard")
-					"14":
+					14:
 						scene.itemqueue.append("rhard")
 			else:
 				#if not content[8].begins_with("            name: "):
@@ -97,10 +97,12 @@ func LoadLevel(name):
 				var inst = null
 				
 				if content[8].begins_with("            name: Fzr_GoalLine"):
-					scene.itemqueue.append("end")
+					scene.itemqueue.append("endload")
 				
 				if content[8].begins_with("            name: Fzr_Bomb"):
 					inst = preload("res://bomb.tscn").instantiate()
+				if content[8].begins_with("            name: Fzr_Denchu"): #Fzr_DenchuSTL current import
+					inst = preload("res://light.tscn").instantiate()
 				if content[8].begins_with("            name: Fzr_Jump"):
 					inst = preload("res://jump.tscn").instantiate()
 				if content[8].begins_with("            name: Fzr_Dart"):

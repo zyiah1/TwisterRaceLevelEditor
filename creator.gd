@@ -283,14 +283,18 @@ func _physics_process(delta):
 	if mode == "track":
 		if load == true:
 			if cycle < itemqueue.size():
+				print("yup")
 				item = itemqueue[cycle]
 				cycle += 1
 			else:
 				load = false
+				print(itemqueue.size())
 		var straightinst = null
 		if item == "straight":
 			straightinst = straight.instantiate()
 		if item == "end":
+			straightinst = endtrack.instantiate()
+		if item == "endload":#no added track
 			straightinst = endtrack.instantiate()
 		if item == "wide":
 			straightinst = wide.instantiate()
@@ -328,36 +332,40 @@ func _physics_process(delta):
 			offsets.append(current.offset)
 			totaloffset += current.offset.position
 			trackid += 1
+		
+	var mouse_pos = get_viewport().get_mouse_position()
+	var space_state = get_world_3d().direct_space_state
+	var rayOrigin
+	var rayEnd
+	rayOrigin = $Camera3D.project_ray_origin(mouse_pos)
+	rayEnd = rayOrigin + $Camera3D.project_ray_normal(mouse_pos) * 2000
+	var parameters = PhysicsRayQueryParameters3D.create(rayOrigin,rayEnd)
+	var intersection = space_state.intersect_ray(parameters)
+	
+	
+	if shift == true:
+		$Previews/wind/windBig.hide()
+		$Previews/wind/windSmall.show()
+		$Previews/dash/dashBig.hide()
+		$Previews/dash/dashSmall.show()
+		$CanvasLayer/Obstacles/wind.icon = preload("res://ui/objects/windsmall.png")
+		$CanvasLayer/Obstacles/dash.icon = preload("res://ui/objects/dash.png")
 	else:
+		$Previews/wind/windBig.show()
+		$Previews/wind/windSmall.hide()
+		$Previews/dash/dashBig.show()
+		$Previews/dash/dashSmall.hide()
+		$CanvasLayer/Obstacles/wind.icon = preload("res://ui/objects/windbig.png")
+		$CanvasLayer/Obstacles/dash.icon = preload("res://ui/objects/dash2.png")
+	
+	
+	if not intersection.is_empty():
+		if mode == "track":
+			var track = intersection.collider.get_parent()
+			if Input.is_action_just_pressed("add"):
+				track.hide()
 		
-		var mouse_pos = get_viewport().get_mouse_position()
-		var space_state = get_world_3d().direct_space_state
-		
-		var rayOrigin
-		var rayEnd
-		rayOrigin = $Camera3D.project_ray_origin(mouse_pos)
-		rayEnd = rayOrigin + $Camera3D.project_ray_normal(mouse_pos) * 2000
-		var parameters = PhysicsRayQueryParameters3D.create(rayOrigin,rayEnd)
-		var intersection = space_state.intersect_ray(parameters)
-		
-		
-		if shift == true:
-			$Previews/wind/windBig.hide()
-			$Previews/wind/windSmall.show()
-			$Previews/dash/dashBig.hide()
-			$Previews/dash/dashSmall.show()
-			$CanvasLayer/Obstacles/wind.icon = preload("res://ui/objects/windsmall.png")
-			$CanvasLayer/Obstacles/dash.icon = preload("res://ui/objects/dash.png")
-		else:
-			$Previews/wind/windBig.show()
-			$Previews/wind/windSmall.hide()
-			$Previews/dash/dashBig.show()
-			$Previews/dash/dashSmall.hide()
-			$CanvasLayer/Obstacles/wind.icon = preload("res://ui/objects/windbig.png")
-			$CanvasLayer/Obstacles/dash.icon = preload("res://ui/objects/dash2.png")
-		
-		
-		if not intersection.is_empty():
+		if mode == "object":
 			$Previews.show()
 			var pos = intersection.position
 			var inst = null
@@ -389,8 +397,8 @@ func _physics_process(delta):
 				$Objects.add_child(inst)
 				objnodes.append(inst)
 				trackid += 1 
-		else:
-			$Previews.hide()
+	else:
+		$Previews.hide()
 	get_input(delta)
 
 func get_input(delta):

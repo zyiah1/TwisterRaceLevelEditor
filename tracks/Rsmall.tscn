@@ -87,7 +87,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("RootNode/Road01__Mat_Fzr_ao:position")
+tracks/2/path = NodePath("RootNode/road:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -214,7 +214,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("RootNode/Road01__Mat_Fzr_ao:position")
+tracks/5/path = NodePath("RootNode/road:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -242,8 +242,6 @@ positionoffset = Vector3(-200, 2.08165e-12, 2.08165e-12)
 [node name="RootNode" type="Node3D" parent="."]
 transform = Transform3D(10000, -3.48787e-12, 3.48787e-12, 3.48787e-12, 10000, -3.48787e-12, -3.48787e-12, 3.48787e-12, 10000, 0, 700, 0)
 
-[node name="RootNode" type="Node3D" parent="RootNode"]
-
 [node name="Armature" type="Skeleton3D" parent="RootNode"]
 transform = Transform3D(100, 4.63692e-22, 1.18163e-21, 1.18163e-21, 100, -1.18163e-21, 4.63692e-22, -4.63692e-22, 100, 0, 0, 0)
 bones/0/name = "Fzr_CourseParts_04_end"
@@ -266,7 +264,7 @@ bones/1/scale = Vector3(1, 1, 1)
 [node name="Fzr_CourseParts_04_end" type="Node3D" parent="RootNode/Armature/Fzr_CourseParts_04"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
 
-[node name="Road01__Mat_Fzr_ao" type="MeshInstance3D" parent="RootNode"]
+[node name="road" type="MeshInstance3D" parent="RootNode"]
 transform = Transform3D(100, 4.63692e-22, 1.18163e-21, 1.18163e-21, 100, -1.18163e-21, 4.63692e-22, -4.63692e-22, 100, 0, 0, 0)
 mesh = SubResource("1")
 skin = SubResource("2")

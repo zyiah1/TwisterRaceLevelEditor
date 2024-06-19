@@ -98,7 +98,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("RootNode/Road01__Mat_Fzr_ao:position")
+tracks/2/path = NodePath("RootNode/road:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -225,7 +225,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("RootNode/Road01__Mat_Fzr_ao:position")
+tracks/5/path = NodePath("RootNode/road:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -275,7 +275,7 @@ bones/1/scale = Vector3(1, 1, 1)
 
 [node name="RootNode" type="Node3D" parent="RootNode"]
 
-[node name="Road01__Mat_Fzr_ao" type="MeshInstance3D" parent="RootNode"]
+[node name="road" type="MeshInstance3D" parent="RootNode"]
 transform = Transform3D(0.01, -2.684e-26, 3.80132e-25, 3.80132e-25, 0.01, -1.62921e-09, -1.3622e-25, 1.62921e-09, 0.01, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_20idq")
 mesh = SubResource("ArrayMesh_2701a")
