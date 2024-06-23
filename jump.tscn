@@ -1,8 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://buvw34m7n1smj"]
+[gd_scene load_steps=13 format=3 uid="uid://buvw34m7n1smj"]
 
 [ext_resource type="Script" path="res://shared scripts/BaseObject.gd" id="1_rexq6"]
 [ext_resource type="Texture2D" uid="uid://bpi825b38giqb" path="res://models/jump_Fzr_Jump01_Alb.png" id="1_tt3wv"]
-[ext_resource type="Texture2D" uid="uid://b0pijnb6cerfq" path="res://rainbow.tres" id="2_ft3q0"]
 [ext_resource type="Texture2D" uid="uid://bvlerdk3do3bw" path="res://textures/JumpColors.png" id="3_nuel0"]
 [ext_resource type="Texture2D" uid="uid://dru64j6sbnoo3" path="res://models/jump_Fzr_Jump01_Nezi_Alb.png" id="4_qnpme"]
 
@@ -44,9 +43,11 @@ resource_name = "Mat_Jump_n"
 cull_mode = 2
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("3_nuel0")
-roughness = 0.5
-emission = Color(1, 1, 1, 1)
-emission_texture = ExtResource("2_ft3q0")
+metallic_specular = 0.46
+emission_enabled = true
+emission_texture = ExtResource("3_nuel0")
+clearcoat = 0.0
+ao_light_affect = 1.0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_drsk4"]
 resource_name = "jump_Fzr_Jump01__Mat_Jump_n"

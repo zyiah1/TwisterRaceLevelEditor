@@ -1,5 +1,6 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://bthoilsoep1wp"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://bthoilsoep1wp"]
 
+[ext_resource type="FontFile" uid="uid://cvxewx0ydkm2o" path="res://fonts/f_zero_snes/F-ZeroSNES.ttf" id="1_87rjs"]
 [ext_resource type="Texture2D" uid="uid://brgf5a86hw18" path="res://ui/buttons/hover.png" id="1_6631l"]
 [ext_resource type="Texture2D" uid="uid://1obrp7tpsre1" path="res://ui/buttons/normal.png" id="2_axl2x"]
 [ext_resource type="Texture2D" uid="uid://cx2jg5l3vgh2h" path="res://ui/buttons/press.png" id="3_a2d3d"]
@@ -14,6 +15,8 @@ texture = ExtResource("2_axl2x")
 texture = ExtResource("3_a2d3d")
 
 [resource]
+Button/font_sizes/font_size = 60
+Button/fonts/font = ExtResource("1_87rjs")
 Button/styles/hover = SubResource("StyleBoxTexture_5t50o")
 Button/styles/normal = SubResource("StyleBoxTexture_rrums")
 Button/styles/pressed = SubResource("StyleBoxTexture_mg11j")

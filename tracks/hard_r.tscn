@@ -245,6 +245,7 @@ _data = {
 
 [node name="hard_r" type="Node3D"]
 script = ExtResource("1_dpvvh")
+DataName = "FieldParts14"
 positionoffset = Vector3(-350, 2.08165e-12, -350)
 
 [node name="RootNode" type="Node3D" parent="."]

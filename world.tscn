@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://cmqyq6acq27sr"]
+[gd_scene load_steps=64 format=3 uid="uid://cmqyq6acq27sr"]
 
 [ext_resource type="Script" path="res://button.gd" id="2"]
 [ext_resource type="Script" path="res://Track.gd" id="2_nq3cm"]
@@ -16,17 +16,14 @@
 [ext_resource type="Texture2D" uid="uid://b7wp3sfhfqsql" path="res://ui/track/lhard.png" id="11_iqday"]
 [ext_resource type="Texture2D" uid="uid://cs2ouh1ilayq4" path="res://ui/track/rhard.png" id="12_56x6s"]
 [ext_resource type="Texture2D" uid="uid://dxujpuhwuujun" path="res://ui/track/end.png" id="15_tckdm"]
-[ext_resource type="Texture2D" uid="uid://b57ippmv7ems8" path="res://ui/fonts/export.png" id="17_4qmb4"]
 [ext_resource type="Script" path="res://toggle.gd" id="17_dhc3k"]
 [ext_resource type="Texture2D" uid="uid://bgh2kahibvhdf" path="res://ui/objects/dash2.png" id="17_ond4o"]
 [ext_resource type="Texture2D" uid="uid://nnu47jolyxi4" path="res://fzero/Fzr_Tesu_ao_0_Alb.png" id="17_v7udn"]
 [ext_resource type="Texture2D" uid="uid://bqbhypuockn1" path="res://ui/objects/bomb.png" id="18_0ayhg"]
 [ext_resource type="Texture2D" uid="uid://bijwpb8xmmjsl" path="res://ui/objects/windbig.png" id="18_dytt7"]
 [ext_resource type="Texture2D" uid="uid://cvg3pop5hhsro" path="res://fzero/Fzr_side_01_Alb.png" id="18_tt54a"]
-[ext_resource type="Texture2D" uid="uid://4i7unkbwxdey" path="res://ui/fonts/done.png" id="19_0ggaa"]
 [ext_resource type="Texture2D" uid="uid://b5bltslqdlo57" path="res://models/arrow_Fzr_Mark01_Alb.png" id="19_ns8xt"]
 [ext_resource type="Texture2D" uid="uid://b56awtsgmn40q" path="res://ui/objects/star.png" id="20_77hel"]
-[ext_resource type="Texture2D" uid="uid://vmxvx7t6wjhf" path="res://ui/fonts/back.png" id="20_pxdeu"]
 [ext_resource type="Texture2D" uid="uid://c4yp1cgs8444q" path="res://ui/objects/dart.png" id="20_vyn0s"]
 [ext_resource type="Texture2D" uid="uid://7rpyij0irkgt" path="res://ui/objects/jump.png" id="21_gg1ep"]
 [ext_resource type="Texture2D" uid="uid://bilv5lbcvktm3" path="res://ui/objects/car.png" id="21_qv3hg"]
@@ -34,10 +31,9 @@
 [ext_resource type="Texture2D" uid="uid://bgydvpv7rmnfx" path="res://ui/objects/light.png" id="24_crc6g"]
 [ext_resource type="PackedScene" uid="uid://bftbbin31pfej" path="res://bomb.tscn" id="25_q7y0b"]
 [ext_resource type="Script" path="res://preview.gd" id="26_itfsx"]
-[ext_resource type="FontFile" uid="uid://b223go71xybu5" path="res://ui/fonts/Boeing.ttf" id="26_k2omm"]
 [ext_resource type="PackedScene" uid="uid://dqorhxvg76bk" path="res://wind.tscn" id="27_kb7a0"]
-[ext_resource type="Texture2D" uid="uid://cv46tdqttwwdf" path="res://ui/fonts/setup.png" id="27_kk0hx"]
 [ext_resource type="PackedScene" uid="uid://cbghysdmvry50" path="res://dartpile.tscn" id="28_skpjq"]
+[ext_resource type="FontFile" uid="uid://cvxewx0ydkm2o" path="res://fonts/f_zero_snes/F-ZeroSNES.ttf" id="30_mwt0d"]
 [ext_resource type="PackedScene" uid="uid://bgw0ym3f1ria8" path="res://dash.tscn" id="31_egx7r"]
 [ext_resource type="PackedScene" uid="uid://ddle12bsgamuu" path="res://star.tscn" id="34_0qskd"]
 [ext_resource type="PackedScene" uid="uid://buvw34m7n1smj" path="res://jump.tscn" id="34_jq5vr"]
@@ -45,6 +41,7 @@
 [ext_resource type="AudioStream" uid="uid://c2p85b344tmcq" path="res://sfx/clack-85854.mp3" id="36_moef1"]
 [ext_resource type="PackedScene" uid="uid://faxky36xraxs" path="res://trash.tscn" id="39_i6oxl"]
 [ext_resource type="PackedScene" uid="uid://bkqvt1dq2vdrv" path="res://models/Light.fbx" id="43_d08nw"]
+[ext_resource type="PackedScene" uid="uid://dhtyu4rmt21j5" path="res://models/buildings.glb" id="46_ox4ke"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j3oyk"]
 sky_top_color = Color(0.14902, 0.435294, 0.611765, 1)
@@ -554,6 +551,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.0
 offset_top = 782.0
 offset_right = 1367.0
 offset_bottom = 890.0
+mouse_filter = 2
 alignment = 1
 
 [node name="straight" type="Button" parent="CanvasLayer/TrackPieces"]
@@ -648,6 +646,7 @@ script = ExtResource("2")
 offset_top = 900.0
 offset_right = 1367.0
 offset_bottom = 1008.0
+mouse_filter = 2
 alignment = 1
 
 [node name="dash" type="Button" parent="CanvasLayer/Obstacles"]
@@ -738,6 +737,7 @@ offset_top = 690.0
 offset_right = 1395.0
 offset_bottom = 798.0
 scale = Vector2(0.8, 0.8)
+mouse_filter = 2
 alignment = 1
 
 [node name="trash" type="Button" parent="CanvasLayer/tools"]
@@ -768,7 +768,7 @@ offset_right = 1594.0
 offset_bottom = -20.0005
 focus_mode = 0
 theme = ExtResource("3_pogl6")
-icon = ExtResource("17_4qmb4")
+text = "export"
 icon_alignment = 1
 
 [node name="done" type="Button" parent="nonmoving"]
@@ -778,7 +778,7 @@ offset_right = 1594.0
 offset_bottom = 893.0
 focus_mode = 0
 theme = ExtResource("3_pogl6")
-icon = ExtResource("19_0ggaa")
+text = "Done"
 icon_alignment = 1
 
 [node name="setup" type="Button" parent="nonmoving"]
@@ -788,7 +788,7 @@ offset_right = 1599.0
 offset_bottom = 105.0
 focus_mode = 0
 theme = ExtResource("3_pogl6")
-icon = ExtResource("27_kk0hx")
+text = "..."
 icon_alignment = 1
 
 [node name="back" type="Button" parent="nonmoving"]
@@ -799,7 +799,7 @@ offset_bottom = 1018.0
 focus_mode = 0
 theme = ExtResource("3_pogl6")
 disabled = true
-icon = ExtResource("20_pxdeu")
+text = "Back"
 icon_alignment = 1
 
 [node name="saving" type="RichTextLabel" parent="nonmoving"]
@@ -815,7 +815,7 @@ offset_left = 20.0
 offset_top = 16.0
 offset_right = 477.0
 offset_bottom = 105.0
-theme_override_fonts/font = ExtResource("26_k2omm")
+theme_override_fonts/font = ExtResource("30_mwt0d")
 theme_override_font_sizes/font_size = 34
 placeholder_text = "untitled"
 alignment = 1
@@ -825,7 +825,7 @@ offset_left = 985.0
 offset_top = 8.0
 offset_right = 1442.0
 offset_bottom = 97.0
-theme_override_fonts/font = ExtResource("26_k2omm")
+theme_override_fonts/font = ExtResource("30_mwt0d")
 theme_override_font_sizes/font_size = 34
 placeholder_text = "0"
 alignment = 1
@@ -854,7 +854,7 @@ bones/0/name = "Fzr_CourseParts_01_end"
 bones/0/parent = 1
 bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
 bones/0/enabled = true
-bones/0/position = Vector3(0, 0, 0)
+bones/0/position = Vector3(0, 0.01, 0)
 bones/0/rotation = Quaternion(0, 0, 0, 1)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/name = "Fzr_CourseParts_01"
@@ -953,6 +953,12 @@ volume_db = -10.0
 [node name="delay" type="Timer" parent="audio/clack"]
 one_shot = true
 
+[node name="buildings" parent="." instance=ExtResource("46_ox4ke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4858.07, 21.5881, 1.73483)
+visible = false
+
+[node name="autosave" type="Timer" parent="."]
+
 [connection signal="pressed" from="CanvasLayer/TrackPieces/straight" to="CanvasLayer/TrackPieces/straight" method="_on_straight_pressed"]
 [connection signal="pressed" from="CanvasLayer/TrackPieces/wide" to="CanvasLayer/TrackPieces/wide" method="_on_straight_pressed"]
 [connection signal="pressed" from="CanvasLayer/TrackPieces/Lsmall" to="CanvasLayer/TrackPieces/Lsmall" method="_on_straight_pressed"]
@@ -974,7 +980,8 @@ one_shot = true
 [connection signal="pressed" from="CanvasLayer/Obstacles/bomb" to="CanvasLayer/Obstacles/bomb" method="_on_straight_pressed"]
 [connection signal="pressed" from="CanvasLayer/Obstacles/light" to="CanvasLayer/Obstacles/light" method="_on_straight_pressed"]
 [connection signal="pressed" from="CanvasLayer/tools/trash" to="CanvasLayer/tools/trash" method="_on_straight_pressed"]
-[connection signal="pressed" from="nonmoving/export" to="." method="_on_export_pressed"]
+[connection signal="pressed" from="nonmoving/export" to="." method="save"]
 [connection signal="pressed" from="nonmoving/done" to="." method="_on_done_pressed"]
 [connection signal="pressed" from="nonmoving/back" to="." method="_on_back_pressed"]
 [connection signal="timeout" from="audio/clack/delay" to="." method="_on_delay_timeout"]
+[connection signal="timeout" from="autosave" to="." method="save"]

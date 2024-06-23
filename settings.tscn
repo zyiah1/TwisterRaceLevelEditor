@@ -1,59 +1,40 @@
-[gd_scene load_steps=14 format=3 uid="uid://0lyqg2xeq2ni"]
+[gd_scene load_steps=11 format=3 uid="uid://0lyqg2xeq2ni"]
 
 [ext_resource type="Script" path="res://settingsmenu.gd" id="1_sqru2"]
 [ext_resource type="Theme" uid="uid://bthoilsoep1wp" path="res://button.tres" id="1_yp5e0"]
+[ext_resource type="Texture2D" uid="uid://df3fqypusnhwp" path="res://cool bg/bg.png" id="2_bcv7t"]
+[ext_resource type="Texture2D" uid="uid://7u1ab2xcrucv" path="res://cool bg/square.png" id="2_prdll"]
 [ext_resource type="Texture2D" uid="uid://1obrp7tpsre1" path="res://ui/buttons/normal.png" id="3_mj6xv"]
-[ext_resource type="Texture2D" uid="uid://cdpos2c8icy25" path="res://ui/fonts/freecam.png" id="4_c0t43"]
-[ext_resource type="Texture2D" uid="uid://wefevwjjdqx4" path="res://ui/fonts/filepath.png" id="4_rwnws"]
-[ext_resource type="Texture2D" uid="uid://cyx888w81hrub" path="res://ui/fonts/on.png" id="5_j7sph"]
-[ext_resource type="AudioStream" uid="uid://j6tib67mw8or" path="res://sfx/blipSelect.wav" id="6_hktvp"]
+[ext_resource type="FontFile" uid="uid://cvxewx0ydkm2o" path="res://fonts/f_zero_snes/F-ZeroSNES.ttf" id="5_r4m5h"]
+[ext_resource type="PackedScene" uid="uid://4hcipc8yuce0" path="res://settingsbutton.tscn" id="6_5c0hj"]
+
+[sub_resource type="Curve" id="Curve_c7i7e"]
+max_value = 4.0
+_data = [Vector2(0.0898876, 0.307692), 0.0, 0.0, 0, 0, Vector2(0.191011, 0.351648), 0.0, 0.0, 0, 0, Vector2(0.977528, 4), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v63e1"]
 texture = ExtResource("3_mj6xv")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d7te4"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iryac"]
-
-[sub_resource type="Animation" id="Animation_n0w4l"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("freecam:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_oqcbx"]
-resource_name = "freecam"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("freecam:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.2),
-"transitions": PackedFloat32Array(0.148651, 0.0457527, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1, 0.9), Vector2(1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_gad0d"]
-_data = {
-"RESET": SubResource("Animation_n0w4l"),
-"freecam": SubResource("Animation_oqcbx")
-}
-
 [node name="settings" type="Node2D"]
 script = ExtResource("1_sqru2")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(800, 450)
+
+[node name="Bg" type="Sprite2D" parent="Node2D"]
+position = Vector2(1.99998, 3.00005)
+scale = Vector2(2.11873, 1.82927)
+texture = ExtResource("2_bcv7t")
+
+[node name="square" type="CPUParticles2D" parent="Node2D"]
+lifetime = 20.0
+preprocess = 140.39
+texture = ExtResource("2_prdll")
+gravity = Vector2(2.08165e-12, 2.08165e-12)
+scale_amount_curve = SubResource("Curve_c7i7e")
 
 [node name="Button" type="Button" parent="."]
 offset_left = 357.0
@@ -64,54 +45,98 @@ theme = ExtResource("1_yp5e0")
 theme_override_styles/hover = SubResource("StyleBoxTexture_v63e1")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_v63e1")
 
-[node name="Filepath" type="Button" parent="."]
-offset_left = 435.0
-offset_top = 173.0
-offset_right = 895.0
-offset_bottom = 285.0
+[node name="settings" type="VBoxContainer" parent="."]
+offset_left = 400.0
+offset_top = 71.0
+offset_right = 1215.0
+offset_bottom = 771.0
+
+[node name="Filepath" type="Button" parent="settings"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("5_r4m5h")
+theme_override_font_sizes/font_size = 65
 theme_override_styles/normal = SubResource("StyleBoxEmpty_d7te4")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_d7te4")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_d7te4")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_d7te4")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_d7te4")
-icon = ExtResource("4_rwnws")
+text = "change filepath"
+alignment = 0
 
-[node name="freecam" type="Button" parent="."]
-offset_left = 435.0
-offset_top = 69.0
-offset_right = 773.0
-offset_bottom = 181.0
+[node name="freecam" parent="settings" instance=ExtResource("6_5c0hj")]
+layout_mode = 2
+
+[node name="saveonexit" parent="settings" instance=ExtResource("6_5c0hj")]
+layout_mode = 2
+text = "save-on-exit off"
+
+[node name="autosave" parent="settings" instance=ExtResource("6_5c0hj")]
+layout_mode = 2
+text = "autosave on"
+
+[node name="autosavetime" type="Button" parent="settings"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_r4m5h")
+theme_override_font_sizes/font_size = 65
 theme_override_styles/normal = SubResource("StyleBoxEmpty_d7te4")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_d7te4")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_d7te4")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_d7te4")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_d7te4")
-icon = ExtResource("4_c0t43")
+text = "autosave time"
+alignment = 0
 
-[node name="off_on" type="Button" parent="freecam"]
-show_behind_parent = true
+[node name="time" type="LineEdit" parent="settings/autosavetime" groups=["hide"]]
 layout_mode = 0
-offset_left = 250.0
-offset_top = -2.0
-offset_right = 338.0
-offset_bottom = 110.0
-theme_override_styles/normal = SubResource("StyleBoxEmpty_iryac")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_iryac")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_iryac")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_iryac")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_iryac")
-icon = ExtResource("5_j7sph")
+offset_left = 430.0
+offset_top = 4.0
+offset_right = 675.0
+offset_bottom = 101.0
+theme_override_fonts/font = ExtResource("5_r4m5h")
+theme_override_font_sizes/font_size = 50
+text = "45"
+alignment = 1
 
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(800, 450)
+[node name="defaultname" type="Button" parent="settings"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_r4m5h")
+theme_override_font_sizes/font_size = 65
+theme_override_styles/normal = SubResource("StyleBoxEmpty_d7te4")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_d7te4")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_d7te4")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_d7te4")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_d7te4")
+text = "default name"
+alignment = 0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_gad0d")
-}
+[node name="name" type="LineEdit" parent="settings/defaultname" groups=["hide"]]
+layout_mode = 0
+offset_left = 402.0
+offset_right = 807.0
+offset_bottom = 97.0
+theme_override_fonts/font = ExtResource("5_r4m5h")
+theme_override_font_sizes/font_size = 50
+text = "Untitled"
+alignment = 1
 
-[node name="blip" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_hktvp")
+[node name="back" type="Button" parent="."]
+offset_left = 395.0
+offset_top = 779.0
+offset_right = 612.0
+offset_bottom = 864.0
+theme_override_fonts/font = ExtResource("5_r4m5h")
+theme_override_font_sizes/font_size = 65
+theme_override_styles/normal = SubResource("StyleBoxEmpty_d7te4")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_d7te4")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_d7te4")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_d7te4")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_d7te4")
+text = "back"
 
 [node name="FileDialog" type="FileDialog" parent="."]
 title = "Open a Directory"
@@ -122,7 +147,11 @@ file_mode = 2
 access = 2
 filters = PackedStringArray("folder")
 
-[connection signal="pressed" from="Filepath" to="." method="_on_filepath_pressed"]
-[connection signal="pressed" from="freecam" to="." method="_on_freecam_pressed"]
-[connection signal="pressed" from="freecam/off_on" to="." method="_on_freecam_pressed"]
+[connection signal="pressed" from="settings/Filepath" to="." method="_on_filepath_pressed"]
+[connection signal="pressed" from="settings/freecam" to="." method="_on_freecam_pressed"]
+[connection signal="pressed" from="settings/saveonexit" to="." method="_on_saveonexit_pressed"]
+[connection signal="pressed" from="settings/autosave" to="." method="_on_autosave_pressed"]
+[connection signal="text_changed" from="settings/autosavetime/time" to="." method="_on_time_text_changed"]
+[connection signal="text_changed" from="settings/defaultname/name" to="." method="_on_name_text_changed"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
 [connection signal="dir_selected" from="FileDialog" to="." method="_on_file_dialog_dir_selected"]

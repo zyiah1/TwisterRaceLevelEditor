@@ -2,7 +2,7 @@ extends Button
 
 var path = "res://test.txt"
 var content = ""
-var world = preload("res://world.tscn")
+var world = preload("res://world.tscn").instantiate()
 
 
 func _on_pressed():
@@ -14,6 +14,12 @@ func _process(delta):
 		content = str(DisplayServer.clipboard_get())
 		LoadLevel("")
 
+func _notification(what): #if game quit
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		if get_parent().get_parent().get_node_or_null("Camera3D") == null:
+			#we are creating a level currently
+			return
+		get_tree().quit() # default behavior
 
 func start():
 	
@@ -47,7 +53,7 @@ func LoadLevel(name):
 	hide()
 	
 	
-	get_parent().add_child(world.instantiate())
+	get_parent().add_child(world)
 	
 	var scene = get_parent().get_node("Creator")
 	scene.get_node("Camera3D").current = true
@@ -74,6 +80,7 @@ func LoadLevel(name):
 			if content[8].begins_with("            name: Fzr_FieldParts"):
 				var tracktype = int(content[8].lstrip("            name: Fzr_FieldParts"))
 				track = true
+				print(tracktype)
 				match tracktype:
 					1:
 						inst = load("res://tracks/straight.tscn").instantiate()

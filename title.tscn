@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://Load.gd" id="2_pq2n2"]
 [ext_resource type="Texture2D" uid="uid://nnu47jolyxi4" path="res://fzero/Fzr_Tesu_ao_0_Alb.png" id="6_1irun"]
 [ext_resource type="Texture2D" uid="uid://t3ohu2xfnc61" path="res://ui/fonts/new.png" id="6_50wmv"]
-[ext_resource type="FontFile" uid="uid://b223go71xybu5" path="res://ui/fonts/Boeing.ttf" id="6_kijpt"]
+[ext_resource type="FontFile" uid="uid://b223go71xybu5" path="res://fonts/Boeing.ttf" id="6_kijpt"]
 [ext_resource type="Texture2D" uid="uid://crd0kb5ncvsg5" path="res://ui/theme/panelback.png" id="6_wac2y"]
 [ext_resource type="Texture2D" uid="uid://ca6c2nai7gyjc" path="res://ui/theme/buttonhuver.png" id="6_y5ilc"]
 [ext_resource type="Texture2D" uid="uid://cvg3pop5hhsro" path="res://fzero/Fzr_side_01_Alb.png" id="7_26mvn"]

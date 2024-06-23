@@ -264,7 +264,10 @@ var end: PackedStringArray = [
 
 
 func _ready():
-	Options.creator = self
+	Options.creator = self #stores reference to this node
+	$nonmoving/name.placeholder_text = Options.defaultfilename
+	if Options.autosave == true:
+		$autosave.start(Options.autosavetime)
 	#var endinst = endtrack.instantiate()
 	#endinst.rotation_degrees.y = 90
 	#endinst.position.x = 7100
@@ -346,7 +349,7 @@ func _physics_process(delta):
 	var rayOrigin
 	var rayEnd
 	rayOrigin = $Camera3D.project_ray_origin(mouse_pos)
-	rayEnd = rayOrigin + $Camera3D.project_ray_normal(mouse_pos) * 2000
+	rayEnd = rayOrigin + $Camera3D.project_ray_normal(mouse_pos) * 200000 #multiply for more range
 	var parameters = PhysicsRayQueryParameters3D.create(rayOrigin,rayEnd)
 	var intersection = space_state.intersect_ray(parameters)
 	
@@ -412,13 +415,19 @@ func _physics_process(delta):
 		$Previews.hide()
 	get_input(delta)
 
+func _notification(what): #if game quit
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		if Options.saveonexit == true:
+			save()
+		get_tree().quit() # default behavior
+
 func get_input(delta):
 	if Input.is_action_just_pressed("enter"):
 		$Camera3D.paused = false
 		for node in get_tree().get_nodes_in_group("enter"):#any node that wants release focus when entered
 			node.release_focus()
 	if Input.is_action_just_pressed("Copy"):
-		_on_export_pressed()
+		save()
 		var path
 		var fakeout = false
 		if $nonmoving/name.text == "":
@@ -434,19 +443,21 @@ func get_input(delta):
 		if fakeout == true:
 			$nonmoving/name.text = ""
 	if Input.is_action_just_pressed("export"):
-		_on_export_pressed()
+		save()
 		if $nonmoving/name.text == "":
 			OS.shell_open(str("file://" + ProjectSettings.globalize_path(Options.filepath) + "/untitled" + ".txt"))
 		else:
 			OS.shell_open(str("file://" + ProjectSettings.globalize_path(Options.filepath) + "/" + $nonmoving/name.text + ".txt"))
 	if Input.is_action_pressed("save"):
 		$Camera3D.paused = true
-		_on_export_pressed()
+		save()
 	else:
 		$Camera3D.paused = false
 	if Input.is_action_just_pressed("shift"):
 		shift = not shift
 	if Input.is_action_just_pressed("esc"):
+		if Options.saveonexit == true:
+			save()
 		get_tree().change_scene_to_file("res://title.tscn")
 	if Input.is_action_just_pressed("Undo"):
 		if nodes.size() != 0:
@@ -486,11 +497,11 @@ func highlighttrack(track):
 			node.get_node("RootNode/road").material_overlay = null
 		track.get_node("RootNode/road").material_overlay = load("res://track select.tres")
 
-func _on_export_pressed():
+func save():
 	if namefocus == false:
 		var prename = $nonmoving/name.text
 		if $nonmoving/name.text == "":
-			$nonmoving/name.text = "untitled"
+			$nonmoving/name.text = Options.defaultfilename
 		filename = $nonmoving/name.text
 		$nonmoving/saving.show()
 		for node in $Track.get_children():
@@ -501,8 +512,8 @@ func _on_export_pressed():
 		var path = Options.filepath + "/" + $nonmoving/name.text + ".txt"
 		var file = FileAccess.open(path,FileAccess.WRITE)
 		var text = map + track + objects + rails + end
-		if file.open(Options.filepath + "test" + ".txt", file.WRITE):
-			file.open(Options.filepath + "test" + ".txt", file.WRITE)
+		if file.open(path, file.WRITE):
+			file.open(path, file.WRITE)
 			for content in text:
 				file.store_line(content)
 			file.close()

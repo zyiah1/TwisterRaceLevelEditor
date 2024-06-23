@@ -1,14 +1,19 @@
 extends Node
 
+#settings
+var filepath: String = "res://"
+var trackfreecam: bool = true
+var saveonexit: bool = false
+var autosave: bool = true
+var autosavetime: int = 20
+var defaultfilename: String = "untitled"
 
-var filepath = "res://"
-var trackfreecam = true
 var creator
-var data = [filepath,str(trackfreecam)]
+var data = [filepath,str(trackfreecam),str(saveonexit),str(autosave),str(autosavetime),defaultfilename]
 var firstopen = true
 
 func _ready():
-	print("hello world")
+	get_tree().set_auto_accept_quit(false)
 	var file = FileAccess.file_exists("res://Fzero.settings")
 	if file:
 		firstopen = false
@@ -20,6 +25,20 @@ func _ready():
 			trackfreecam = true
 		else:
 			trackfreecam = false
+		if content.size()-1 < data.size(): #the -1 is for the extra blank line at the end of the save file
+			print("oldfile,less settings, adding data")#need to upgrade old save files
+			save()
+		else:
+			if content[2] == "true":
+				saveonexit = true
+			else:
+				saveonexit = false
+			if content[3] == "true":
+				autosave = true
+			else:
+				autosave = false
+			autosavetime = int(content[4])
+			defaultfilename = content[5]
 	else:
 		file = FileAccess.open("res://Fzero.settings",FileAccess.WRITE)
 		print("Creating New Settings File...")
@@ -31,8 +50,7 @@ func _ready():
 
 
 func save():
-	print(filepath)
-	data = [filepath,str(trackfreecam)]
+	data = [filepath,str(trackfreecam),str(saveonexit),str(autosave),str(autosavetime),defaultfilename]
 	var file = FileAccess.open("res://Fzero.settings",FileAccess.WRITE)
 	print("Saving")
 	if file:

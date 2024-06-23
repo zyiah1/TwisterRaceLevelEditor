@@ -234,7 +234,7 @@ _data = {
 "undo": SubResource("Animation_eldvv")
 }
 
-[node name="part1" type="Node3D"]
+[node name="part2" type="Node3D"]
 script = ExtResource("1_ib372")
 
 [node name="RootNode" type="Node3D" parent="."]
