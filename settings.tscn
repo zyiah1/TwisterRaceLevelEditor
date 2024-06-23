@@ -1,20 +1,25 @@
-[gd_scene load_steps=11 format=3 uid="uid://0lyqg2xeq2ni"]
+[gd_scene load_steps=14 format=3 uid="uid://0lyqg2xeq2ni"]
 
 [ext_resource type="Script" path="res://settingsmenu.gd" id="1_sqru2"]
 [ext_resource type="Theme" uid="uid://bthoilsoep1wp" path="res://button.tres" id="1_yp5e0"]
 [ext_resource type="Texture2D" uid="uid://df3fqypusnhwp" path="res://cool bg/bg.png" id="2_bcv7t"]
 [ext_resource type="Texture2D" uid="uid://7u1ab2xcrucv" path="res://cool bg/square.png" id="2_prdll"]
-[ext_resource type="Texture2D" uid="uid://1obrp7tpsre1" path="res://ui/buttons/normal.png" id="3_mj6xv"]
+[ext_resource type="Texture2D" uid="uid://cryj258qigthw" path="res://cool bg/wave.png" id="4_q1qkn"]
+[ext_resource type="Texture2D" uid="uid://dcl2ku2g3y4ed" path="res://cool bg/circles.png" id="5_3ue8j"]
 [ext_resource type="FontFile" uid="uid://cvxewx0ydkm2o" path="res://fonts/f_zero_snes/F-ZeroSNES.ttf" id="5_r4m5h"]
 [ext_resource type="PackedScene" uid="uid://4hcipc8yuce0" path="res://settingsbutton.tscn" id="6_5c0hj"]
+[ext_resource type="Texture2D" uid="uid://bb2mfux2hqp7p" path="res://ui/buttons/blue.png" id="7_a0gld"]
 
 [sub_resource type="Curve" id="Curve_c7i7e"]
 max_value = 4.0
-_data = [Vector2(0.0898876, 0.307692), 0.0, 0.0, 0, 0, Vector2(0.191011, 0.351648), 0.0, 0.0, 0, 0, Vector2(0.977528, 4), 0.0, 0.0, 0, 0]
-point_count = 3
+_data = [Vector2(0.214286, 0), 0.0, 5.05666, 0, 0, Vector2(1, 4), 6.49846, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v63e1"]
-texture = ExtResource("3_mj6xv")
+texture = ExtResource("7_a0gld")
+
+[sub_resource type="FontVariation" id="FontVariation_g6rgj"]
+base_font = ExtResource("5_r4m5h")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d7te4"]
 
@@ -36,12 +41,28 @@ texture = ExtResource("2_prdll")
 gravity = Vector2(2.08165e-12, 2.08165e-12)
 scale_amount_curve = SubResource("Curve_c7i7e")
 
+[node name="circles" type="CPUParticles2D" parent="Node2D"]
+amount = 20
+lifetime = 12.0
+preprocess = 140.39
+texture = ExtResource("5_3ue8j")
+gravity = Vector2(2.08165e-12, 2.08165e-12)
+scale_amount_curve = SubResource("Curve_c7i7e")
+
+[node name="wave" type="CPUParticles2D" parent="Node2D"]
+lifetime = 8.0
+preprocess = 140.39
+texture = ExtResource("4_q1qkn")
+gravity = Vector2(2.08165e-12, 2.08165e-12)
+scale_amount_curve = SubResource("Curve_c7i7e")
+
 [node name="Button" type="Button" parent="."]
 offset_left = 357.0
 offset_right = 1257.0
 offset_bottom = 900.0
 focus_mode = 0
 theme = ExtResource("1_yp5e0")
+theme_override_styles/normal = SubResource("StyleBoxTexture_v63e1")
 theme_override_styles/hover = SubResource("StyleBoxTexture_v63e1")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_v63e1")
 
@@ -54,7 +75,9 @@ offset_bottom = 771.0
 [node name="Filepath" type="Button" parent="settings"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("5_r4m5h")
+theme_override_colors/font_outline_color = Color(0, 0.255066, 0.431333, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = SubResource("FontVariation_g6rgj")
 theme_override_font_sizes/font_size = 65
 theme_override_styles/normal = SubResource("StyleBoxEmpty_d7te4")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_d7te4")
@@ -66,20 +89,31 @@ alignment = 0
 
 [node name="freecam" parent="settings" instance=ExtResource("6_5c0hj")]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0.255066, 0.431333, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = SubResource("FontVariation_g6rgj")
 
 [node name="saveonexit" parent="settings" instance=ExtResource("6_5c0hj")]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0.255066, 0.431333, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = SubResource("FontVariation_g6rgj")
 text = "save-on-exit off"
 
 [node name="autosave" parent="settings" instance=ExtResource("6_5c0hj")]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0.255066, 0.431333, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = SubResource("FontVariation_g6rgj")
 text = "autosave on"
 
 [node name="autosavetime" type="Button" parent="settings"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("5_r4m5h")
+theme_override_colors/font_outline_color = Color(0, 0.255066, 0.431333, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = SubResource("FontVariation_g6rgj")
 theme_override_font_sizes/font_size = 65
 theme_override_styles/normal = SubResource("StyleBoxEmpty_d7te4")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_d7te4")
@@ -95,7 +129,10 @@ offset_left = 430.0
 offset_top = 4.0
 offset_right = 675.0
 offset_bottom = 101.0
-theme_override_fonts/font = ExtResource("5_r4m5h")
+theme_override_colors/font_color = Color(0.512272, 0.82013, 0.912478, 1)
+theme_override_colors/font_outline_color = Color(0, 0.255066, 0.431333, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = SubResource("FontVariation_g6rgj")
 theme_override_font_sizes/font_size = 50
 text = "45"
 alignment = 1
@@ -104,7 +141,9 @@ alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("5_r4m5h")
+theme_override_colors/font_outline_color = Color(0, 0.255066, 0.431333, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = SubResource("FontVariation_g6rgj")
 theme_override_font_sizes/font_size = 65
 theme_override_styles/normal = SubResource("StyleBoxEmpty_d7te4")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_d7te4")
@@ -119,7 +158,10 @@ layout_mode = 0
 offset_left = 402.0
 offset_right = 807.0
 offset_bottom = 97.0
-theme_override_fonts/font = ExtResource("5_r4m5h")
+theme_override_colors/font_color = Color(0.512272, 0.82013, 0.912478, 1)
+theme_override_colors/font_outline_color = Color(0, 0.255066, 0.431333, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = SubResource("FontVariation_g6rgj")
 theme_override_font_sizes/font_size = 50
 text = "Untitled"
 alignment = 1
