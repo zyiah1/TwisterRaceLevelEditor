@@ -1,7 +1,6 @@
 extends Node3D
 
 @onready var filename = $nonmoving/name.text
-@onready var totaloffset = Vector3.ZERO
 @onready var current = $Track
 
 var car = preload("res://car.tscn")
@@ -25,23 +24,27 @@ var rsmall = preload("res://tracks/Rsmall.tscn")
 var lsmall = preload("res://tracks/Lsmall.tscn")
 var endtrack = preload("res://tracks/end.tscn")
 
-var item = "none"
-var shift = false
-var mode = "track"
-var namefocus = false
-var nodes = []
-var objnodes = []
-var offsets = []
-var objects = []
-var track = []
-var trackid = 18
-var cam2 = "none"
-var itemqueue = []
-var rails = []
+var trackid = 18 # object's ID value
+
+var cam2: String = "none"
+var item: String = "none"
+var mode: String = "track"
+var shift: bool = false
+var namefocus: bool = false #if the naming text edit is selected
+
+var nodes: Array = [] #tracknodes
+var objnodes: Array = [] #objectnodes
+
+var objects: PackedStringArray = [] #objects data
+var track: PackedStringArray = [] #tracks data
+var rails: PackedStringArray = []
+
+
+
 
 signal EXPORT
 
-var map = ["Version: 1",
+var map: PackedStringArray = ["Version: 1",
 "IsBigEndian: True",
 "SupportPaths: False",
 "HasReferenceNodes: False",
@@ -131,7 +134,7 @@ var map = ["Version: 1",
 "            scale_y: 1.00000",
 "            scale_z: 1.00000"]
 
-var end = [
+var end: PackedStringArray = [
 "      LayerName: LC",
 "    - Infos:",
 "        ObjInfo: []",
@@ -268,12 +271,18 @@ func _ready():
 	#add_child(endinst)
 	#x = 6400 is where the track ends
 	#addend()
-	load = false
+	
 
 var load = false
 var cycle = 0
 
+func loadfinished():
+	highlighttrack(current)
+
 func _physics_process(delta):
+	if load == true:
+		load = false
+		loadfinished()
 	if cam2 == "in":
 		$Camera2.position = $Camera2.position.move_toward($Camera3D.position,10000 * delta)
 	if cam2 == "out":
@@ -330,8 +339,6 @@ func _physics_process(delta):
 			nodes.append(straightinst)
 			current = straightinst
 			highlighttrack(current)
-			offsets.append(current.offset)
-			totaloffset += current.offset.position
 			trackid += 1
 		
 	var mouse_pos = get_viewport().get_mouse_position()
@@ -444,7 +451,6 @@ func get_input(delta):
 	if Input.is_action_just_pressed("Undo"):
 		if nodes.size() != 0:
 			if mode == "track":
-				totaloffset -= nodes[nodes.size() - 1].offset.position
 				stored = nodes[nodes.size() - 1]
 				nodes[nodes.size()-1].get_node("AnimationPlayer").play("undo")
 				

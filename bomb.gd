@@ -2,7 +2,7 @@ extends Node3D
 
 @onready var creator = Options.creator
 @onready var id = creator.nodes.size()
-var data
+var data: PackedStringArray
 @onready var trackid = creator.trackid
 
 func _physics_process(delta):

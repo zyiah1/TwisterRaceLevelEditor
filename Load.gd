@@ -64,7 +64,7 @@ func LoadLevel(name):
 			content.remove_at(0)
 		else:
 			var inst = null
-			var trackinst = null
+			var track = false
 			
 			#if not content[8].begins_with("            name: "):
 				#scene.load = true
@@ -73,31 +73,32 @@ func LoadLevel(name):
 			cycle = 27
 			if content[8].begins_with("            name: Fzr_FieldParts"):
 				var tracktype = int(content[8].lstrip("            name: Fzr_FieldParts"))
+				track = true
 				match tracktype:
 					1:
-						trackinst = load("res://tracks/straight.tscn").instantiate()
+						inst = load("res://tracks/straight.tscn").instantiate()
 					2:
-						trackinst = load("res://tracks/wide.tscn").instantiate()
+						inst = load("res://tracks/wide.tscn").instantiate()
 					3:
-						trackinst = load("res://tracks/Lsmall.tscn").instantiate()
+						inst = load("res://tracks/Lsmall.tscn").instantiate()
 					4:
-						trackinst = load("res://tracks/Rsmall.tscn").instantiate()
+						inst = load("res://tracks/Rsmall.tscn").instantiate()
 					5:
-						trackinst = load("res://tracks/LLcurve.tscn").instantiate()
+						inst = load("res://tracks/LLcurve.tscn").instantiate()
 					6:
-						trackinst = load("res://tracks/LRcurve.tscn").instantiate()
+						inst = load("res://tracks/LRcurve.tscn").instantiate()
 					7:
-						trackinst = load("res://tracks/slcurve.tscn").instantiate()
+						inst = load("res://tracks/slcurve.tscn").instantiate()
 					8:
-						trackinst = load("res://tracks/srcurve.tscn").instantiate()
+						inst = load("res://tracks/srcurve.tscn").instantiate()
 					13:
-						trackinst = load("res://tracks/hard_l.tscn").instantiate()
+						inst = load("res://tracks/hard_l.tscn").instantiate()
 					14:
-						trackinst = load("res://tracks/hard_r.tscn").instantiate()
+						inst = load("res://tracks/hard_r.tscn").instantiate()
 			
 			
 			if content[8].begins_with("            name: Fzr_GoalLine"):
-				trackinst = load("res://tracks/end.tscn").instantiate()
+				inst = load("res://tracks/end.tscn").instantiate()
 			
 			if content[8].begins_with("            name: Fzr_Bomb"):
 				inst = preload("res://bomb.tscn").instantiate()
@@ -122,47 +123,51 @@ func LoadLevel(name):
 					inst.small = true
 			if inst != null:
 				scene.connect("EXPORT", Callable(inst, "EXPORT"))
-				inst.position = Vector3(float(content[21].lstrip("            pos_x: ")),float(content[22].lstrip("            pos_y: ")),float(content[23].lstrip("            pos_z: ")))
-				scene.get_node("Objects").add_child(inst)
-				scene.objnodes.append(inst)
+				if track: #track specific things
+					scene.get_node("Track").add_child(inst)
+					scene.nodes.append(inst)
+					scene.current = inst
+					inst.add_to_group("track")
+					
+				else: #object specific things
+					scene.get_node("Objects").add_child(inst)
+					scene.objnodes.append(inst)
+				inst.global_position = Vector3(float(content[21].lstrip("            pos_x: ")),float(content[22].lstrip("            pos_y: ")),float(content[23].lstrip("            pos_z: ")))
+				inst.global_rotation_degrees = Vector3(float(content[1].lstrip("            dir_x: ")),float(content[2].lstrip("            dir_y: ")),float(content[3].lstrip("            dir_z: ")))
+				
 				# keep data:
 				
-			if trackinst != null:
-				scene.connect("EXPORT", Callable(trackinst, "EXPORT"))
-				scene.get_node("Track").add_child(trackinst)
-				trackinst.global_position = Vector3(float(content[21].lstrip("            pos_x: ")),float(content[22].lstrip("            pos_y: ")),float(content[23].lstrip("            pos_z: ")))
-				scene.nodes.append(trackinst)
-				scene.current = trackinst
-				trackinst.add_to_group("track")
-				scene.highlighttrack(scene.current)
+				
+				
+				
 				# keep data:
-				trackinst.TrackName = content[8].erase(0,22)
-				trackinst.Param0 = float(content[9].erase(17).lstrip("            param: "))
-				trackinst.Param1 = float(content[10].erase(17).lstrip("            param: "))
-				trackinst.Param10 = float(content[11].erase(17,2).lstrip("            param: "))
-				trackinst.Param11 = float(content[12].erase(17,2).lstrip("            param: "))
-				trackinst.Param2 = float(content[13].erase(17).lstrip("            param: "))
-				trackinst.Param3 = float(content[14].erase(17).lstrip("            param: "))
-				trackinst.Param4 = float(content[15].erase(17).lstrip("            param: "))
-				trackinst.Param5 = float(content[16].erase(17).lstrip("            param: "))
-				trackinst.Param6 = float(content[17].erase(17).lstrip("            param: "))
-				trackinst.Param7 = float(content[18].erase(17).lstrip("            param: "))
-				trackinst.Param8 = float(content[19].erase(17).lstrip("            param: "))
-				trackinst.Param9 = float(content[20].erase(17).lstrip("            param: "))
-				if content[8].begins_with("            name: Fzr_GoalLine"):
-					trackinst.ShutName = content[35].erase(0,22)
-					trackinst.Param0Shut = float(content[36].erase(17).lstrip("            param: "))
-					trackinst.Param1Shut = float(content[37].erase(17).lstrip("            param: "))
-					trackinst.Param10Shut = float(content[38].erase(17,2).lstrip("            param: "))
-					trackinst.Param11Shut = float(content[39].erase(17,2).lstrip("            param: "))
-					trackinst.Param2Shut = float(content[40].erase(17).lstrip("            param: "))
-					trackinst.Param3Shut = float(content[41].erase(17).lstrip("            param: "))
-					trackinst.Param4Shut = float(content[42].erase(17).lstrip("            param: "))
-					trackinst.Param5Shut = float(content[43].erase(17).lstrip("            param: "))
-					trackinst.Param6Shut = float(content[44].erase(17).lstrip("            param: "))
-					trackinst.Param7Shut = float(content[45].erase(17).lstrip("            param: "))
-					trackinst.Param8Shut = float(content[46].erase(17).lstrip("            param: "))
-					trackinst.Param9Shut = float(content[47].erase(17).lstrip("            param: "))
+				inst.DataName = content[8].erase(0,22)
+				inst.Param0 = float(content[9].erase(17).lstrip("            param: "))
+				inst.Param1 = float(content[10].erase(17).lstrip("            param: "))
+				inst.Param10 = float(content[11].erase(17,2).lstrip("            param: "))
+				inst.Param11 = float(content[12].erase(17,2).lstrip("            param: "))
+				inst.Param2 = float(content[13].erase(17).lstrip("            param: "))
+				inst.Param3 = float(content[14].erase(17).lstrip("            param: "))
+				inst.Param4 = float(content[15].erase(17).lstrip("            param: "))
+				inst.Param5 = float(content[16].erase(17).lstrip("            param: "))
+				inst.Param6 = float(content[17].erase(17).lstrip("            param: "))
+				inst.Param7 = float(content[18].erase(17).lstrip("            param: "))
+				inst.Param8 = float(content[19].erase(17).lstrip("            param: "))
+				inst.Param9 = float(content[20].erase(17).lstrip("            param: "))
+				if content[8].begins_with("            name: Fzr_GoalLine"): #shutter data inject into the end goal
+					inst.ShutName = content[35].erase(0,22)
+					inst.Param0Shut = float(content[36].erase(17).lstrip("            param: "))
+					inst.Param1Shut = float(content[37].erase(17).lstrip("            param: "))
+					inst.Param10Shut = float(content[38].erase(17,2).lstrip("            param: "))
+					inst.Param11Shut = float(content[39].erase(17,2).lstrip("            param: "))
+					inst.Param2Shut = float(content[40].erase(17).lstrip("            param: "))
+					inst.Param3Shut = float(content[41].erase(17).lstrip("            param: "))
+					inst.Param4Shut = float(content[42].erase(17).lstrip("            param: "))
+					inst.Param5Shut = float(content[43].erase(17).lstrip("            param: "))
+					inst.Param6Shut = float(content[44].erase(17).lstrip("            param: "))
+					inst.Param7Shut = float(content[45].erase(17).lstrip("            param: "))
+					inst.Param8Shut = float(content[46].erase(17).lstrip("            param: "))
+					inst.Param9Shut = float(content[47].erase(17).lstrip("            param: "))
 		if cycle < 0:
 			print("ERR Not Recognized:" + content[0])
 			content.remove_at(0)

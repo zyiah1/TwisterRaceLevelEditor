@@ -3,10 +3,10 @@ extends Node3D
 @onready var creator = Options.creator
 @onready var id = creator.nodes.size()
 @onready var offset = get_node("offset")
-var data
+var data: PackedStringArray
 @onready var trackid = creator.trackid
 
-@export var TrackName = "GoalLine"
+@export var DataName = "GoalLine"
 @export var notes = ""
 
 @export var Param0: float = 0
@@ -54,7 +54,7 @@ func EXPORT():
 "            layer: LC",
 "            link_info: []",
 "            link_num: !l 0",
-"            name: Fzr_"+TrackName,
+"            name: Fzr_"+DataName,
 "            param0: "+str(Param0),
 "            param1: "+str(Param1),
 "            param10: "+str(Param10),

@@ -6,7 +6,7 @@ extends Node3D
 @onready var offset = get_node("offset")
 @onready var trackid = creator.trackid
 
-@export var TrackName = "FieldParts01"
+@export var DataName = "FieldParts01"
 @export var notes = ""
 
 @export var Param0: float = -1
@@ -24,7 +24,7 @@ extends Node3D
 
 @export var positionoffset: Vector3 = Vector3.ZERO
 
-var data
+var data: PackedStringArray
 
 func applyoffset():
 	add_to_group("track")
@@ -41,7 +41,7 @@ func EXPORT():
 "            layer: LC",
 "            link_info: []",
 "            link_num: !l 0",
-"            name: Fzr_"+TrackName,
+"            name: Fzr_"+DataName,
 "            param0: "+str(Param0),
 "            param1: "+str(Param1),
 "            param10: "+str(Param10),
