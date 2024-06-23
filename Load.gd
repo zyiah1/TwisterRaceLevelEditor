@@ -119,6 +119,8 @@ func LoadLevel(name):
 				inst = preload("res://dash.tscn").instantiate()
 			if content[8].begins_with("            name: Fzr_Star"):
 				inst = preload("res://star.tscn").instantiate()
+			if content[8].begins_with("            name: Fzr_Bar"):
+				inst = preload("res://bar.tscn").instantiate()
 			if content[8].begins_with("            name: Fzr_Dash"):
 				if not content[8].ends_with("2"):
 					inst = preload("res://dash.tscn").instantiate()

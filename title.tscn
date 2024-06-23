@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://6hcqrnwakcuy"]
+[gd_scene load_steps=56 format=3 uid="uid://6hcqrnwakcuy"]
 
 [ext_resource type="PackedScene" uid="uid://v0i3cw4mmvnv" path="res://falcon.tscn" id="1_elffy"]
 [ext_resource type="Texture2D" uid="uid://bncf5v4imksgh" path="res://ui/logo.png" id="1_g2ghb"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://c1x5kfn55rwki" path="res://ui/fonts/settings.png" id="8_lf0xu"]
 [ext_resource type="Texture2D" uid="uid://dsildpvub0co" path="res://ui/theme/buttonpress.png" id="8_y73x7"]
 [ext_resource type="Texture2D" uid="uid://dwrgqc48102lx" path="res://ui/theme/redselect.png" id="11_sewq6"]
+[ext_resource type="FontFile" uid="uid://cvxewx0ydkm2o" path="res://fonts/f_zero_snes/F-ZeroSNES.ttf" id="16_f5kqn"]
 
 [sub_resource type="Animation" id="Animation_e2ans"]
 length = 0.001
@@ -333,12 +334,14 @@ icon = ExtResource("8_lf0xu")
 icon_alignment = 1
 script = ExtResource("8_3i4kb")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Settings"]
+[node name="version" type="RichTextLabel" parent="CanvasLayer/Settings"]
 layout_mode = 0
 offset_left = -622.0
 offset_top = -480.0
 offset_right = -347.0
 offset_bottom = -373.0
+theme_override_fonts/normal_font = ExtResource("16_f5kqn")
+theme_override_font_sizes/normal_font_size = 27
 text = "Beta 2"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]

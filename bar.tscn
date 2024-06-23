@@ -1,17 +1,42 @@
 [gd_scene load_steps=4 format=3 uid="uid://cqthyr6fbrpsa"]
 
-[ext_resource type="Script" path="res://shared scripts/BaseObject.gd" id="1_iqnde"]
+[ext_resource type="Script" path="res://bar.gd" id="1_dtjek"]
 [ext_resource type="PackedScene" uid="uid://cwm3wxy6xm7nr" path="res://models/bar.fbx" id="2_2j1bx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uf12t"]
 size = Vector3(39.7041, 95.1238, 46.5092)
 
 [node name="bar" type="Node3D"]
-script = ExtResource("1_iqnde")
+transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -1, 3.48787e-16, -4.37114e-08, 0, 0, 0)
+script = ExtResource("1_dtjek")
 DataName = "Bar"
+notes = "Param 1, -1 = up 1 = down"
 Param1 = 1.0
 
-[node name="Root Scene" parent="." instance=ExtResource("2_2j1bx")]
+[node name="barup" parent="." instance=ExtResource("2_2j1bx")]
+visible = false
+
+[node name="Skeleton3D" parent="barup/RootNode/Armature" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.11022e-15, 0, 1.97173e-15, 1, 0, 0, 0)
+bones/1/rotation = Quaternion(0.000474975, 0.000474975, 1.00048, 1.00048)
+
+[node name="Fzr_Bar01__Mat_Bar" parent="barup/RootNode/Armature/Skeleton3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.11022e-15, 0, 1.97173e-15, 1, 0, 0, 0)
+
+[node name="Fzr_Bar01_01__Mat_Bar" parent="barup/RootNode/Armature/Skeleton3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.11022e-15, 0, 1.97173e-15, 1, 0, 0, 0)
+
+[node name="bardown" parent="." instance=ExtResource("2_2j1bx")]
+
+[node name="Skeleton3D" parent="bardown/RootNode/Armature" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.11022e-15, 0, 1.97173e-15, 1, 0, 0, 0)
+bones/1/rotation = Quaternion(0.000474975, 0.000474975, 0.000474975, 1.00048)
+
+[node name="Fzr_Bar01__Mat_Bar" parent="bardown/RootNode/Armature/Skeleton3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.11022e-15, 0, 1.97173e-15, 1, 0, 0, 0)
+
+[node name="Fzr_Bar01_01__Mat_Bar" parent="bardown/RootNode/Armature/Skeleton3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.11022e-15, 0, 1.97173e-15, 1, 0, 0, 0)
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 0
@@ -24,3 +49,6 @@ shape = SubResource("BoxShape3D_uf12t")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]
+
+[editable path="barup"]
+[editable path="bardown"]

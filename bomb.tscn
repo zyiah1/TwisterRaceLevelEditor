@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=3 uid="uid://bftbbin31pfej"]
 
 [ext_resource type="Script" path="res://shared scripts/BaseObject.gd" id="1_uxhor"]
-[ext_resource type="Texture2D" uid="uid://0xbtdv6oluex" path="res://import/Fzr_Bomb01_Emm.png" id="1_yy0pg"]
+[ext_resource type="Texture2D" uid="uid://0xbtdv6oluex" path="res://textures/Fzr_Bomb01_Emm.png" id="1_yy0pg"]
 [ext_resource type="Texture2D" uid="uid://bqj0rdhivj35j" path="res://models/bomb_Fzr_Bomb01_Alb.png" id="2_v620e"]
 [ext_resource type="Texture2D" uid="uid://bx2ju3gwpsyyf" path="res://models/bomb_Fzr_Bomb01_Emm.png" id="3_l0hxg"]
-[ext_resource type="Texture2D" uid="uid://bju4yuwc08uqy" path="res://import/Fzr_Bomb01_Light_Alb.png" id="3_nuxfi"]
+[ext_resource type="Texture2D" uid="uid://bju4yuwc08uqy" path="res://textures/Fzr_Bomb01_Light_Alb.png" id="3_nuxfi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_srpd7"]
 size = Vector3(19.7672, 30.1966, 20.7692)

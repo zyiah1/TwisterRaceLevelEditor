@@ -27,7 +27,12 @@ func _physics_process(delta):
 	if visible == false:
 		if Input.is_action_just_pressed("click"):
 			queue_free()
-
+	if Param1 == 1:
+		$bardown.show()
+		$barup.hide()
+	if Param1 == -1:
+		$bardown.hide()
+		$barup.show()
 
 func EXPORT():
 	data = [

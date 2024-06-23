@@ -403,6 +403,8 @@ func _physics_process(delta):
 						inst = car.instantiate()
 					"light":
 						inst = light.instantiate()
+					"bar":
+						inst = load("res://bar.tscn").instantiate()
 			if item != "none":
 				get_node("Previews/" + item).position = pos -Vector3(0,pos.y,0)
 			if inst != null:
@@ -533,6 +535,8 @@ func save():
 func _on_done_pressed():
 	mode = "object"
 	$uiAnimaiton.play("done->export")
+	for node in get_tree().get_nodes_in_group("track"):
+		node.get_node("RootNode/road").material_overlay = null
 
 
 func cam2in():
@@ -553,6 +557,7 @@ func _on_back_pressed():
 		buttons.disabled = false
 	mode = "track"
 	$uiAnimaiton.play("done<-export")
+	highlighttrack(current)
 
 
 func _on_delay_timeout():
