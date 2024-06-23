@@ -10,6 +10,10 @@ func _on_pressed():
 	$FileDialog.popup_centered()
 
 func _process(delta):
+	if DisplayServer.clipboard_get().begins_with("Version: 1"):
+		$Paste.show()
+	else:
+		$Paste.hide()
 	if Input.is_action_just_pressed("Paste"):
 		content = str(DisplayServer.clipboard_get())
 		LoadLevel("")
@@ -46,7 +50,7 @@ func LoadLevel(name):
 	for nodes in get_tree().get_nodes_in_group("delete"):
 		nodes.queue_free()
 	content = content.split("\n")
-	var cycle = 89
+	var cycle = 8
 	
 	get_node("../New").hide()
 	get_node("../Settings").hide()
@@ -163,20 +167,6 @@ func LoadLevel(name):
 				inst.Param7 = float(content[18].erase(17).lstrip("            param: "))
 				inst.Param8 = float(content[19].erase(17).lstrip("            param: "))
 				inst.Param9 = float(content[20].erase(17).lstrip("            param: "))
-				if content[8].begins_with("            name: Fzr_GoalLine"): #shutter data inject into the end goal
-					inst.ShutName = content[35].erase(0,22)
-					inst.Param0Shut = float(content[36].erase(17).lstrip("            param: "))
-					inst.Param1Shut = float(content[37].erase(17).lstrip("            param: "))
-					inst.Param10Shut = float(content[38].erase(17,2).lstrip("            param: "))
-					inst.Param11Shut = float(content[39].erase(17,2).lstrip("            param: "))
-					inst.Param2Shut = float(content[40].erase(17).lstrip("            param: "))
-					inst.Param3Shut = float(content[41].erase(17).lstrip("            param: "))
-					inst.Param4Shut = float(content[42].erase(17).lstrip("            param: "))
-					inst.Param5Shut = float(content[43].erase(17).lstrip("            param: "))
-					inst.Param6Shut = float(content[44].erase(17).lstrip("            param: "))
-					inst.Param7Shut = float(content[45].erase(17).lstrip("            param: "))
-					inst.Param8Shut = float(content[46].erase(17).lstrip("            param: "))
-					inst.Param9Shut = float(content[47].erase(17).lstrip("            param: "))
 		if cycle < 0:
 			print("ERR Not Recognized:" + content[0])
 			content.remove_at(0)
@@ -190,3 +180,8 @@ func LoadLevel(name):
 func _on_file_dialog_file_selected(input):
 	path = input
 	start()
+
+
+func _on_paste_pressed():
+	content = str(DisplayServer.clipboard_get())
+	LoadLevel("")

@@ -15,7 +15,6 @@ func _process(delta):
 		for node in get_tree().get_nodes_in_group("hide"):
 			node.release_focus()
 
-
 func _draw():
 	draw_circle(Vector2(800,450),1700,Color.BLACK)
 	

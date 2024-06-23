@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://bmo5ce7bc4vfl"
+path.s3tc="res://.godot/imported/Obstacle1-378cbbd5562db8927477d78f5c38518a_Fzr_Obstacle01_Emm.png-c271c03227e43c90647262e5e00cb091.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "18eb2e5de8002d3f40687b7ba8b09b1c"
+}
+
+[deps]
+
+source_file="res://models/Obstacle1-378cbbd5562db8927477d78f5c38518a_Fzr_Obstacle01_Emm.png"
+dest_files=["res://.godot/imported/Obstacle1-378cbbd5562db8927477d78f5c38518a_Fzr_Obstacle01_Emm.png-c271c03227e43c90647262e5e00cb091.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

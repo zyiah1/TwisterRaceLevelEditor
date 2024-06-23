@@ -81,33 +81,6 @@ var map: PackedStringArray = ["Version: 1",
 "            scale_z: 1.00000",
 "          - comment: !l -1",
 "            dir_x: 0.00000",
-"            dir_y: 90.00000",
-"            dir_z: 0.00000",
-"            id_name: obj17",
-"            layer: LC",
-"            link_info: []",
-"            link_num: !l 0",
-"            name: Fzr_FieldParts01",
-"            param0: -1.00000",
-"            param1: -1.00000",
-"            param10: -1.00000",
-"            param11: -1.00000",
-"            param2: -1.00000",
-"            param3: -1.00000",
-"            param4: -1.00000",
-"            param5: -1.00000",
-"            param6: -1.00000",
-"            param7: -1.00000",
-"            param8: -1.00000",
-"            param9: -1.00000",
-"            pos_x: 6400.00000",
-"            pos_y: 0.00000",
-"            pos_z: 0.00000",
-"            scale_x: 1.00000",
-"            scale_y: 1.00000",
-"            scale_z: 1.00000",
-"          - comment: !l -1",
-"            dir_x: 0.00000",
 "            dir_y: 270.00000",
 "            dir_z: 0.00000",
 "            id_name: obj2",
@@ -424,6 +397,13 @@ func _notification(what): #if game quit
 		get_tree().quit() # default behavior
 
 func get_input(delta):
+	if Input.is_action_just_pressed("tab"):
+		if mode == "track":
+			_on_done_pressed()
+			return
+		if mode == "object":
+			_on_back_pressed()
+			return
 	if Input.is_action_just_pressed("enter"):
 		$Camera3D.paused = false
 		for node in get_tree().get_nodes_in_group("enter"):#any node that wants release focus when entered
@@ -564,3 +544,12 @@ func _on_delay_timeout():
 	$audio/clack.play()
 
 
+
+
+func _on_delete_pressed():
+	if mode == "track":
+		if current != $Track:
+			nodes.remove_at(nodes.find(current))
+			current.queue_free()
+			current = nodes[nodes.size() - 1]
+			highlighttrack(current)

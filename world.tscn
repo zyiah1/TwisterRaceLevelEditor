@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://cmqyq6acq27sr"]
+[gd_scene load_steps=67 format=3 uid="uid://cmqyq6acq27sr"]
 
 [ext_resource type="Script" path="res://button.gd" id="2"]
 [ext_resource type="Script" path="res://Track.gd" id="2_nq3cm"]
@@ -27,11 +27,12 @@
 [ext_resource type="Texture2D" uid="uid://c4yp1cgs8444q" path="res://ui/objects/dart.png" id="20_vyn0s"]
 [ext_resource type="Texture2D" uid="uid://7rpyij0irkgt" path="res://ui/objects/jump.png" id="21_gg1ep"]
 [ext_resource type="Texture2D" uid="uid://bilv5lbcvktm3" path="res://ui/objects/car.png" id="21_qv3hg"]
-[ext_resource type="Texture2D" uid="uid://b35o0c3p4q0xk" path="res://ui/objects/trash.png" id="22_optkn"]
 [ext_resource type="Texture2D" uid="uid://bgydvpv7rmnfx" path="res://ui/objects/light.png" id="24_crc6g"]
 [ext_resource type="PackedScene" uid="uid://bftbbin31pfej" path="res://bomb.tscn" id="25_q7y0b"]
 [ext_resource type="Texture2D" uid="uid://bh44vmw8bq5ky" path="res://ui/objects/bar.png" id="25_vcjwe"]
 [ext_resource type="Script" path="res://preview.gd" id="26_itfsx"]
+[ext_resource type="Texture2D" uid="uid://b35o0c3p4q0xk" path="res://ui/tools/trash.png" id="26_o2fjb"]
+[ext_resource type="Texture2D" uid="uid://yckgcndd5rfb" path="res://ui/tools/deletetrack.png" id="27_7o5da"]
 [ext_resource type="PackedScene" uid="uid://dqorhxvg76bk" path="res://wind.tscn" id="27_kb7a0"]
 [ext_resource type="PackedScene" uid="uid://cbghysdmvry50" path="res://dartpile.tscn" id="28_skpjq"]
 [ext_resource type="FontFile" uid="uid://cvxewx0ydkm2o" path="res://fonts/f_zero_snes/F-ZeroSNES.ttf" id="30_mwt0d"]
@@ -282,6 +283,30 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector2(2.08165e-12, 900)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/trackoptions:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer/tools:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_qehdt"]
 resource_name = "done->export"
@@ -357,6 +382,30 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(0.217638, 0.406126),
 "update": 0,
 "values": [Vector2(2.08165e-12, 900), Vector2(2.08165e-12, 782)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/trackoptions:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer/tools:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_ij1by"]
@@ -434,6 +483,30 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector2(2.08165e-12, 782), Vector2(2.08165e-12, 900)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/trackoptions:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer/tools:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oj46n"]
 _data = {
@@ -502,12 +575,11 @@ data = PackedVector3Array(1.1, -0.1, 0, 1, 0.05, 0, 1.1, 0.05, 0, 0.2, 0, 0, 0.5
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gdscy"]
 resource_name = "Mat_Fzr_Mark"
 transparency = 2
-alpha_scissor_threshold = 0.001
+alpha_scissor_threshold = 0.107
 alpha_antialiasing_mode = 0
 depth_draw_mode = 1
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("19_ns8xt")
-roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_unfuh"]
 resource_name = "arrow_Fzr_Mark01__Mat_Fzr_Mark"
@@ -743,6 +815,7 @@ icon_alignment = 1
 script = ExtResource("17_dhc3k")
 
 [node name="tools" type="HBoxContainer" parent="CanvasLayer"]
+visible = false
 offset_left = 208.0
 offset_top = 690.0
 offset_right = 1395.0
@@ -756,9 +829,26 @@ layout_mode = 2
 focus_mode = 0
 theme = ExtResource("3_pogl6")
 toggle_mode = true
-icon = ExtResource("22_optkn")
+icon = ExtResource("26_o2fjb")
 icon_alignment = 1
 script = ExtResource("17_dhc3k")
+
+[node name="trackoptions" type="HBoxContainer" parent="CanvasLayer"]
+offset_left = 208.0
+offset_top = 690.0
+offset_right = 1395.0
+offset_bottom = 798.0
+scale = Vector2(0.8, 0.8)
+mouse_filter = 2
+alignment = 1
+
+[node name="delete" type="Button" parent="CanvasLayer/trackoptions"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_pogl6")
+toggle_mode = true
+icon = ExtResource("27_7o5da")
+icon_alignment = 1
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, -4859.16, 500, 0)
@@ -814,11 +904,12 @@ text = "Back"
 icon_alignment = 1
 
 [node name="saving" type="RichTextLabel" parent="nonmoving"]
-visible = false
-offset_left = 1369.0
-offset_top = 738.0
-offset_right = 1449.0
-offset_bottom = 762.0
+offset_left = 1370.0
+offset_top = 733.0
+offset_right = 1504.0
+offset_bottom = 768.0
+theme_override_fonts/normal_font = ExtResource("30_mwt0d")
+theme_override_font_sizes/normal_font_size = 30
 text = "saving..."
 
 [node name="name" type="LineEdit" parent="nonmoving" groups=["enter"]]
@@ -859,6 +950,7 @@ transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-
 
 [node name="RootNode" type="Node3D" parent="part1"]
 transform = Transform3D(10000, 0, 0, 0, 10000, 0, 0, 0, 10000, 0, 0, 0)
+visible = false
 
 [node name="Armature" type="Skeleton3D" parent="part1/RootNode"]
 bones/0/name = "Fzr_CourseParts_01_end"
@@ -901,7 +993,7 @@ transform = Transform3D(0.01, 4.1359e-25, 0, 2.26852e-25, 0.01, 1.50083e-25, -4.
 shape = SubResource("ConcavePolygonShape3D_2nofq")
 
 [node name="arrow" type="Node3D" parent="part1"]
-transform = Transform3D(1, 0, 0, 0, 1, 1.12238e-23, 0, 1.12238e-23, 1, 1.38045e-05, 1.14777, -315.809)
+transform = Transform3D(1, 0, 0, 0, 1, 1.12238e-23, 0, 1.12238e-23, 1, 2.08165e-12, 1.148, 385)
 
 [node name="Armature" type="Node3D" parent="part1/arrow"]
 transform = Transform3D(1, 0, 0, 0, -3.57628e-07, -1, 0, 1, -3.57628e-07, 0, 0, 0)
@@ -996,6 +1088,7 @@ visible = false
 [connection signal="pressed" from="CanvasLayer/Obstacles/light" to="CanvasLayer/Obstacles/light" method="_on_straight_pressed"]
 [connection signal="pressed" from="CanvasLayer/Obstacles/bar" to="CanvasLayer/Obstacles/bar" method="_on_straight_pressed"]
 [connection signal="pressed" from="CanvasLayer/tools/trash" to="CanvasLayer/tools/trash" method="_on_straight_pressed"]
+[connection signal="pressed" from="CanvasLayer/trackoptions/delete" to="." method="_on_delete_pressed"]
 [connection signal="pressed" from="nonmoving/export" to="." method="save"]
 [connection signal="pressed" from="nonmoving/done" to="." method="_on_done_pressed"]
 [connection signal="pressed" from="nonmoving/back" to="." method="_on_back_pressed"]
