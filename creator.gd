@@ -235,12 +235,19 @@ var end: PackedStringArray = [
 "          PathInfo: []",
 "      LayerName: L25"]
 
-
+var startposition = Vector3(-4800,0,0)
+var startrotation = Vector3(0,90,0)
 func _ready():
 	Options.creator = self #stores reference to this node
 	$nonmoving/name.placeholder_text = Options.defaultfilename
 	if Options.autosave == true:
 		$autosave.start(Options.autosavetime)
+	var startinst = load("res://tracks/start.tscn").instantiate()
+	startinst.position = startposition
+	startinst.rotation_degrees = startrotation
+	add_child(startinst)
+	connect("EXPORT", Callable(startinst, "EXPORT"))
+	connect("EXPORT", Callable(startinst.get_node("shutter"), "EXPORT"))
 	#var endinst = endtrack.instantiate()
 	#endinst.rotation_degrees.y = 90
 	#endinst.position.x = 7100

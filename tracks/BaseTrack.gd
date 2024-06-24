@@ -3,7 +3,7 @@ extends Node3D
 
 @onready var creator = Options.creator
 @onready var id = creator.nodes.size()
-@onready var offset = get_node("offset")
+@onready var offset = get_node_or_null("offset")
 @onready var trackid = creator.trackid
 
 @export var DataName = "FieldParts01"
