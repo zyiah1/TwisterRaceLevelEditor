@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://tracks/Basetrack.gd" id="1_itbh1"]
 [ext_resource type="Texture2D" uid="uid://b5bltslqdlo57" path="res://models/arrow_Fzr_Mark01_Alb.png" id="2_lc6uy"]
 [ext_resource type="PackedScene" uid="uid://d0ftcmvhg41uw" path="res://models/line.fbx" id="3_3ua7g"]
+[ext_resource type="Script" path="res://tracks/shutter.gd" id="4_0wa7l"]
 [ext_resource type="PackedScene" uid="uid://cg63xqk6a0l3" path="res://models/gate.fbx" id="4_wf5qc"]
-[ext_resource type="Script" path="res://tracks/BaseTrack.gd" id="5_rhkp0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gdscy"]
 resource_name = "Mat_Fzr_Mark"
@@ -42,6 +42,7 @@ bind/0/bone = -1
 bind/0/pose = Transform3D(1, 0, 0, 0, 1, 1.62921e-07, 0, -1.62921e-07, 1, 0, 2.5, 0)
 
 [node name="start" type="Node3D"]
+process_priority = 1
 transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -1, 3.48787e-16, -4.37114e-08, 0, 0, 0)
 script = ExtResource("1_itbh1")
 DataName = "PlayerStart"
@@ -51,7 +52,7 @@ notes = "param 0 is how far away you need to be for it to start saying \"tunnel 
 transform = Transform3D(1, -4.02216e-24, 0, -4.02216e-24, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Armature" type="Node3D" parent="arrow"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2.08165e-12, 2.08165e-12, 385)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 
 [node name="Skeleton3D" type="Skeleton3D" parent="arrow/Armature"]
 bones/0/name = "Fzr_Mark01"
@@ -69,12 +70,9 @@ skin = SubResource("Skin_qkn8i")
 
 [node name="shutter" parent="." instance=ExtResource("4_wf5qc")]
 transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, 2.08165e-12, 2.08165e-12, 170)
-script = ExtResource("5_rhkp0")
+script = ExtResource("4_0wa7l")
 DataName = "Shutter"
 Param1 = 1.0
-
-[node name="RootNode" parent="shutter" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, -385)
 
 [node name="line" parent="shutter/RootNode" index="1" instance=ExtResource("3_3ua7g")]
 transform = Transform3D(-1, 3.48787e-16, 8.74228e-08, 3.48787e-16, 1, -3.48787e-16, -8.74228e-08, -3.48787e-16, -1, 0, 0, 0)

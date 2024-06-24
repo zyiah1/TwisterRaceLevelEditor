@@ -24,7 +24,7 @@ var rsmall = preload("res://tracks/Rsmall.tscn")
 var lsmall = preload("res://tracks/Lsmall.tscn")
 var endtrack = preload("res://tracks/end.tscn")
 
-var trackid = 18 # object's ID value
+var trackid = 0 # object's ID value
 
 var cam2: String = "none"
 var item: String = "none"
@@ -51,61 +51,7 @@ var map: PackedStringArray = ["Version: 1",
 "root:",
 "  LayerInfos:",
 "    - Infos:",
-"        ObjInfo:",
-"          - comment: !l -1",
-"            dir_x: 0.00000",
-"            dir_y: 90.00000",
-"            dir_z: 0.00000",
-"            id_name: obj0",
-"            layer: LC",
-"            link_info: []",
-"            link_num: !l 0",
-"            name: Fzr_PlayerStart",
-"            param0: -1.00000",
-"            param1: -1.00000",
-"            param10: -1.00000",
-"            param11: -1.00000",
-"            param2: -1.00000",
-"            param3: -1.00000",
-"            param4: -1.00000",
-"            param5: -1.00000",
-"            param6: -1.00000",
-"            param7: -1.00000",
-"            param8: -1.00000",
-"            param9: -1.00000",
-"            pos_x: -4670.00000",
-"            pos_y: 0.00000",
-"            pos_z: 0.00000",
-"            scale_x: 1.00000",
-"            scale_y: 1.00000",
-"            scale_z: 1.00000",
-"          - comment: !l -1",
-"            dir_x: 0.00000",
-"            dir_y: 270.00000",
-"            dir_z: 0.00000",
-"            id_name: obj2",
-"            layer: LC",
-"            link_info: []",
-"            link_num: !l 0",
-"            name: Fzr_Shutter",
-"            param0: -1.00000",
-"            param1: 1.00000",
-"            param10: -1.00000",
-"            param11: -1.00000",
-"            param2: -1.00000",
-"            param3: -1.00000",
-"            param4: -1.00000",
-"            param5: -1.00000",
-"            param6: -1.00000",
-"            param7: -1.00000",
-"            param8: -1.00000",
-"            param9: -1.00000",
-"            pos_x: -4500.00000",
-"            pos_y: 0.00000",
-"            pos_z: 0.00000",
-"            scale_x: 200.00000",
-"            scale_y: 1.00000",
-"            scale_z: 1.00000"]
+"        ObjInfo:"]
 
 var end: PackedStringArray = [
 "      LayerName: LC",
@@ -235,32 +181,34 @@ var end: PackedStringArray = [
 "          PathInfo: []",
 "      LayerName: L25"]
 
-var startposition = Vector3(-4800,0,0)
+var startposition = Vector3(-4670,0,0)
 var startrotation = Vector3(0,90,0)
+var startinst = load("res://tracks/start.tscn").instantiate()
+
 func _ready():
 	Options.creator = self #stores reference to this node
 	$nonmoving/name.placeholder_text = Options.defaultfilename
-	if Options.autosave == true:
-		$autosave.start(Options.autosavetime)
-	var startinst = load("res://tracks/start.tscn").instantiate()
-	startinst.position = startposition
-	startinst.rotation_degrees = startrotation
-	add_child(startinst)
-	connect("EXPORT", Callable(startinst, "EXPORT"))
-	connect("EXPORT", Callable(startinst.get_node("shutter"), "EXPORT"))
-	#var endinst = endtrack.instantiate()
-	#endinst.rotation_degrees.y = 90
-	#endinst.position.x = 7100
-	#add_child(endinst)
-	#x = 6400 is where the track ends
-	#addend()
-	
+	if get_tree().current_scene.name == "Creator": #to see if we are loading
+		startinst.position = startposition
+		startinst.rotation_degrees = startrotation
+		add_child(startinst)
+		connect("EXPORT", Callable(startinst, "EXPORT"))
+		connect("EXPORT", Callable(startinst.get_node("shutter"), "EXPORT"))
+		if Options.autosave == true:
+			$autosave.start(Options.autosavetime)
 
 var load = false
 var cycle = 0
 
 func loadfinished():
 	highlighttrack(current)
+	startinst.position = startposition
+	startinst.rotation_degrees = startrotation
+	add_child(startinst)
+	connect("EXPORT", Callable(startinst, "EXPORT"))
+	connect("EXPORT", Callable(startinst.get_node("shutter"), "EXPORT"))
+	if Options.autosave == true:
+		$autosave.start(Options.autosavetime)
 
 func _physics_process(delta):
 	if load == true:

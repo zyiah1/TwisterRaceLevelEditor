@@ -67,7 +67,7 @@ func LoadLevel(name):
 	if not content[0].begins_with("Version: 1"):
 		print("invalid")
 		return
-	for line in content.size():
+	while content.size() > 10:
 		overide = 0
 		cycle -= 1
 		if cycle + 1 > 0:
@@ -80,7 +80,12 @@ func LoadLevel(name):
 				#scene.load = true
 				#print("whoops ",content[8])
 				#return
-			cycle = 27
+			if content[8].begins_with("            name: Fzr_Shutter"):
+				#set the start object position
+				scene.startposition = Vector3(float(content[21].lstrip("            pos_x: ")),float(content[22].lstrip("            pos_y: ")),float(content[23].lstrip("            pos_z: "))) - Vector3(170,0,0)
+				scene.startrotation = Vector3(float(content[1].lstrip("            dir_x: ")),float(content[2].lstrip("            dir_y: ")),float(content[3].lstrip("            dir_z: "))) - Vector3(0,180,0)
+				print("hey")
+			
 			if content[8].begins_with("            name: Fzr_FieldParts"):
 				var tracktype = int(content[8].lstrip("            name: Fzr_FieldParts"))
 				track = true
@@ -135,6 +140,7 @@ func LoadLevel(name):
 				if param1 == -1:
 					inst.small = true
 			if inst != null:
+				cycle = 27
 				scene.connect("EXPORT", Callable(inst, "EXPORT"))
 				if track: #track specific things
 					scene.get_node("Track").add_child(inst)
