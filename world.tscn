@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://cmqyq6acq27sr"]
+[gd_scene load_steps=94 format=3 uid="uid://cmqyq6acq27sr"]
 
 [ext_resource type="Script" path="res://button.gd" id="2"]
 [ext_resource type="Script" path="res://Track.gd" id="2_nq3cm"]
@@ -45,6 +45,7 @@
 [ext_resource type="PackedScene" uid="uid://bgw0ym3f1ria8" path="res://dash.tscn" id="31_egx7r"]
 [ext_resource type="Script" path="res://back.gd" id="31_jwafk"]
 [ext_resource type="Texture2D" uid="uid://mk8pfdx1nfxr" path="res://ui/tools/undo.png" id="32_kx13i"]
+[ext_resource type="Texture2D" uid="uid://bqmfsah0jv5eb" path="res://ui/tools/redo.png" id="33_rt0tr"]
 [ext_resource type="PackedScene" uid="uid://ddle12bsgamuu" path="res://star.tscn" id="34_0qskd"]
 [ext_resource type="PackedScene" uid="uid://buvw34m7n1smj" path="res://jump.tscn" id="34_jq5vr"]
 [ext_resource type="Texture2D" uid="uid://d300vxl052ol2" path="res://textures/sky/kiri_Alb.png" id="35_wskat"]
@@ -868,7 +869,11 @@ script = ExtResource("2_nq3cm")
 
 [node name="offset" type="Node3D" parent="Track" groups=["ignore"]]
 
+[node name="redo" type="Node3D" parent="Track" groups=["ignore"]]
+
 [node name="Objects" type="Node3D" parent="."]
+
+[node name="redo" type="Node3D" parent="Objects"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -1111,6 +1116,14 @@ toggle_mode = true
 icon = ExtResource("32_kx13i")
 icon_alignment = 1
 
+[node name="redo" type="Button" parent="CanvasLayer/tools"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_pogl6")
+toggle_mode = true
+icon = ExtResource("33_rt0tr")
+icon_alignment = 1
+
 [node name="trackoptions" type="HBoxContainer" parent="CanvasLayer"]
 offset_left = 208.0
 offset_top = 690.0
@@ -1161,6 +1174,14 @@ focus_mode = 0
 theme = ExtResource("3_pogl6")
 toggle_mode = true
 icon = ExtResource("32_kx13i")
+icon_alignment = 1
+
+[node name="redo" type="Button" parent="CanvasLayer/trackoptions"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_pogl6")
+toggle_mode = true
+icon = ExtResource("33_rt0tr")
 icon_alignment = 1
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -1581,10 +1602,12 @@ visible = false
 [connection signal="pressed" from="CanvasLayer/Obstacles/bar" to="CanvasLayer/Obstacles/bar" method="_on_straight_pressed"]
 [connection signal="pressed" from="CanvasLayer/tools/trash" to="CanvasLayer/tools/trash" method="_on_straight_pressed"]
 [connection signal="pressed" from="CanvasLayer/tools/undo" to="." method="_on_undo_pressed"]
+[connection signal="pressed" from="CanvasLayer/tools/redo" to="." method="_on_redo_pressed"]
 [connection signal="pressed" from="CanvasLayer/trackoptions/delete" to="." method="_on_delete_pressed"]
 [connection signal="pressed" from="CanvasLayer/trackoptions/forward" to="." method="_on_forward_pressed"]
 [connection signal="pressed" from="CanvasLayer/trackoptions/back" to="." method="_on_backwards_pressed"]
 [connection signal="pressed" from="CanvasLayer/trackoptions/undo" to="." method="_on_undo_pressed"]
+[connection signal="pressed" from="CanvasLayer/trackoptions/redo" to="." method="_on_redo_pressed"]
 [connection signal="pressed" from="nonmoving/export" to="." method="save"]
 [connection signal="pressed" from="nonmoving/done" to="." method="_on_done_pressed"]
 [connection signal="pressed" from="nonmoving/back" to="." method="_on_back_pressed"]

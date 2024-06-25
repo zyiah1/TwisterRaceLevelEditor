@@ -39,7 +39,8 @@ var objects: PackedStringArray = [] #objects data
 var track: PackedStringArray = [] #tracks data
 var rails: PackedStringArray = []
 
-
+var redotrack = []
+var redoobj = []
 
 
 signal EXPORT
@@ -254,7 +255,7 @@ func _physics_process(delta):
 		if item == "lhard":
 			straightinst = lhard.instantiate()
 		if straightinst != null:
-			randomize()
+			redotrack = []
 			$audio/clack.pitch_scale = randf_range(.8,1.3)
 			$audio/clack/delay.start(.1)
 			var offset = current.offset.global_position
@@ -267,7 +268,6 @@ func _physics_process(delta):
 			var oldoffset = straightinst.positionoffset
 			if backwards:
 				offset.x -= 1400
-				#offset -= current.positionoffset
 				straightinst.positionoffset = -current.positionoffset #set position
 			straightinst.global_position = offset
 			straightinst.applyoffset()
@@ -352,6 +352,7 @@ func _physics_process(delta):
 			if item != "none":
 				get_node("Previews/" + item).position = pos -Vector3(0,pos.y,0)
 			if inst != null:
+				redoobj = []
 				connect("EXPORT", Callable(inst, "EXPORT"))
 				inst.position = pos -Vector3(0,pos.y,0)
 				$Objects.add_child(inst)
@@ -376,8 +377,9 @@ func get_input(delta):
 	# not with action_pressed so we can make buttons work
 	if Input.is_action_just_pressed("backwards"):
 		backwards = true
-	if Input.is_action_just_released("backwards"):
+	elif Input.is_action_just_released("backwards"):
 		backwards = false
+	
 	if Input.is_action_just_pressed("tab"):
 		if mode == "track":
 			_on_done_pressed()
@@ -385,11 +387,11 @@ func get_input(delta):
 		if mode == "object":
 			_on_back_pressed()
 			return
-	if Input.is_action_just_pressed("enter"):
+	elif Input.is_action_just_pressed("enter"):
 		$Camera3D.paused = false
 		for node in get_tree().get_nodes_in_group("enter"):#any node that wants release focus when entered
 			node.release_focus()
-	if Input.is_action_just_pressed("Copy"):
+	elif Input.is_action_just_pressed("Copy"):
 		await save()
 		$nonmoving/AnimationPlayer.play("copied")
 		var path
@@ -406,23 +408,25 @@ func get_input(delta):
 		DisplayServer.clipboard_set(file.get_as_text())
 		if fakeout == true:
 			$nonmoving/name.text = ""
-	if Input.is_action_just_pressed("export"):
+	elif Input.is_action_just_pressed("export"):
 		save()
 		if $nonmoving/name.text == "":
 			OS.shell_open(str("file://" + ProjectSettings.globalize_path(Options.filepath) + "/untitled" + ".txt"))
 		else:
 			OS.shell_open(str("file://" + ProjectSettings.globalize_path(Options.filepath) + "/" + $nonmoving/name.text + ".txt"))
-	if Input.is_action_just_pressed("save"):
+	elif Input.is_action_just_pressed("save"):
 		save()
-	if Input.is_action_just_pressed("shift"):
+	elif Input.is_action_just_pressed("shift"):
 		shift = not shift
-	if Input.is_action_just_pressed("esc"):
+	elif Input.is_action_just_pressed("esc"):
 		if Options.saveonexit == true:
 			save()
 		get_tree().change_scene_to_file("res://title.tscn")
-	if Input.is_action_just_pressed("Undo"):
+	elif Input.is_action_just_pressed("redo"):
+		_on_redo_pressed()
+	elif Input.is_action_just_pressed("Undo"):
 		_on_undo_pressed()
-	if Input.is_action_just_pressed("koolcam"):
+	elif Input.is_action_just_pressed("koolcam"):
 		if $Camera3D.current == true:
 			$cameraAnimation.play("whole track_IN")
 		else:
@@ -477,7 +481,6 @@ func cam2out():
 	$Camera2.position = $Camera3D.position
 	cam2 = "out"
 
-var stored
 
 
 
@@ -526,11 +529,13 @@ func _on_backwards_pressed():
 func _on_undo_pressed():
 	if mode == "track":
 		if nodes.size() != 0:
-			stored = nodes[nodes.size() - 1]
+			var stored = nodes[nodes.size() - 1]
 			nodes[nodes.size()-1].get_node("AnimationPlayer").play("undo")
 			
 			self.disconnect("EXPORT", Callable(nodes[nodes.size() - 1], "EXPORT"))
-			nodes[nodes.size()-1].queue_free()
+			stored.reparent($Track/redo,true)
+			redotrack.append(stored)
+			stored.hide()
 			nodes.remove_at(nodes.size() - 1)
 			if nodes.size() != 0:
 				current = nodes[nodes.size()-1]
@@ -539,7 +544,33 @@ func _on_undo_pressed():
 			highlighttrack(current)
 	if mode == "object":
 		if objnodes.size() != 0:
-			print("Af")
+			var stored = objnodes[objnodes.size() - 1]
 			self.disconnect("EXPORT", Callable(objnodes[objnodes.size() - 1], "EXPORT"))
-			objnodes[objnodes.size()-1].queue_free()
+			stored.reparent($Objects/redo,true)
+			redoobj.append(stored)
+			stored.hide()
 			objnodes.remove_at(objnodes.size() - 1)
+
+
+func _on_redo_pressed():
+	if mode == "track":
+		if redotrack.size() != 0:
+			var stored = redotrack[redotrack.size()-1]
+			self.connect("EXPORT", Callable(stored, "EXPORT"))
+			stored.get_node("AnimationPlayer").play("RESET")
+			await(stored.get_node("AnimationPlayer").animation_finished)
+			stored.get_node("AnimationPlayer").play("add")
+			stored.reparent($Track,true)
+			redotrack.remove_at(redotrack.size()-1)
+			stored.show()
+			nodes.append(stored)
+			current = nodes[nodes.size()-1]
+			highlighttrack(current)
+	if mode == "object":
+		if redoobj.size() != 0:
+			var stored = redoobj[redoobj.size()-1]
+			self.connect("EXPORT", Callable(stored, "EXPORT"))
+			stored.reparent($Objects,true)
+			redoobj.remove_at(redoobj.size()-1)
+			stored.show()
+			objnodes.append(stored)
