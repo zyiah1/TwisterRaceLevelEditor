@@ -1,16 +1,16 @@
 [gd_scene load_steps=12 format=3 uid="uid://bftbbin31pfej"]
 
-[ext_resource type="Script" path="res://shared scripts/BaseObject.gd" id="1_uxhor"]
-[ext_resource type="Texture2D" uid="uid://0xbtdv6oluex" path="res://textures/Fzr_Bomb01_Emm.png" id="1_yy0pg"]
-[ext_resource type="Texture2D" uid="uid://bqj0rdhivj35j" path="res://models/bomb_Fzr_Bomb01_Alb.png" id="2_v620e"]
-[ext_resource type="Texture2D" uid="uid://bx2ju3gwpsyyf" path="res://models/bomb_Fzr_Bomb01_Emm.png" id="3_l0hxg"]
-[ext_resource type="Texture2D" uid="uid://bju4yuwc08uqy" path="res://textures/Fzr_Bomb01_Light_Alb.png" id="3_nuxfi"]
+[ext_resource type="Script" path="res://shared scripts/BaseObject.gd" id="1_ktsvc"]
+[ext_resource type="Texture2D" uid="uid://0xbtdv6oluex" path="res://textures/Fzr_Bomb01_Emm.png" id="2_xwega"]
+[ext_resource type="Texture2D" uid="uid://bqj0rdhivj35j" path="res://models/bomb_Fzr_Bomb01_Alb.png" id="3_luank"]
+[ext_resource type="Texture2D" uid="uid://bju4yuwc08uqy" path="res://textures/Fzr_Bomb01_Light_Alb.png" id="4_wso55"]
+[ext_resource type="Texture2D" uid="uid://bx2ju3gwpsyyf" path="res://models/bomb_Fzr_Bomb01_Emm.png" id="5_mf5bx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_srpd7"]
 size = Vector3(19.7672, 30.1966, 20.7692)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mf11u"]
-albedo_texture = ExtResource("1_yy0pg")
+albedo_texture = ExtResource("2_xwega")
 emission_enabled = true
 emission = Color(0.380392, 0, 0, 1)
 
@@ -50,17 +50,17 @@ bind/2/pose = Transform3D(1, 0, 0, 0, 1, 1.62921e-07, 0, -1.62921e-07, 1, 0, 0, 
 resource_name = "M_Bom01"
 cull_mode = 2
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("2_v620e")
+albedo_texture = ExtResource("3_luank")
 metallic = 1.0
 emission_enabled = true
 emission_energy_multiplier = 3.26
-emission_texture = ExtResource("3_l0hxg")
+emission_texture = ExtResource("5_mf5bx")
 refraction_scale = 1.0
-refraction_texture = ExtResource("3_nuxfi")
-detail_mask = ExtResource("3_nuxfi")
+refraction_texture = ExtResource("4_wso55")
+detail_mask = ExtResource("4_wso55")
 detail_blend_mode = 1
-detail_albedo = ExtResource("3_nuxfi")
-detail_normal = ExtResource("3_nuxfi")
+detail_albedo = ExtResource("4_wso55")
+detail_normal = ExtResource("4_wso55")
 grow_amount = 13.253
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_m26qh"]
@@ -83,7 +83,7 @@ _surfaces = [{
 blend_shape_mode = 0
 
 [node name="bomb" type="Node3D"]
-script = ExtResource("1_uxhor")
+script = ExtResource("1_ktsvc")
 meshes = Array[NodePath]([NodePath("Armature/Skeleton3D/Bomb_Hikari__M_Bom01"), NodePath("Armature/Skeleton3D/Bomb_Kaiten__M_Bom01")])
 
 [node name="Area3D" type="Area3D" parent="."]

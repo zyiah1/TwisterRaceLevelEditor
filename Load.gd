@@ -118,32 +118,32 @@ func LoadLevel(name):
 				inst = load("res://tracks/end.tscn").instantiate()
 			
 			if content[8].begins_with("            name: Fzr_Bomb"):
-				inst = preload("res://bomb.tscn").instantiate()
+				inst = preload("res://objects/bomb.tscn").instantiate()
 			if content[8].begins_with("            name: Fzr_Denchu"): #Fzr_DenchuSTL current import
-				inst = preload("res://light.tscn").instantiate()
+				inst = preload("res://objects/light.tscn").instantiate()
 			if content[8].begins_with("            name: Fzr_Jump"):
-				inst = preload("res://jump.tscn").instantiate()
+				inst = preload("res://objects/jump.tscn").instantiate()
 			if content[8].begins_with("            name: Fzr_Dart"):
-				inst = preload("res://dartpile.tscn").instantiate()
+				inst = preload("res://objects/dartpile.tscn").instantiate()
 			if content[8].begins_with("            name: Fzr_Dash2"):
-				inst = preload("res://dash.tscn").instantiate()
+				inst = preload("res://objects/dash.tscn").instantiate()
 			if content[8].begins_with("            name: Fzr_Star"):
-				inst = preload("res://star.tscn").instantiate()
+				inst = preload("res://objects/star.tscn").instantiate()
 			if content[8].begins_with("            name: Fzr_Bar"):
-				inst = preload("res://bar.tscn").instantiate()
+				inst = preload("res://objects/bar.tscn").instantiate()
 			if content[8].begins_with("            name: Fzr_Obstacle"):
-				inst = preload("res://obstacle.tscn").instantiate()
+				inst = preload("res://objects/obstacle.tscn").instantiate()
 			if content[8].begins_with("            name: Fzr_ObstThro"):
-				inst = preload("res://obstaclethro.tscn").instantiate()
+				inst = preload("res://objects/obstaclethro.tscn").instantiate()
 			if content[8].begins_with("            name: Fzr_EnemyCarBattery"):
-				inst = preload("res://battery.tscn").instantiate()
+				inst = preload("res://objects/battery.tscn").instantiate()
 			
 			if content[8].begins_with("            name: Fzr_Dash"):
 				if not content[8].begins_with("            name: Fzr_Dash2"):
-					inst = preload("res://dash.tscn").instantiate()
+					inst = preload("res://objects/dash.tscn").instantiate()
 					inst.small = true
 			if content[8].begins_with("            name: Fzr_Wind"):
-				inst = preload("res://wind.tscn").instantiate()
+				inst = preload("res://objects/wind.tscn").instantiate()
 				var param1 = int(content[10].lstrip("            param1: "))
 				if param1 == -1:
 					inst.small = true

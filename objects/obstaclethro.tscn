@@ -1,21 +1,21 @@
 [gd_scene load_steps=10 format=3 uid="uid://ct8bwlqa16nw4"]
 
-[ext_resource type="Script" path="res://shared scripts/BaseObject.gd" id="1_j05ro"]
-[ext_resource type="Texture2D" uid="uid://ckerv0kqafw71" path="res://models/Obstacle2-45c66466b66d3a05394b479af0e4c600_Fzr_Obstacle01_Alb.png" id="3_6ptoc"]
-[ext_resource type="Texture2D" uid="uid://dk4fw54c7mcpb" path="res://models/Obstacle1-378cbbd5562db8927477d78f5c38518a_Fzr_Obstacle01_Alb.png" id="3_qecuu"]
-[ext_resource type="Texture2D" uid="uid://4cfvvq87k4ys" path="res://models/Obstacle2-45c66466b66d3a05394b479af0e4c600_Fzr_Obstacle01_Emm.png" id="4_kw0it"]
+[ext_resource type="Script" path="res://shared scripts/BaseObject.gd" id="1_mio8h"]
+[ext_resource type="Texture2D" uid="uid://dk4fw54c7mcpb" path="res://models/Obstacle1-378cbbd5562db8927477d78f5c38518a_Fzr_Obstacle01_Alb.png" id="2_xrgoa"]
+[ext_resource type="Texture2D" uid="uid://ckerv0kqafw71" path="res://models/Obstacle2-45c66466b66d3a05394b479af0e4c600_Fzr_Obstacle01_Alb.png" id="3_3k4br"]
+[ext_resource type="Texture2D" uid="uid://4cfvvq87k4ys" path="res://models/Obstacle2-45c66466b66d3a05394b479af0e4c600_Fzr_Obstacle01_Emm.png" id="4_cijf8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lvnsm"]
-albedo_texture = ExtResource("3_qecuu")
+albedo_texture = ExtResource("2_xrgoa")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kh6ps"]
 resource_name = "Mat_Obst01.001"
 albedo_color = Color(1, 1, 1, 1)
-albedo_texture = ExtResource("3_6ptoc")
+albedo_texture = ExtResource("3_3k4br")
 metallic = 0.4
 roughness = 0.272166
 emission_enabled = true
-emission_texture = ExtResource("4_kw0it")
+emission_texture = ExtResource("4_cijf8")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_5yxgn"]
 resource_name = "Root Scene_Fzr_Obst02__Mat_Obst01"
@@ -48,7 +48,7 @@ bind/0/pose = Transform3D(1, 0, 0, 0, 1, 1.32349e-23, 0, -1.32349e-23, 1, 0, 0, 
 size = Vector3(49.4336, 50.181, 48.4365)
 
 [node name="obstacle" type="Node3D"]
-script = ExtResource("1_j05ro")
+script = ExtResource("1_mio8h")
 meshes = Array[NodePath]([NodePath("Root Scene/RootNode/Armature/Skeleton3D/Fzr_Obst02__Mat_Obst01")])
 DataName = "Obstacle"
 

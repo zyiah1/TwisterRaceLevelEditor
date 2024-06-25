@@ -1,17 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://cbghysdmvry50"]
 
-[ext_resource type="Script" path="res://shared scripts/BaseObject.gd" id="1_sowha"]
-[ext_resource type="PackedScene" uid="uid://obl64s1l5n4l" path="res://models/dartpile.glb" id="2_rxjk3"]
+[ext_resource type="Script" path="res://shared scripts/BaseObject.gd" id="1_o265d"]
+[ext_resource type="PackedScene" uid="uid://obl64s1l5n4l" path="res://models/dartpile.glb" id="2_6ggfl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r3cbc"]
 size = Vector3(58.6693, 44.3955, 51.2832)
 
 [node name="dartpile" type="Node3D"]
-script = ExtResource("1_sowha")
+script = ExtResource("1_o265d")
 meshes = Array[NodePath]([NodePath("dartpile/Fzr_Dart01__Mat_Dart01")])
 DataName = "Dart"
 
-[node name="dartpile" parent="." instance=ExtResource("2_rxjk3")]
+[node name="dartpile" parent="." instance=ExtResource("2_6ggfl")]
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 0

@@ -1,17 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://bl4hwdpafdwk3"]
 
-[ext_resource type="Script" path="res://shared scripts/BaseObject.gd" id="1_hmxlm"]
-[ext_resource type="PackedScene" uid="uid://bkqvt1dq2vdrv" path="res://models/Light.fbx" id="2_2y5qh"]
+[ext_resource type="Script" path="res://shared scripts/BaseObject.gd" id="1_84b0e"]
+[ext_resource type="PackedScene" uid="uid://bkqvt1dq2vdrv" path="res://models/Light.fbx" id="2_50sc5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uf12t"]
 size = Vector3(39.7041, 95.1238, 46.5092)
 
 [node name="light" type="Node3D"]
-script = ExtResource("1_hmxlm")
+script = ExtResource("1_84b0e")
 meshes = Array[NodePath]([NodePath("Root Scene/RootNode/Armature/Skeleton3D/light_L01__Mat_Fzr_dennki"), NodePath("Root Scene/RootNode/Armature/Skeleton3D/light_L01__Mat_Fzr_dennki_Light_kura")])
 DataName = "DenchuSTL"
 
-[node name="Root Scene" parent="." instance=ExtResource("2_2y5qh")]
+[node name="Root Scene" parent="." instance=ExtResource("2_50sc5")]
 
 [node name="light_L01__Mat_Fzr_dennki" parent="Root Scene/RootNode/Armature/Skeleton3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, -1.11022e-15, 0, 1.97173e-15, 1, 0, 0, 0)

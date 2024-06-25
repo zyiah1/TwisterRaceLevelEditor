@@ -1,21 +1,21 @@
 [gd_scene load_steps=6 format=3 uid="uid://dugh2n6cccwrg"]
 
-[ext_resource type="Script" path="res://shared scripts/BaseObject.gd" id="1_p2luq"]
-[ext_resource type="PackedScene" uid="uid://bt7ake61ftsml" path="res://models/Obstacle1.fbx" id="2_u1oma"]
-[ext_resource type="Texture2D" uid="uid://dk4fw54c7mcpb" path="res://models/Obstacle1-378cbbd5562db8927477d78f5c38518a_Fzr_Obstacle01_Alb.png" id="3_nr05f"]
+[ext_resource type="Script" path="res://shared scripts/BaseObject.gd" id="1_al4vr"]
+[ext_resource type="PackedScene" uid="uid://bt7ake61ftsml" path="res://models/Obstacle1.fbx" id="2_5o7hn"]
+[ext_resource type="Texture2D" uid="uid://dk4fw54c7mcpb" path="res://models/Obstacle1-378cbbd5562db8927477d78f5c38518a_Fzr_Obstacle01_Alb.png" id="3_le6jy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pyg6a"]
-albedo_texture = ExtResource("3_nr05f")
+albedo_texture = ExtResource("3_le6jy")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_er1nl"]
 size = Vector3(49.4336, 50.181, 48.4365)
 
 [node name="obstacle" type="Node3D"]
-script = ExtResource("1_p2luq")
+script = ExtResource("1_al4vr")
 meshes = Array[NodePath]([NodePath("Root Scene/RootNode/Armature/Skeleton3D/Fzr_Obst01__Mat_Obst01")])
 DataName = "Obstacle"
 
-[node name="Root Scene" parent="." instance=ExtResource("2_u1oma")]
+[node name="Root Scene" parent="." instance=ExtResource("2_5o7hn")]
 
 [node name="Fzr_Obst01__Mat_Obst01" parent="Root Scene/RootNode/Armature/Skeleton3D" index="0"]
 material_override = SubResource("StandardMaterial3D_pyg6a")

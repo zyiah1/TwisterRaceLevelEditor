@@ -1,17 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://d0vhoibfjxsyj"]
 
-[ext_resource type="Script" path="res://shared scripts/BaseObject.gd" id="1_qmrhx"]
-[ext_resource type="PackedScene" uid="uid://b66ig4ex88nor" path="res://models/battery.fbx" id="2_kim2i"]
+[ext_resource type="Script" path="res://shared scripts/BaseObject.gd" id="1_q0wm5"]
+[ext_resource type="PackedScene" uid="uid://b66ig4ex88nor" path="res://models/battery.fbx" id="2_hv8of"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0xwy2"]
 size = Vector3(15.6592, 18.5411, 19.6428)
 
 [node name="battery" type="Node3D"]
-script = ExtResource("1_qmrhx")
+script = ExtResource("1_q0wm5")
 meshes = Array[NodePath]([NodePath("Root Scene/RootNode/Armature/Skeleton3D/Fzr_Car03D__Mat_Fzr_Car03")])
 DataName = "EnemyCarBattery"
 
-[node name="Root Scene" parent="." instance=ExtResource("2_kim2i")]
+[node name="Root Scene" parent="." instance=ExtResource("2_hv8of")]
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 0

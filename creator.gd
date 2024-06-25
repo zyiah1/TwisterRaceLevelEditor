@@ -3,14 +3,14 @@ extends Node3D
 @onready var filename = $nonmoving/name.text
 @onready var current = $Track
 
-var car = preload("res://car.tscn")
-var star = preload("res://star.tscn")
-var jump = preload("res://jump.tscn")
-var dash = preload("res://dash.tscn")
-var dart = preload("res://dartpile.tscn")
-var wind = preload("res://wind.tscn")
-var bomb = preload("res://bomb.tscn")
-var light = preload("res://light.tscn")
+var car = preload("res://objects/car.tscn")
+var star = preload("res://objects/star.tscn")
+var jump = preload("res://objects/jump.tscn")
+var dash = preload("res://objects/dash.tscn")
+var dart = preload("res://objects/dartpile.tscn")
+var wind = preload("res://objects/wind.tscn")
+var bomb = preload("res://objects/bomb.tscn")
+var light = preload("res://objects/light.tscn")
 
 var straight = preload("res://tracks/straight.tscn")
 var wide = preload("res://tracks/wide.tscn")
@@ -342,13 +342,13 @@ func _physics_process(delta):
 					"light":
 						inst = light.instantiate()
 					"bar":
-						inst = load("res://bar.tscn").instantiate()
+						inst = load("res://objects/bar.tscn").instantiate()
 					"battery":
-						inst = load("res://battery.tscn").instantiate()
+						inst = load("res://objects/battery.tscn").instantiate()
 					"obstacle":
-						inst = load("res://obstacle.tscn").instantiate()
+						inst = load("res://objects/obstacle.tscn").instantiate()
 						if shift:
-							inst = load("res://obstaclethro.tscn").instantiate()
+							inst = load("res://objects/obstaclethro.tscn").instantiate()
 			if item != "none":
 				get_node("Previews/" + item).position = pos -Vector3(0,pos.y,0)
 			if inst != null:

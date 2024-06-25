@@ -1,20 +1,20 @@
 [gd_scene load_steps=11 format=3 uid="uid://dqorhxvg76bk"]
 
-[ext_resource type="Script" path="res://wind.gd" id="1_niyvm"]
-[ext_resource type="Texture2D" uid="uid://don5xh7eq15h3" path="res://textures/Fzr_WindMachine02_Alb.png" id="2_4n1k8"]
-[ext_resource type="Texture2D" uid="uid://buyo82dtstkfd" path="res://textures/Fzr_WindM_light_Alb.png" id="3_d43rx"]
+[ext_resource type="Script" path="res://wind.gd" id="1_b3rmt"]
+[ext_resource type="Texture2D" uid="uid://don5xh7eq15h3" path="res://textures/Fzr_WindMachine02_Alb.png" id="2_ewbgl"]
+[ext_resource type="Texture2D" uid="uid://buyo82dtstkfd" path="res://textures/Fzr_WindM_light_Alb.png" id="3_73f3a"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ke262"]
 resource_name = "Mat_Fzr_WindMachine02.001"
 cull_mode = 2
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("2_4n1k8")
+albedo_texture = ExtResource("2_ewbgl")
 metallic = 1.0
 metallic_specular = 1.0
 roughness = 0.5
 emission_enabled = true
 emission_energy_multiplier = 0.0
-emission_texture = ExtResource("3_d43rx")
+emission_texture = ExtResource("3_73f3a")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_kv8k7"]
 resource_name = "windBig_Fzr_WindMachine02__Mat_Fzr_WindMachine02"
@@ -47,13 +47,13 @@ bind/0/pose = Transform3D(1, 0, 0, 0, 1, 1.62921e-07, 0, -1.62921e-07, 1, 0, 0, 
 resource_name = "Mat_Fzr_WindMachine02"
 cull_mode = 2
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("2_4n1k8")
+albedo_texture = ExtResource("2_ewbgl")
 metallic = 1.0
 metallic_specular = 1.0
 roughness = 0.5
 emission_enabled = true
 emission_energy_multiplier = 0.0
-emission_texture = ExtResource("3_d43rx")
+emission_texture = ExtResource("3_73f3a")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_blhwm"]
 resource_name = "windSmall_Fzr_WindMachine01__Mat_Fzr_WindMachine02"
@@ -86,7 +86,7 @@ bind/0/pose = Transform3D(1, 0, 0, 0, 1, 1.62921e-07, 0, -1.62921e-07, 1, 0, 0, 
 size = Vector3(25.305, 30.1966, 33.2921)
 
 [node name="Wind" type="Node3D"]
-script = ExtResource("1_niyvm")
+script = ExtResource("1_b3rmt")
 meshes = Array[NodePath]([NodePath("windBig/Armature/Skeleton3D/Fzr_WindMachine02__Mat_Fzr_WindMachine02"), NodePath("windSmall/Armature/Skeleton3D/Fzr_WindMachine01__Mat_Fzr_WindMachine02")])
 
 [node name="windBig" type="Node3D" parent="."]

@@ -6,6 +6,7 @@ const minzoom = 0
 const maxzoom = 5000
 
 func _physics_process(delta):
+	near = position.y/1000#fix clipping
 	if not get_node("../nonmoving/name").has_focus():
 		if Options.trackfreecam == true or get_parent().mode != "track":
 			if Input.is_action_pressed("ui_right"):

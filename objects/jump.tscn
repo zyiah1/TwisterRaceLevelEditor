@@ -1,15 +1,15 @@
 [gd_scene load_steps=13 format=3 uid="uid://buvw34m7n1smj"]
 
-[ext_resource type="Script" path="res://shared scripts/BaseObject.gd" id="1_rexq6"]
-[ext_resource type="Texture2D" uid="uid://bpi825b38giqb" path="res://models/jump_Fzr_Jump01_Alb.png" id="1_tt3wv"]
-[ext_resource type="Texture2D" uid="uid://bvlerdk3do3bw" path="res://textures/JumpColors.png" id="3_nuel0"]
-[ext_resource type="Texture2D" uid="uid://dru64j6sbnoo3" path="res://models/jump_Fzr_Jump01_Nezi_Alb.png" id="4_qnpme"]
+[ext_resource type="Script" path="res://shared scripts/BaseObject.gd" id="1_kp007"]
+[ext_resource type="Texture2D" uid="uid://bpi825b38giqb" path="res://models/jump_Fzr_Jump01_Alb.png" id="2_xltpx"]
+[ext_resource type="Texture2D" uid="uid://bvlerdk3do3bw" path="res://textures/JumpColors.png" id="3_kv1ql"]
+[ext_resource type="Texture2D" uid="uid://dru64j6sbnoo3" path="res://models/jump_Fzr_Jump01_Nezi_Alb.png" id="4_t0boy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_52w5j"]
 resource_name = "Mat_Jump"
 cull_mode = 2
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("1_tt3wv")
+albedo_texture = ExtResource("2_xltpx")
 roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_s5miv"]
@@ -42,10 +42,10 @@ bind/0/pose = Transform3D(1, 0, 0, 0, 1, 1.62921e-07, 0, -1.62921e-07, 1, 0, 0, 
 resource_name = "Mat_Jump_n"
 cull_mode = 2
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("3_nuel0")
+albedo_texture = ExtResource("3_kv1ql")
 metallic_specular = 0.46
 emission_enabled = true
-emission_texture = ExtResource("3_nuel0")
+emission_texture = ExtResource("3_kv1ql")
 clearcoat = 0.0
 ao_light_affect = 1.0
 
@@ -73,7 +73,7 @@ blend_shape_mode = 0
 resource_name = "Mat_Jump_Nezi"
 cull_mode = 2
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("4_qnpme")
+albedo_texture = ExtResource("4_t0boy")
 roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_6audv"]
@@ -99,7 +99,7 @@ blend_shape_mode = 0
 size = Vector3(226.46, 30.1966, 46.5092)
 
 [node name="jump" type="Node3D"]
-script = ExtResource("1_rexq6")
+script = ExtResource("1_kp007")
 meshes = Array[NodePath]([NodePath("Armature/Skeleton3D/Fzr_Jump01__Mat_Jump_n"), NodePath("Armature/Skeleton3D/Fzr_Jump01__Mat_Jump"), NodePath("Armature/Skeleton3D/pSphere16__Mat_Jump_Nezi")])
 DataName = "Jump"
 
