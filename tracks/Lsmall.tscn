@@ -278,6 +278,7 @@ skeleton = NodePath("../Armature")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="RootNode"]
 transform = Transform3D(0.01, 8.8111e-26, 1.80946e-25, 1.80946e-25, 0.01, -1.80946e-25, 8.8111e-26, -8.8111e-26, 0.01, 0, 0, 0)
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RootNode/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_t1lbc")

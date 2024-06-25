@@ -1,9 +1,9 @@
 extends Node3D
 
+
 @onready var creator = Options.creator
 @onready var id = creator.nodes.size()
-@onready var offset = get_node("offset")
-var data: PackedStringArray
+@onready var offset = get_node_or_null("offset")
 @onready var trackid = creator.trackid
 
 @export var DataName = "GoalLine"
@@ -22,31 +22,18 @@ var data: PackedStringArray
 @export var Param8: float = -1
 @export var Param9: float = -1
 
-#shutter params
-
-@export var ShutName = "Shutter"
-@export var Param0Shut: float = -1
-@export var Param1Shut: float = 1
-@export var Param10Shut: float = -1
-@export var Param11Shut: float = -1
-@export var Param2Shut: float = -1
-@export var Param3Shut: float = -1
-@export var Param4Shut: float = -1
-@export var Param5Shut: float = -1
-@export var Param6Shut: float = -1
-@export var Param7Shut: float = -1
-@export var Param8Shut: float = -1
-@export var Param9Shut: float = -1
-
 @export var positionoffset: Vector3 = Vector3.ZERO
+
+var data: PackedStringArray
 
 func applyoffset():
 	add_to_group("track")
-	position.z -= 700
-
+	if positionoffset != Vector3.ZERO:
+		position += positionoffset
 
 func EXPORT():
-	data = ["          - comment: !l -1",
+	data = [
+"          - comment: !l -1",
 "            dir_x: "+str(global_rotation_degrees.x),
 "            dir_y: "+str(global_rotation_degrees.y),
 "            dir_z: "+str(global_rotation_degrees.z),
@@ -72,32 +59,7 @@ func EXPORT():
 "            pos_z: "+str(global_position.z),
 "            scale_x: 200.00000",
 "            scale_y: 1.00000",
-"            scale_z: 1.00000",
-"          - comment: !l -1",
-"            dir_x: "+str(global_rotation_degrees.x),
-"            dir_y: "+str(global_rotation_degrees.y),
-"            dir_z: "+str(global_rotation_degrees.z),
-"            id_name: obj2",
-"            layer: LC",
-"            link_info: []",
-"            link_num: !l 0",
-"            name: Fzr_"+ShutName,
-"            param0: "+str(Param0Shut),
-"            param1: "+str(Param1Shut),
-"            param10: "+str(Param10Shut),
-"            param11: "+str(Param11Shut),
-"            param2: "+str(Param2Shut),
-"            param3: "+str(Param3Shut),
-"            param4: "+str(Param4Shut),
-"            param5: "+str(Param5Shut),
-"            param6: "+str(Param6Shut),
-"            param7: "+str(Param7Shut),
-"            param8: "+str(Param8Shut),
-"            param9: "+str(Param9Shut),
-"            pos_x: "+str(global_position.x-10900),
-"            pos_y: "+str(global_position.y),
-"            pos_z: "+str(global_position.z),
-"            scale_x: 200.00000",
-"            scale_y: 1.00000",
 "            scale_z: 1.00000"]
 	creator.track += data
+
+

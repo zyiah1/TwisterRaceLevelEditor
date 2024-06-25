@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://cmqyq6acq27sr"]
+[gd_scene load_steps=72 format=3 uid="uid://cmqyq6acq27sr"]
 
 [ext_resource type="Script" path="res://button.gd" id="2"]
 [ext_resource type="Script" path="res://Track.gd" id="2_nq3cm"]
@@ -34,9 +34,14 @@
 [ext_resource type="Texture2D" uid="uid://b35o0c3p4q0xk" path="res://ui/tools/trash.png" id="26_o2fjb"]
 [ext_resource type="Texture2D" uid="uid://yckgcndd5rfb" path="res://ui/tools/deletetrack.png" id="27_7o5da"]
 [ext_resource type="PackedScene" uid="uid://dqorhxvg76bk" path="res://wind.tscn" id="27_kb7a0"]
+[ext_resource type="Texture2D" uid="uid://bheulwsgren5l" path="res://ui/tools/forwardtrack.png" id="28_2vdgg"]
 [ext_resource type="PackedScene" uid="uid://cbghysdmvry50" path="res://dartpile.tscn" id="28_skpjq"]
+[ext_resource type="Texture2D" uid="uid://bq0xdnmxv7pi4" path="res://ui/tools/backwardtrack.png" id="29_ce4f2"]
+[ext_resource type="Script" path="res://setup.gd" id="29_mp26l"]
+[ext_resource type="Script" path="res://positionoffsetbutton.gd" id="30_fr64e"]
 [ext_resource type="FontFile" uid="uid://cvxewx0ydkm2o" path="res://fonts/f_zero_snes/F-ZeroSNES.ttf" id="30_mwt0d"]
 [ext_resource type="PackedScene" uid="uid://bgw0ym3f1ria8" path="res://dash.tscn" id="31_egx7r"]
+[ext_resource type="Script" path="res://back.gd" id="31_jwafk"]
 [ext_resource type="PackedScene" uid="uid://ddle12bsgamuu" path="res://star.tscn" id="34_0qskd"]
 [ext_resource type="PackedScene" uid="uid://buvw34m7n1smj" path="res://jump.tscn" id="34_jq5vr"]
 [ext_resource type="PackedScene" uid="uid://k6ah4g0ki07r" path="res://car.tscn" id="36_gkiws"]
@@ -608,6 +613,7 @@ bind/0/bone = -1
 bind/0/pose = Transform3D(1, 0, 0, 0, 1, 1.62921e-07, 0, -1.62921e-07, 1, 0, 2.5, 0)
 
 [node name="Creator" type="Node3D"]
+process_priority = 1
 script = ExtResource("3")
 
 [node name="Track" type="Node3D" parent="."]
@@ -615,7 +621,6 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4100,
 script = ExtResource("2_nq3cm")
 
 [node name="offset" type="Node3D" parent="Track" groups=["ignore"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
 [node name="Objects" type="Node3D" parent="."]
 
@@ -850,6 +855,33 @@ toggle_mode = true
 icon = ExtResource("27_7o5da")
 icon_alignment = 1
 
+[node name="Spacer" type="Button" parent="CanvasLayer/trackoptions"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(100, 2.08165e-12)
+layout_mode = 2
+size_flags_stretch_ratio = 1.5
+focus_mode = 0
+theme = ExtResource("3_pogl6")
+toggle_mode = true
+icon = ExtResource("27_7o5da")
+icon_alignment = 1
+
+[node name="forward" type="Button" parent="CanvasLayer/trackoptions"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_pogl6")
+toggle_mode = true
+icon = ExtResource("28_2vdgg")
+icon_alignment = 1
+
+[node name="back" type="Button" parent="CanvasLayer/trackoptions"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_pogl6")
+toggle_mode = true
+icon = ExtResource("29_ce4f2")
+icon_alignment = 1
+
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, -4859.16, 500, 0)
 current = true
@@ -891,6 +923,114 @@ focus_mode = 0
 theme = ExtResource("3_pogl6")
 text = "..."
 icon_alignment = 1
+script = ExtResource("29_mp26l")
+
+[node name="Panel" type="Panel" parent="nonmoving/setup"]
+visible = false
+layout_mode = 0
+offset_left = -1254.0
+offset_top = 3.0
+offset_right = -278.0
+offset_bottom = 891.0
+
+[node name="startoffsetlevels" type="HBoxContainer" parent="nonmoving/setup/Panel"]
+layout_mode = 0
+offset_top = 101.0
+offset_right = 964.0
+offset_bottom = 224.0
+
+[node name="1" type="Button" parent="nonmoving/setup/Panel/startoffsetlevels" groups=["startoffset"]]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("3_pogl6")
+text = "1"
+icon_alignment = 1
+script = ExtResource("30_fr64e")
+
+[node name="3" type="Button" parent="nonmoving/setup/Panel/startoffsetlevels" groups=["startoffset"]]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("3_pogl6")
+text = "3"
+icon_alignment = 1
+script = ExtResource("30_fr64e")
+startoffset = -6070.0
+
+[node name="4" type="Button" parent="nonmoving/setup/Panel/startoffsetlevels" groups=["startoffset"]]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("3_pogl6")
+text = "4"
+icon_alignment = 1
+script = ExtResource("30_fr64e")
+startoffset = -7470.0
+
+[node name="5" type="Button" parent="nonmoving/setup/Panel/startoffsetlevels" groups=["startoffset"]]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("3_pogl6")
+text = "5"
+icon_alignment = 1
+script = ExtResource("30_fr64e")
+startoffset = -7470.0
+
+[node name="7" type="Button" parent="nonmoving/setup/Panel/startoffsetlevels" groups=["startoffset"]]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("3_pogl6")
+text = "7"
+icon_alignment = 1
+script = ExtResource("30_fr64e")
+startoffset = -6070.0
+
+[node name="9" type="Button" parent="nonmoving/setup/Panel/startoffsetlevels" groups=["startoffset"]]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("3_pogl6")
+text = "9"
+icon_alignment = 1
+script = ExtResource("30_fr64e")
+startoffset = -5270.0
+
+[node name="10" type="Button" parent="nonmoving/setup/Panel/startoffsetlevels" groups=["startoffset"]]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("3_pogl6")
+text = "10"
+icon_alignment = 1
+script = ExtResource("30_fr64e")
+startoffset = -5370.0
+
+[node name="12" type="Button" parent="nonmoving/setup/Panel/startoffsetlevels" groups=["startoffset"]]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("3_pogl6")
+text = "12
+"
+icon_alignment = 1
+script = ExtResource("30_fr64e")
+startoffset = -6070.0
+
+[node name="back" type="Button" parent="nonmoving/setup/Panel"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 783.0
+offset_right = 233.0
+offset_bottom = 876.0
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("3_pogl6")
+text = "back"
+icon_alignment = 1
+script = ExtResource("31_jwafk")
 
 [node name="back" type="Button" parent="nonmoving"]
 offset_left = 9.0
@@ -1090,8 +1230,11 @@ visible = false
 [connection signal="pressed" from="CanvasLayer/Obstacles/bar" to="CanvasLayer/Obstacles/bar" method="_on_straight_pressed"]
 [connection signal="pressed" from="CanvasLayer/tools/trash" to="CanvasLayer/tools/trash" method="_on_straight_pressed"]
 [connection signal="pressed" from="CanvasLayer/trackoptions/delete" to="." method="_on_delete_pressed"]
+[connection signal="pressed" from="CanvasLayer/trackoptions/forward" to="." method="_on_forward_pressed"]
+[connection signal="pressed" from="CanvasLayer/trackoptions/back" to="." method="_on_backwards_pressed"]
 [connection signal="pressed" from="nonmoving/export" to="." method="save"]
 [connection signal="pressed" from="nonmoving/done" to="." method="_on_done_pressed"]
 [connection signal="pressed" from="nonmoving/back" to="." method="_on_back_pressed"]
+[connection signal="text_changed" from="nonmoving/testoffset" to="." method="_on_testoffset_text_changed"]
 [connection signal="timeout" from="audio/clack/delay" to="." method="_on_delay_timeout"]
 [connection signal="timeout" from="autosave" to="." method="save"]

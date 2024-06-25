@@ -1,6 +1,6 @@
 [gd_scene load_steps=47 format=3 uid="uid://b66t5wyem3rei"]
 
-[ext_resource type="Script" path="res://tracks/Basetrack.gd" id="1_fo0cm"]
+[ext_resource type="Script" path="res://tracks/end.gd" id="1_sh3fv"]
 [ext_resource type="Texture2D" uid="uid://chvxx20ra7gyv" path="res://textures/Fzr_Tonnel_gara01_Alb.png" id="2_h7wyr"]
 [ext_resource type="Texture2D" uid="uid://bgbs2v08fq4dq" path="res://textures/Fzr_Kazari01B_Alb.png" id="3_v0uef"]
 [ext_resource type="Texture2D" uid="uid://lsd68xkgx8sj" path="res://textures/Fzr_Door_Alb.png" id="4_6ougj"]
@@ -592,9 +592,7 @@ _data = {
 
 [node name="tunnel" type="Node3D"]
 transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, 0, 0, 0)
-script = ExtResource("1_fo0cm")
-DataName = "GoalLine"
-Param0 = 2.08165e-12
+script = ExtResource("1_sh3fv")
 positionoffset = Vector3(2.08165e-12, 2.08165e-12, -700)
 
 [node name="RootNode" type="Node3D" parent="."]

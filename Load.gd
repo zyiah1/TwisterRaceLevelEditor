@@ -15,8 +15,9 @@ func _process(delta):
 	else:
 		$Paste.hide()
 	if Input.is_action_just_pressed("Paste"):
-		content = str(DisplayServer.clipboard_get())
-		LoadLevel("")
+		if visible: #dont load level twice
+			content = str(DisplayServer.clipboard_get())
+			LoadLevel("")
 
 func _notification(what): #if game quit
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
@@ -80,7 +81,7 @@ func LoadLevel(name):
 				#scene.load = true
 				#print("whoops ",content[8])
 				#return
-			if content[8].begins_with("            name: Fzr_Shutter"):
+			if content[8].begins_with("            name: Fzr_Shutter") or content[8].begins_with("            name: Fzr_NormalShutter"):
 				#set the start object position
 				scene.startposition = Vector3(float(content[21].lstrip("            pos_x: ")),float(content[22].lstrip("            pos_y: ")),float(content[23].lstrip("            pos_z: "))) - Vector3(170,0,0)
 				scene.startrotation = Vector3(float(content[1].lstrip("            dir_x: ")),float(content[2].lstrip("            dir_y: ")),float(content[3].lstrip("            dir_z: "))) - Vector3(0,180,0)
@@ -189,5 +190,6 @@ func _on_file_dialog_file_selected(input):
 
 
 func _on_paste_pressed():
-	content = str(DisplayServer.clipboard_get())
-	LoadLevel("")
+	if visible:
+		content = str(DisplayServer.clipboard_get())
+		LoadLevel("")

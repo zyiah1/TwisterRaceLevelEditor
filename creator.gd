@@ -187,6 +187,8 @@ var startinst = load("res://tracks/start.tscn").instantiate()
 
 func _ready():
 	Options.creator = self #stores reference to this node
+	for node in get_tree().get_nodes_in_group("startoffset"):
+		node.connect("pressed",Callable(self,"offset_button_pressed").bind(node.startoffset))
 	$nonmoving/name.placeholder_text = Options.defaultfilename
 	if get_tree().current_scene.name == "Creator": #to see if we are loading
 		startinst.position = startposition
@@ -199,10 +201,12 @@ func _ready():
 
 var load = false
 var cycle = 0
+var backwards: bool = false
 
 func loadfinished():
 	highlighttrack(current)
 	startinst.position = startposition
+	$Track/offset.position.z = startposition.x + 4675
 	startinst.rotation_degrees = startrotation
 	add_child(startinst)
 	connect("EXPORT", Callable(startinst, "EXPORT"))
@@ -260,13 +264,14 @@ func _physics_process(delta):
 				item = "none"
 			connect("EXPORT", Callable(straightinst, "EXPORT"))
 			$Track.add_child(straightinst)
-			#if Input.is_action_pressed("backwards"):
-				#offset.x -= current.offset.position.z*2
-				#offset.z = -offset.z
-				#straightinst.positionoffset.x = straightinst.positionoffset.x*9/14
-				#straightinst.positionoffset.z = -straightinst.positionoffset.z
+			var oldoffset = straightinst.positionoffset
+			if backwards:
+				offset.x -= 1400
+				#offset -= current.positionoffset
+				straightinst.positionoffset = -current.positionoffset #set position
 			straightinst.global_position = offset
 			straightinst.applyoffset()
+			straightinst.positionoffset = oldoffset #keep so next track works
 			nodes.append(straightinst)
 			current = straightinst
 			highlighttrack(current)
@@ -344,6 +349,11 @@ func _physics_process(delta):
 	else:
 		$Previews.hide()
 	get_input(delta)
+	update_buttons()
+
+func update_buttons():
+	$CanvasLayer/trackoptions/forward.disabled = not backwards
+	$CanvasLayer/trackoptions/back.disabled = backwards
 
 func _notification(what): #if game quit
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
@@ -352,6 +362,11 @@ func _notification(what): #if game quit
 		get_tree().quit() # default behavior
 
 func get_input(delta):
+	# not with action_pressed so we can make buttons work
+	if Input.is_action_just_pressed("backwards"):
+		backwards = true
+	if Input.is_action_just_released("backwards"):
+		backwards = false
 	if Input.is_action_just_pressed("tab"):
 		if mode == "track":
 			_on_done_pressed()
@@ -441,9 +456,6 @@ func save():
 			$nonmoving/name.text = Options.defaultfilename
 		filename = $nonmoving/name.text
 		$nonmoving/saving.show()
-		for node in $Track.get_children():
-			if not node.is_in_group("ignore"):
-				node.position.z += float($nonmoving/testoffset.text)
 		emit_signal("EXPORT")
 		
 		var path = Options.filepath + "/" + $nonmoving/name.text + ".txt"
@@ -508,3 +520,20 @@ func _on_delete_pressed():
 			current.queue_free()
 			current = nodes[nodes.size() - 1]
 			highlighttrack(current)
+
+
+func _on_testoffset_text_changed(new_text):
+	startinst.position.x = int(new_text)
+	$Track/offset.position.z = int(new_text) + 4675
+
+func offset_button_pressed(offset):
+	startinst.position.x = offset
+	$Track/offset.position.z = offset + 4675
+
+
+func _on_forward_pressed():
+	backwards = false
+
+
+func _on_backwards_pressed():
+	backwards = true
