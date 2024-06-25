@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://cmqyq6acq27sr"]
+[gd_scene load_steps=93 format=3 uid="uid://cmqyq6acq27sr"]
 
 [ext_resource type="Script" path="res://button.gd" id="2"]
 [ext_resource type="Script" path="res://Track.gd" id="2_nq3cm"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://bilv5lbcvktm3" path="res://ui/objects/car.png" id="21_qv3hg"]
 [ext_resource type="Texture2D" uid="uid://di2y1k6brrg7t" path="res://ui/objects/obstacle.png" id="24_0h0dc"]
 [ext_resource type="Texture2D" uid="uid://bgydvpv7rmnfx" path="res://ui/objects/light.png" id="24_crc6g"]
+[ext_resource type="Texture2D" uid="uid://cns5g5bp6vw3h" path="res://ui/objects/battery.png" id="25_pnuh3"]
 [ext_resource type="PackedScene" uid="uid://bftbbin31pfej" path="res://bomb.tscn" id="25_q7y0b"]
 [ext_resource type="Texture2D" uid="uid://bh44vmw8bq5ky" path="res://ui/objects/bar.png" id="25_vcjwe"]
 [ext_resource type="Script" path="res://preview.gd" id="26_itfsx"]
@@ -43,6 +44,7 @@
 [ext_resource type="FontFile" uid="uid://cvxewx0ydkm2o" path="res://fonts/f_zero_snes/F-ZeroSNES.ttf" id="30_mwt0d"]
 [ext_resource type="PackedScene" uid="uid://bgw0ym3f1ria8" path="res://dash.tscn" id="31_egx7r"]
 [ext_resource type="Script" path="res://back.gd" id="31_jwafk"]
+[ext_resource type="Texture2D" uid="uid://mk8pfdx1nfxr" path="res://ui/tools/undo.png" id="32_kx13i"]
 [ext_resource type="PackedScene" uid="uid://ddle12bsgamuu" path="res://star.tscn" id="34_0qskd"]
 [ext_resource type="PackedScene" uid="uid://buvw34m7n1smj" path="res://jump.tscn" id="34_jq5vr"]
 [ext_resource type="Texture2D" uid="uid://d300vxl052ol2" path="res://textures/sky/kiri_Alb.png" id="35_wskat"]
@@ -55,6 +57,199 @@
 [ext_resource type="Texture2D" uid="uid://dk4fw54c7mcpb" path="res://models/Obstacle1-378cbbd5562db8927477d78f5c38518a_Fzr_Obstacle01_Alb.png" id="51_lpdy1"]
 [ext_resource type="Texture2D" uid="uid://ckerv0kqafw71" path="res://models/Obstacle2-45c66466b66d3a05394b479af0e4c600_Fzr_Obstacle01_Alb.png" id="52_5fwxv"]
 [ext_resource type="Texture2D" uid="uid://4cfvvq87k4ys" path="res://models/Obstacle2-45c66466b66d3a05394b479af0e4c600_Fzr_Obstacle01_Emm.png" id="53_3tjas"]
+[ext_resource type="PackedScene" uid="uid://b66ig4ex88nor" path="res://models/battery.fbx" id="55_enqaj"]
+
+[sub_resource type="Animation" id="Animation_62vs6"]
+resource_name = "saving"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("saving:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["[center]saving..."]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("saving:theme_override_colors/default_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("saving:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1370, 733)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("saving:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_tm8r0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("saving:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["[center]saving..."]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("saving:theme_override_colors/default_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("saving:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1370, 733)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("saving:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_k44ui"]
+resource_name = "saved"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("saving:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["[center]saved!"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("saving:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0.984314, 0, 1), Color(1, 0.984314, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("saving:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1.23114),
+"update": 0,
+"values": [Vector2(1370, 733)]
+}
+
+[sub_resource type="Animation" id="Animation_wdjl6"]
+resource_name = "copied"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("saving:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["[center]copied!
+"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("saving:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0.0823529, 0.878431, 1), Color(0, 0.290196, 0.533333, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("saving:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1.23114),
+"update": 0,
+"values": [Vector2(1370, 733)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6u6sb"]
+_data = {
+"RESET": SubResource("Animation_tm8r0"),
+"copied": SubResource("Animation_wdjl6"),
+"saved": SubResource("Animation_k44ui"),
+"saving": SubResource("Animation_62vs6")
+}
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j3oyk"]
 sky_top_color = Color(0.14902, 0.435294, 0.611765, 1)
@@ -862,6 +1057,15 @@ icon = ExtResource("24_0h0dc")
 icon_alignment = 1
 script = ExtResource("17_dhc3k")
 
+[node name="battery" type="Button" parent="CanvasLayer/Obstacles"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_pogl6")
+toggle_mode = true
+icon = ExtResource("25_pnuh3")
+icon_alignment = 1
+script = ExtResource("17_dhc3k")
+
 [node name="light" type="Button" parent="CanvasLayer/Obstacles"]
 layout_mode = 2
 focus_mode = 0
@@ -898,6 +1102,14 @@ toggle_mode = true
 icon = ExtResource("26_o2fjb")
 icon_alignment = 1
 script = ExtResource("17_dhc3k")
+
+[node name="undo" type="Button" parent="CanvasLayer/tools"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_pogl6")
+toggle_mode = true
+icon = ExtResource("32_kx13i")
+icon_alignment = 1
 
 [node name="trackoptions" type="HBoxContainer" parent="CanvasLayer"]
 offset_left = 208.0
@@ -941,6 +1153,14 @@ focus_mode = 0
 theme = ExtResource("3_pogl6")
 toggle_mode = true
 icon = ExtResource("29_ce4f2")
+icon_alignment = 1
+
+[node name="undo" type="Button" parent="CanvasLayer/trackoptions"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_pogl6")
+toggle_mode = true
+icon = ExtResource("32_kx13i")
 icon_alignment = 1
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -1105,14 +1325,16 @@ text = "track"
 icon_alignment = 1
 
 [node name="saving" type="RichTextLabel" parent="nonmoving"]
-visible = false
+modulate = Color(1, 1, 1, 0)
 offset_left = 1370.0
 offset_top = 733.0
-offset_right = 1504.0
+offset_right = 1592.0
 offset_bottom = 768.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_fonts/normal_font = ExtResource("30_mwt0d")
 theme_override_font_sizes/normal_font_size = 30
-text = "saving..."
+bbcode_enabled = true
+text = "[center]saving..."
 
 [node name="name" type="LineEdit" parent="nonmoving" groups=["enter"]]
 offset_left = 20.0
@@ -1133,6 +1355,11 @@ theme_override_fonts/font = ExtResource("30_mwt0d")
 theme_override_font_sizes/font_size = 34
 placeholder_text = "0"
 alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="nonmoving"]
+libraries = {
+"": SubResource("AnimationLibrary_6u6sb")
+}
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_8qtdn")
@@ -1308,6 +1535,9 @@ material_override = SubResource("StandardMaterial3D_nvpgo")
 mesh = SubResource("ArrayMesh_hlgq7")
 skin = SubResource("Skin_wvo5l")
 
+[node name="battery" parent="Previews" instance=ExtResource("55_enqaj")]
+script = ExtResource("26_itfsx")
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.736203, -0.676761, -1.20318e-08, 0.0493045, 0.0536351, 0.997343, -0.674962, -0.734247, 0.0728536, 0, 43.7753, -200.575)
 
@@ -1346,12 +1576,15 @@ visible = false
 [connection signal="pressed" from="CanvasLayer/Obstacles/carline" to="CanvasLayer/Obstacles/carline" method="_on_straight_pressed"]
 [connection signal="pressed" from="CanvasLayer/Obstacles/bomb" to="CanvasLayer/Obstacles/bomb" method="_on_straight_pressed"]
 [connection signal="pressed" from="CanvasLayer/Obstacles/obstacle" to="CanvasLayer/Obstacles/obstacle" method="_on_straight_pressed"]
+[connection signal="pressed" from="CanvasLayer/Obstacles/battery" to="CanvasLayer/Obstacles/battery" method="_on_straight_pressed"]
 [connection signal="pressed" from="CanvasLayer/Obstacles/light" to="CanvasLayer/Obstacles/light" method="_on_straight_pressed"]
 [connection signal="pressed" from="CanvasLayer/Obstacles/bar" to="CanvasLayer/Obstacles/bar" method="_on_straight_pressed"]
 [connection signal="pressed" from="CanvasLayer/tools/trash" to="CanvasLayer/tools/trash" method="_on_straight_pressed"]
+[connection signal="pressed" from="CanvasLayer/tools/undo" to="." method="_on_undo_pressed"]
 [connection signal="pressed" from="CanvasLayer/trackoptions/delete" to="." method="_on_delete_pressed"]
 [connection signal="pressed" from="CanvasLayer/trackoptions/forward" to="." method="_on_forward_pressed"]
 [connection signal="pressed" from="CanvasLayer/trackoptions/back" to="." method="_on_backwards_pressed"]
+[connection signal="pressed" from="CanvasLayer/trackoptions/undo" to="." method="_on_undo_pressed"]
 [connection signal="pressed" from="nonmoving/export" to="." method="save"]
 [connection signal="pressed" from="nonmoving/done" to="." method="_on_done_pressed"]
 [connection signal="pressed" from="nonmoving/back" to="." method="_on_back_pressed"]

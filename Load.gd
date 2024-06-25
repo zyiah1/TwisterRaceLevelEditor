@@ -136,7 +136,7 @@ func LoadLevel(name):
 			if content[8].begins_with("            name: Fzr_ObstThro"):
 				inst = preload("res://obstaclethro.tscn").instantiate()
 			if content[8].begins_with("            name: Fzr_EnemyCarBattery"):
-				inst = preload("res://obstaclethro.tscn").instantiate()
+				inst = preload("res://battery.tscn").instantiate()
 			
 			if content[8].begins_with("            name: Fzr_Dash"):
 				if not content[8].begins_with("            name: Fzr_Dash2"):

@@ -12,6 +12,7 @@ size = Vector3(49.4336, 50.181, 48.4365)
 
 [node name="obstacle" type="Node3D"]
 script = ExtResource("1_p2luq")
+meshes = Array[NodePath]([NodePath("Root Scene/RootNode/Armature/Skeleton3D/Fzr_Obst01__Mat_Obst01")])
 DataName = "Obstacle"
 
 [node name="Root Scene" parent="." instance=ExtResource("2_u1oma")]

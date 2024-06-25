@@ -3,12 +3,13 @@
 [ext_resource type="Script" path="res://bar.gd" id="1_dtjek"]
 [ext_resource type="PackedScene" uid="uid://cwm3wxy6xm7nr" path="res://models/bar.fbx" id="2_2j1bx"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_uf12t"]
-size = Vector3(39.7041, 95.1238, 46.5092)
+[sub_resource type="BoxShape3D" id="BoxShape3D_8ugpa"]
+size = Vector3(219.214, 54.1669, 46.5092)
 
 [node name="bar" type="Node3D"]
 transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -1, 3.48787e-16, -4.37114e-08, 0, 0, 0)
 script = ExtResource("1_dtjek")
+meshes = Array[NodePath]([NodePath("barup/RootNode/Armature/Skeleton3D/Fzr_Bar01__Mat_Bar"), NodePath("barup/RootNode/Armature/Skeleton3D/Fzr_Bar01_01__Mat_Bar"), NodePath("bardown/RootNode/Armature/Skeleton3D/Fzr_Bar01__Mat_Bar"), NodePath("bardown/RootNode/Armature/Skeleton3D/Fzr_Bar01_01__Mat_Bar")])
 DataName = "Bar"
 notes = "Param 1, -1 = up 1 = down"
 Param1 = 1.0
@@ -43,9 +44,8 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 44.4758, 0)
-visible = false
-shape = SubResource("BoxShape3D_uf12t")
+transform = Transform3D(1, 0, 0, 0, 1, 1.12238e-23, 0, 1.12238e-23, 1, -11.6247, 23.9973, 6.09489e-14)
+shape = SubResource("BoxShape3D_8ugpa")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]

@@ -84,6 +84,7 @@ blend_shape_mode = 0
 
 [node name="bomb" type="Node3D"]
 script = ExtResource("1_uxhor")
+meshes = Array[NodePath]([NodePath("Armature/Skeleton3D/Bomb_Hikari__M_Bom01"), NodePath("Armature/Skeleton3D/Bomb_Kaiten__M_Bom01")])
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 0

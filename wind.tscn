@@ -87,6 +87,7 @@ size = Vector3(25.305, 30.1966, 33.2921)
 
 [node name="Wind" type="Node3D"]
 script = ExtResource("1_niyvm")
+meshes = Array[NodePath]([NodePath("windBig/Armature/Skeleton3D/Fzr_WindMachine02__Mat_Fzr_WindMachine02"), NodePath("windSmall/Armature/Skeleton3D/Fzr_WindMachine01__Mat_Fzr_WindMachine02")])
 
 [node name="windBig" type="Node3D" parent="."]
 

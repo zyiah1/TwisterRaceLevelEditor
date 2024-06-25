@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0vhoibfjxsyj"]
+
+[ext_resource type="Script" path="res://shared scripts/BaseObject.gd" id="1_qmrhx"]
+[ext_resource type="PackedScene" uid="uid://b66ig4ex88nor" path="res://models/battery.fbx" id="2_kim2i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0xwy2"]
+size = Vector3(15.6592, 18.5411, 19.6428)
+
+[node name="battery" type="Node3D"]
+script = ExtResource("1_qmrhx")
+meshes = Array[NodePath]([NodePath("Root Scene/RootNode/Armature/Skeleton3D/Fzr_Car03D__Mat_Fzr_Car03")])
+DataName = "EnemyCarBattery"
+
+[node name="Root Scene" parent="." instance=ExtResource("2_kim2i")]
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.37789, -5.09826)
+visible = false
+shape = SubResource("BoxShape3D_0xwy2")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]
+
+[editable path="Root Scene"]

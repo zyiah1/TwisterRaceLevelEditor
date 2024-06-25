@@ -8,6 +8,7 @@ size = Vector3(58.6693, 44.3955, 51.2832)
 
 [node name="dartpile" type="Node3D"]
 script = ExtResource("1_sowha")
+meshes = Array[NodePath]([NodePath("dartpile/Fzr_Dart01__Mat_Dart01")])
 DataName = "Dart"
 
 [node name="dartpile" parent="." instance=ExtResource("2_rxjk3")]
@@ -22,3 +23,5 @@ shape = SubResource("BoxShape3D_r3cbc")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]
+
+[editable path="dartpile"]

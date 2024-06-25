@@ -35,6 +35,7 @@ size = Vector3(8.60064, 30.1966, 20.7692)
 
 [node name="star" type="Node3D"]
 script = ExtResource("1_nhg53")
+meshes = Array[NodePath]([NodePath("star/Armature/Skeleton3D/Cmn_Star__Mat_Star")])
 DataName = "Star"
 notes = "Param 1 might be time active in seconds"
 Param1 = 6.0

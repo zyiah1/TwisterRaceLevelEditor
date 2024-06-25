@@ -100,6 +100,7 @@ size = Vector3(226.46, 30.1966, 46.5092)
 
 [node name="jump" type="Node3D"]
 script = ExtResource("1_rexq6")
+meshes = Array[NodePath]([NodePath("Armature/Skeleton3D/Fzr_Jump01__Mat_Jump_n"), NodePath("Armature/Skeleton3D/Fzr_Jump01__Mat_Jump"), NodePath("Armature/Skeleton3D/pSphere16__Mat_Jump_Nezi")])
 DataName = "Jump"
 
 [node name="Armature" type="Node3D" parent="."]

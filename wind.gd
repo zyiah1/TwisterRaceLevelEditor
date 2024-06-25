@@ -6,6 +6,7 @@ var data: PackedStringArray
 @onready var trackid = creator.trackid
 
 var small = false
+@export var meshes: Array[NodePath]
 @export var DataName = "Wind"
 @export var notes = ""
 
@@ -22,15 +23,14 @@ var small = false
 @export var Param8: float = -1
 @export var Param9: float = -1
 
-
-
+var hover:bool = false
 
 func _physics_process(delta):
 	id = creator.nodes.find(self)
-	if visible == false:
-		if Input.is_action_just_pressed("click"):
-			creator.trackid -= 1
-			queue_free()
+	if hover == true:
+		if creator.item == "trash":
+			if Input.is_action_just_pressed("click"):
+				queue_free()
 
 func _ready():
 	if small == true:
@@ -73,8 +73,13 @@ func EXPORT():
 
 
 func _on_area_3d_area_entered(area):
-	hide()
+	hover = true
+	if creator.item == "trash":
+		for path in meshes:
+			get_node(path).material_overlay = load("res://textures/delete.tres")
 
 
 func _on_area_3d_area_exited(area):
-	show()
+	hover = false
+	for path in meshes:
+		get_node(path).material_overlay = null

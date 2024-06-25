@@ -343,6 +343,8 @@ func _physics_process(delta):
 						inst = light.instantiate()
 					"bar":
 						inst = load("res://bar.tscn").instantiate()
+					"battery":
+						inst = load("res://battery.tscn").instantiate()
 					"obstacle":
 						inst = load("res://obstacle.tscn").instantiate()
 						if shift:
@@ -388,7 +390,8 @@ func get_input(delta):
 		for node in get_tree().get_nodes_in_group("enter"):#any node that wants release focus when entered
 			node.release_focus()
 	if Input.is_action_just_pressed("Copy"):
-		save()
+		await save()
+		$nonmoving/AnimationPlayer.play("copied")
 		var path
 		var fakeout = false
 		if $nonmoving/name.text == "":
@@ -409,11 +412,8 @@ func get_input(delta):
 			OS.shell_open(str("file://" + ProjectSettings.globalize_path(Options.filepath) + "/untitled" + ".txt"))
 		else:
 			OS.shell_open(str("file://" + ProjectSettings.globalize_path(Options.filepath) + "/" + $nonmoving/name.text + ".txt"))
-	if Input.is_action_pressed("save"):
-		$Camera3D.paused = true
+	if Input.is_action_just_pressed("save"):
 		save()
-	else:
-		$Camera3D.paused = false
 	if Input.is_action_just_pressed("shift"):
 		shift = not shift
 	if Input.is_action_just_pressed("esc"):
@@ -421,27 +421,7 @@ func get_input(delta):
 			save()
 		get_tree().change_scene_to_file("res://title.tscn")
 	if Input.is_action_just_pressed("Undo"):
-		if nodes.size() != 0:
-			if mode == "track":
-				stored = nodes[nodes.size() - 1]
-				nodes[nodes.size()-1].get_node("AnimationPlayer").play("undo")
-				
-				self.disconnect("EXPORT", Callable(nodes[nodes.size() - 1], "EXPORT"))
-				nodes[nodes.size()-1].queue_free()
-				nodes.remove_at(nodes.size() - 1)
-				if nodes.size() != 0:
-					current = nodes[nodes.size()-1]
-				else:
-					current = $Track
-				highlighttrack(current)
-				
-		if objnodes.size() != 0:
-			if mode != "track":
-				objnodes[objnodes.size()-1].queue_free()
-				objnodes.remove_at(objnodes.size() - 1)
-				
-				
-			
+		_on_undo_pressed()
 	if Input.is_action_just_pressed("koolcam"):
 		if $Camera3D.current == true:
 			$cameraAnimation.play("whole track_IN")
@@ -459,34 +439,28 @@ func highlighttrack(track):
 		track.get_node("RootNode/road").material_overlay = load("res://track select.tres")
 
 func save():
-	if namefocus == false:
-		var prename = $nonmoving/name.text
-		if $nonmoving/name.text == "":
-			$nonmoving/name.text = Options.defaultfilename
-		filename = $nonmoving/name.text
-		$nonmoving/saving.show()
-		emit_signal("EXPORT")
-		
-		var path = Options.filepath + "/" + $nonmoving/name.text + ".txt"
-		var file = FileAccess.open(path,FileAccess.WRITE)
-		var text = map + track + objects + rails + end
-		if file.open(path, file.WRITE):
-			file.open(path, file.WRITE)
-			for content in text:
-				file.store_line(content)
-			file.close()
-			$nonmoving/name.text = prename
-		track = []
+	if namefocus == true:
+		return
+	
+	var prename = $nonmoving/name.text
+	if $nonmoving/name.text == "":
+		$nonmoving/name.text = Options.defaultfilename
+	filename = $nonmoving/name.text
+	$nonmoving/AnimationPlayer.play("saving")
+	emit_signal("EXPORT")
+	var path = Options.filepath + "/" + $nonmoving/name.text + ".txt"
+	var file = FileAccess.open(path,FileAccess.WRITE)
+	var text = map + track + objects + rails + end
+	if file.open(path, file.WRITE):
+		file.open(path, file.WRITE)
+		for content in text:
+			file.store_line(content)
+		file.close()
+		$nonmoving/name.text = prename
+	track = []
+	$nonmoving/AnimationPlayer.play("saved")
 	
 	
-	var t = Timer.new()
-	
-	t.one_shot = true
-	add_child(t)
-	t.start(.1)
-	await(t.timeout)
-	$nonmoving/saving.hide()
-	t.queue_free()
 
 func _on_done_pressed():
 	mode = "object"
@@ -527,8 +501,9 @@ func _on_delete_pressed():
 		if current != $Track:
 			nodes.remove_at(nodes.find(current))
 			current.queue_free()
-			current = nodes[nodes.size() - 1]
-			highlighttrack(current)
+			if nodes.size() != 0:
+				current = nodes[nodes.size() - 1]
+				highlighttrack(current)
 
 
 func _on_testoffset_text_changed(new_text):
@@ -546,3 +521,25 @@ func _on_forward_pressed():
 
 func _on_backwards_pressed():
 	backwards = true
+
+
+func _on_undo_pressed():
+	if mode == "track":
+		if nodes.size() != 0:
+			stored = nodes[nodes.size() - 1]
+			nodes[nodes.size()-1].get_node("AnimationPlayer").play("undo")
+			
+			self.disconnect("EXPORT", Callable(nodes[nodes.size() - 1], "EXPORT"))
+			nodes[nodes.size()-1].queue_free()
+			nodes.remove_at(nodes.size() - 1)
+			if nodes.size() != 0:
+				current = nodes[nodes.size()-1]
+			else:
+				current = $Track
+			highlighttrack(current)
+	if mode == "object":
+		if objnodes.size() != 0:
+			print("Af")
+			self.disconnect("EXPORT", Callable(objnodes[objnodes.size() - 1], "EXPORT"))
+			objnodes[objnodes.size()-1].queue_free()
+			objnodes.remove_at(objnodes.size() - 1)

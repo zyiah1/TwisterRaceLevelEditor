@@ -8,9 +8,13 @@ size = Vector3(39.7041, 95.1238, 46.5092)
 
 [node name="light" type="Node3D"]
 script = ExtResource("1_hmxlm")
+meshes = Array[NodePath]([NodePath("Root Scene/RootNode/Armature/Skeleton3D/light_L01__Mat_Fzr_dennki"), NodePath("Root Scene/RootNode/Armature/Skeleton3D/light_L01__Mat_Fzr_dennki_Light_kura")])
 DataName = "DenchuSTL"
 
 [node name="Root Scene" parent="." instance=ExtResource("2_2y5qh")]
+
+[node name="light_L01__Mat_Fzr_dennki" parent="Root Scene/RootNode/Armature/Skeleton3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.11022e-15, 0, 1.97173e-15, 1, 0, 0, 0)
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 0
@@ -23,3 +27,5 @@ shape = SubResource("BoxShape3D_uf12t")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]
+
+[editable path="Root Scene"]
