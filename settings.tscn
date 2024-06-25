@@ -44,9 +44,9 @@ scale_amount_curve = SubResource("Curve_c7i7e")
 [node name="circles" type="CPUParticles2D" parent="Node2D"]
 amount = 20
 lifetime = 12.0
-preprocess = 140.39
+preprocess = 200.45
 texture = ExtResource("5_3ue8j")
-gravity = Vector2(2.08165e-12, 2.08165e-12)
+gravity = Vector2(2.08165e-12, 1)
 scale_amount_curve = SubResource("Curve_c7i7e")
 
 [node name="wave" type="CPUParticles2D" parent="Node2D"]

@@ -292,16 +292,21 @@ func _physics_process(delta):
 		$Previews/wind/windSmall.show()
 		$Previews/dash/dashBig.hide()
 		$Previews/dash/dashSmall.show()
+		$Previews/obstacle/thro.show()
+		$Previews/obstacle/normal.hide()
 		$CanvasLayer/Obstacles/wind.icon = preload("res://ui/objects/windsmall.png")
 		$CanvasLayer/Obstacles/dash.icon = preload("res://ui/objects/dash.png")
+		$CanvasLayer/Obstacles/obstacle.icon = preload("res://ui/objects/obstaclethro.png")
 	else:
 		$Previews/wind/windBig.show()
 		$Previews/wind/windSmall.hide()
 		$Previews/dash/dashBig.show()
 		$Previews/dash/dashSmall.hide()
+		$Previews/obstacle/thro.hide()
+		$Previews/obstacle/normal.show()
 		$CanvasLayer/Obstacles/wind.icon = preload("res://ui/objects/windbig.png")
 		$CanvasLayer/Obstacles/dash.icon = preload("res://ui/objects/dash2.png")
-	
+		$CanvasLayer/Obstacles/obstacle.icon = preload("res://ui/objects/obstacle.png")
 	
 	if not intersection.is_empty():
 		if mode == "track":
@@ -338,6 +343,10 @@ func _physics_process(delta):
 						inst = light.instantiate()
 					"bar":
 						inst = load("res://bar.tscn").instantiate()
+					"obstacle":
+						inst = load("res://obstacle.tscn").instantiate()
+						if shift:
+							inst = load("res://obstaclethro.tscn").instantiate()
 			if item != "none":
 				get_node("Previews/" + item).position = pos -Vector3(0,pos.y,0)
 			if inst != null:
