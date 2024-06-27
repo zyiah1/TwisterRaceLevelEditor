@@ -227,14 +227,14 @@ access = 2
 filters = PackedStringArray("*.txt")
 
 [node name="Paste" type="Button" parent="CanvasLayer/Load"]
-visible = false
 layout_mode = 0
-offset_left = 10.0
+offset_left = 9.0
 offset_top = 318.0
-offset_right = 410.0
+offset_right = 409.0
 offset_bottom = 417.0
 focus_mode = 0
 theme = ExtResource("1_x8gv4")
+theme_override_colors/font_color = Color(1, 0.843137, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxTexture_e14ek")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_54dvj")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_54dvj")

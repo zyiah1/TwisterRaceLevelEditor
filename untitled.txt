@@ -1,0 +1,188 @@
+Version: 1
+IsBigEndian: True
+SupportPaths: False
+HasReferenceNodes: False
+root:
+  LayerInfos:
+    - Infos:
+        ObjInfo:
+          - comment: !l -1
+            dir_x: -0
+            dir_y: 90
+            dir_z: 0
+            id_name: obj0
+            layer: LC
+            link_info: []
+            link_num: !l 0
+            name: Fzr_PlayerStart
+            param0: -1
+            param1: -1
+            param10: -1
+            param11: -1
+            param2: -1
+            param3: -1
+            param4: -1
+            param5: -1
+            param6: -1
+            param7: -1
+            param8: -1
+            param9: -1
+            pos_x: -4670
+            pos_y: 0
+            pos_z: 0
+            scale_x: 1.00000
+            scale_y: 1.00000
+            scale_z: 1.00000
+          - comment: !l -1
+            dir_x: 0.00000000000002
+            dir_y: -90
+            dir_z: 0.00000000000002
+            id_name: obj0
+            layer: LC
+            link_info: []
+            link_num: !l 0
+            name: Fzr_Shutter
+            param0: -1
+            param1: 1
+            param10: -1
+            param11: -1
+            param2: -1
+            param3: -1
+            param4: -1
+            param5: -1
+            param6: -1
+            param7: -1
+            param8: -1
+            param9: -1
+            pos_x: -4500
+            pos_y: 0.00000000000208
+            pos_z: -0.00000743093824
+            scale_x: 200.00000
+            scale_y: 1.00000
+            scale_z: 1.00000
+      LayerName: LC
+    - Infos:
+        ObjInfo: []
+        RailInfos:
+          PathInfo: []
+      LayerName: L1
+    - Infos:
+        ObjInfo: []
+        RailInfos:
+          PathInfo: []
+      LayerName: L2
+    - Infos:
+        ObjInfo: []
+        RailInfos:
+          PathInfo: []
+      LayerName: L3
+    - Infos:
+        ObjInfo: []
+        RailInfos:
+          PathInfo: []
+      LayerName: L4
+    - Infos:
+        ObjInfo: []
+        RailInfos:
+          PathInfo: []
+      LayerName: L5
+    - Infos:
+        ObjInfo: []
+        RailInfos:
+          PathInfo: []
+      LayerName: L6
+    - Infos:
+        ObjInfo: []
+        RailInfos:
+          PathInfo: []
+      LayerName: L7
+    - Infos:
+        ObjInfo: []
+        RailInfos:
+          PathInfo: []
+      LayerName: L8
+    - Infos:
+        ObjInfo: []
+        RailInfos:
+          PathInfo: []
+      LayerName: L9
+    - Infos:
+        ObjInfo: []
+        RailInfos:
+          PathInfo: []
+      LayerName: L10
+    - Infos:
+        ObjInfo: []
+        RailInfos:
+          PathInfo: []
+      LayerName: L11
+    - Infos:
+        ObjInfo: []
+        RailInfos:
+          PathInfo: []
+      LayerName: L12
+    - Infos:
+        ObjInfo: []
+        RailInfos:
+          PathInfo: []
+      LayerName: L13
+    - Infos:
+        ObjInfo: []
+        RailInfos:
+          PathInfo: []
+      LayerName: L14
+    - Infos:
+        ObjInfo: []
+        RailInfos:
+          PathInfo: []
+      LayerName: L15
+    - Infos:
+        ObjInfo: []
+        RailInfos:
+          PathInfo: []
+      LayerName: L16
+    - Infos:
+        ObjInfo: []
+        RailInfos:
+          PathInfo: []
+      LayerName: L17
+    - Infos:
+        ObjInfo: []
+        RailInfos:
+          PathInfo: []
+      LayerName: L18
+    - Infos:
+        ObjInfo: []
+        RailInfos:
+          PathInfo: []
+      LayerName: L19
+    - Infos:
+        ObjInfo: []
+        RailInfos:
+          PathInfo: []
+      LayerName: L20
+    - Infos:
+        ObjInfo: []
+        RailInfos:
+          PathInfo: []
+      LayerName: L21
+    - Infos:
+        ObjInfo: []
+        RailInfos:
+          PathInfo: []
+      LayerName: L22
+    - Infos:
+        ObjInfo: []
+        RailInfos:
+          PathInfo: []
+      LayerName: L23
+    - Infos:
+        ObjInfo: []
+        RailInfos:
+          PathInfo: []
+      LayerName: L24
+    - Infos:
+        ObjInfo: []
+        RailInfos:
+          PathInfo: []
+      LayerName: L25
