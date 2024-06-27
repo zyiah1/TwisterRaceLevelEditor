@@ -7,10 +7,12 @@ var saveonexit: bool = false
 var autosave: bool = true
 var autosavetime: int = 20
 var defaultfilename: String = "untitled"
+var firstboot = true #for update checker
 
 var creator
-var data = [filepath,str(trackfreecam),str(saveonexit),str(autosave),str(autosavetime),defaultfilename]
+var data = [filepath,str(trackfreecam),str(saveonexit),str(autosave),str(autosavetime),defaultfilename,str(firstboot)]
 var firstopen = true
+
 
 func _ready():
 	get_tree().set_auto_accept_quit(false)
@@ -39,6 +41,10 @@ func _ready():
 				autosave = false
 			autosavetime = int(content[4])
 			defaultfilename = content[5]
+			if content[6] == "true":
+				firstboot = true
+			else:
+				firstboot = false
 	else:
 		file = FileAccess.open("res://Fzero.settings",FileAccess.WRITE)
 		print("Creating New Settings File...")
@@ -50,7 +56,7 @@ func _ready():
 
 
 func save():
-	data = [filepath,str(trackfreecam),str(saveonexit),str(autosave),str(autosavetime),defaultfilename]
+	data = [filepath,str(trackfreecam),str(saveonexit),str(autosave),str(autosavetime),defaultfilename,str(firstboot)]
 	var file = FileAccess.open("res://Fzero.settings",FileAccess.WRITE)
 	print("Saving")
 	if file:

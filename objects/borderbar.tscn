@@ -14,9 +14,6 @@ DataName = "Stop2"
 
 [node name="border" parent="." instance=ExtResource("2_bstnr")]
 
-[node name="RootNode" parent="border" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 50, 2.08165e-12)
-
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 0
 collision_mask = 2

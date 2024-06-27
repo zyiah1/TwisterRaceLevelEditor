@@ -7,6 +7,7 @@
 size = Vector3(24.5, 12.7352, 44.0938)
 
 [node name="brokencarshort" type="Node3D"]
+transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -1, 3.48787e-16, -4.37114e-08, 0, 0, 0)
 script = ExtResource("1_kw4hw")
 meshes = Array[NodePath]([NodePath("Root Scene/RootNode/Armature/Skeleton3D/Fzr_Car02T__Mat_Fzr_Car02")])
 DataName = "EnemyCar"

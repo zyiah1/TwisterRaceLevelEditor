@@ -360,9 +360,9 @@ func _physics_process(delta):
 					"longcarbroke":
 						inst = load("res://objects/longbrokencar.tscn").instantiate()
 					"stop":
-						inst = load("res://objects/borderbarsmall.tscn")
+						inst = load("res://objects/borderbarsmall.tscn").instantiate()
 						if shift:
-							inst = load("res://objects/borderbar.tscn")
+							inst = load("res://objects/borderbar.tscn").instantiate()
 			if item != "none":
 				get_node("Previews/" + item).position = pos -Vector3(0,pos.y,0)
 			if inst != null:
