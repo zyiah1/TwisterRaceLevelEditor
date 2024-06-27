@@ -130,7 +130,9 @@ func LoadLevel(name):
 			if content[8].begins_with("            name: Fzr_Star"):
 				inst = preload("res://objects/star.tscn").instantiate()
 			if content[8].begins_with("            name: Fzr_Bar"):
-				inst = preload("res://objects/bar.tscn").instantiate()
+				inst = preload("res://objects/bardown.tscn").instantiate()
+				if float(content[10].erase(17).lstrip("            param: ")) == -1:
+					inst = preload("res://objects/barup.tscn").instantiate()
 			if content[8].begins_with("            name: Fzr_Obstacle"):
 				inst = preload("res://objects/obstacle.tscn").instantiate()
 			if content[8].begins_with("            name: Fzr_ObstThro"):

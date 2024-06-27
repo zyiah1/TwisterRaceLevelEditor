@@ -287,32 +287,30 @@ func _physics_process(delta):
 	var intersection = space_state.intersect_ray(parameters)
 	
 	
+	
+	$Previews/stop/stoplong.visible = shift
+	$Previews/stop/stopshort.visible = not shift
+	$Previews/wind/windBig.visible = not shift
+	$Previews/dash/dashBig.visible = not shift
+	$Previews/obstacle/normal.visible = not shift
+	$Previews/bar/down.visible = not shift
+	$Previews/wind/windSmall.visible = shift
+	$Previews/dash/dashSmall.visible = shift
+	$Previews/obstacle/thro.visible = shift
+	$Previews/bar/up.visible = shift
+	
 	if shift == true:
-		$Previews/stop/stoplong.show()
-		$Previews/stop/stopshort.hide()
-		$Previews/wind/windBig.hide()
-		$Previews/wind/windSmall.show()
-		$Previews/dash/dashBig.hide()
-		$Previews/dash/dashSmall.show()
-		$Previews/obstacle/thro.show()
-		$Previews/obstacle/normal.hide()
 		$CanvasLayer/Obstacles/wind.icon = preload("res://ui/objects/windsmall.png")
 		$CanvasLayer/Obstacles/dash.icon = preload("res://ui/objects/dash.png")
 		$CanvasLayer/Obstacles/obstacle.icon = preload("res://ui/objects/obstaclethro.png")
 		$CanvasLayer/Obstacles/stop.icon = preload("res://ui/objects/stoplong.png")
+		$CanvasLayer/Obstacles/bar.icon = preload("res://ui/objects/barup.png")
 	else:
-		$Previews/stop/stoplong.hide()
-		$Previews/stop/stopshort.show()
-		$Previews/wind/windBig.show()
-		$Previews/wind/windSmall.hide()
-		$Previews/dash/dashBig.show()
-		$Previews/dash/dashSmall.hide()
-		$Previews/obstacle/thro.hide()
-		$Previews/obstacle/normal.show()
 		$CanvasLayer/Obstacles/wind.icon = preload("res://ui/objects/windbig.png")
 		$CanvasLayer/Obstacles/dash.icon = preload("res://ui/objects/dash2.png")
 		$CanvasLayer/Obstacles/obstacle.icon = preload("res://ui/objects/obstacle.png")
 		$CanvasLayer/Obstacles/stop.icon = preload("res://ui/objects/stopshort.png")
+		$CanvasLayer/Obstacles/bar.icon = preload("res://ui/objects/bar.png")
 	
 	if not intersection.is_empty():
 		if mode == "track":
@@ -348,7 +346,9 @@ func _physics_process(delta):
 					"light":
 						inst = light.instantiate()
 					"bar":
-						inst = load("res://objects/bar.tscn").instantiate()
+						inst = load("res://objects/bardown.tscn").instantiate()
+						if shift:
+							inst = load("res://objects/barup.tscn").instantiate()
 					"battery":
 						inst = load("res://objects/battery.tscn").instantiate()
 					"obstacle":
@@ -365,10 +365,15 @@ func _physics_process(delta):
 							inst = load("res://objects/borderbar.tscn").instantiate()
 			if item != "none":
 				get_node("Previews/" + item).position = pos -Vector3(0,pos.y,0)
+				if Input.is_action_just_pressed("unrotate"):
+					get_node("Previews/" + item).rotation_degrees.y += 15
+				elif Input.is_action_just_pressed("rotate"):
+					get_node("Previews/" + item).rotation_degrees.y -= 15
 			if inst != null:
 				redoobj = []
 				connect("EXPORT", Callable(inst, "EXPORT"))
 				inst.position = pos -Vector3(0,pos.y,0)
+				inst.rotation = get_node("Previews/" + item).rotation
 				$Objects.add_child(inst)
 				objnodes.append(inst)
 				trackid += 1 

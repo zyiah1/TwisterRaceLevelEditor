@@ -60,6 +60,87 @@ root:
             scale_x: 200.00000
             scale_y: 1.00000
             scale_z: 1.00000
+          - comment: !l -1
+            dir_x: -0
+            dir_y: 90
+            dir_z: 0
+            id_name: obj0
+            layer: LC
+            link_info: []
+            link_num: !l 0
+            name: Fzr_FieldParts01
+            param0: -1
+            param1: -1
+            param10: -1
+            param11: -1
+            param2: -1
+            param3: -1
+            param4: -1
+            param5: -1
+            param6: -1
+            param7: -1
+            param8: -1
+            param9: -1
+            pos_x: -4100
+            pos_y: 0
+            pos_z: 0
+            scale_x: 1.00000
+            scale_y: 1.00000
+            scale_z: 1.00000
+          - comment: !l -1
+            dir_x: -0
+            dir_y: 90
+            dir_z: 0
+            id_name: obj1
+            layer: LC
+            link_info: []
+            link_num: !l 0
+            name: Fzr_FieldParts01
+            param0: -1
+            param1: -1
+            param10: -1
+            param11: -1
+            param2: -1
+            param3: -1
+            param4: -1
+            param5: -1
+            param6: -1
+            param7: -1
+            param8: -1
+            param9: -1
+            pos_x: -3400
+            pos_y: 0
+            pos_z: -0.00003059797746
+            scale_x: 1.00000
+            scale_y: 1.00000
+            scale_z: 1.00000
+          - comment: !l -1
+            dir_x: -0
+            dir_y: 90
+            dir_z: 0
+            id_name: obj2
+            layer: LC
+            link_info: []
+            link_num: !l 0
+            name: Fzr_FieldParts01
+            param0: -1
+            param1: -1
+            param10: -1
+            param11: -1
+            param2: -1
+            param3: -1
+            param4: -1
+            param5: -1
+            param6: -1
+            param7: -1
+            param8: -1
+            param9: -1
+            pos_x: -2700
+            pos_y: 0
+            pos_z: -0.00006119595491
+            scale_x: 1.00000
+            scale_y: 1.00000
+            scale_z: 1.00000
       LayerName: LC
     - Infos:
         ObjInfo: []
