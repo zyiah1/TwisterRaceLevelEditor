@@ -1,4 +1,4 @@
-[gd_scene load_steps=101 format=3 uid="uid://cmqyq6acq27sr"]
+[gd_scene load_steps=103 format=3 uid="uid://cmqyq6acq27sr"]
 
 [ext_resource type="Script" path="res://button.gd" id="2"]
 [ext_resource type="Script" path="res://Track.gd" id="2_nq3cm"]
@@ -47,6 +47,8 @@
 [ext_resource type="Texture2D" uid="uid://bqmfsah0jv5eb" path="res://ui/tools/redo.png" id="33_rt0tr"]
 [ext_resource type="Texture2D" uid="uid://d300vxl052ol2" path="res://textures/sky/kiri_Alb.png" id="35_wskat"]
 [ext_resource type="AudioStream" uid="uid://c2p85b344tmcq" path="res://sfx/clack-85854.mp3" id="36_moef1"]
+[ext_resource type="Texture2D" uid="uid://budyaqweb3tgx" path="res://ui/tools/rotate clock.png" id="37_ywdyh"]
+[ext_resource type="Texture2D" uid="uid://covnssjyra3qt" path="res://ui/tools/rotate counter clock.png" id="38_fhtwh"]
 [ext_resource type="PackedScene" uid="uid://faxky36xraxs" path="res://trash.tscn" id="39_i6oxl"]
 [ext_resource type="PackedScene" uid="uid://cwm3wxy6xm7nr" path="res://models/bar.fbx" id="42_4bec0"]
 [ext_resource type="PackedScene" uid="uid://bkqvt1dq2vdrv" path="res://models/Light.fbx" id="43_d08nw"]
@@ -1123,6 +1125,7 @@ script = ExtResource("17_dhc3k")
 
 [node name="tools" type="HBoxContainer" parent="CanvasLayer"]
 visible = false
+modulate = Color(1, 1, 1, 0.839216)
 offset_left = 208.0
 offset_top = 690.0
 offset_right = 1395.0
@@ -1156,7 +1159,24 @@ toggle_mode = true
 icon = ExtResource("33_rt0tr")
 icon_alignment = 1
 
+[node name="rclock" type="Button" parent="CanvasLayer/tools"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_pogl6")
+toggle_mode = true
+icon = ExtResource("37_ywdyh")
+icon_alignment = 1
+
+[node name="rcounterclock" type="Button" parent="CanvasLayer/tools"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_pogl6")
+toggle_mode = true
+icon = ExtResource("38_fhtwh")
+icon_alignment = 1
+
 [node name="trackoptions" type="HBoxContainer" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.839216)
 offset_left = 208.0
 offset_top = 690.0
 offset_right = 1395.0
@@ -1671,6 +1691,8 @@ visible = false
 [connection signal="pressed" from="CanvasLayer/tools/trash" to="CanvasLayer/tools/trash" method="_on_straight_pressed"]
 [connection signal="pressed" from="CanvasLayer/tools/undo" to="." method="_on_undo_pressed"]
 [connection signal="pressed" from="CanvasLayer/tools/redo" to="." method="_on_redo_pressed"]
+[connection signal="pressed" from="CanvasLayer/tools/rclock" to="." method="rotate_clockwise"]
+[connection signal="pressed" from="CanvasLayer/tools/rcounterclock" to="." method="rotate_counterclockwise"]
 [connection signal="pressed" from="CanvasLayer/trackoptions/delete" to="." method="_on_delete_pressed"]
 [connection signal="pressed" from="CanvasLayer/trackoptions/forward" to="." method="_on_forward_pressed"]
 [connection signal="pressed" from="CanvasLayer/trackoptions/back" to="." method="_on_backwards_pressed"]

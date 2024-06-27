@@ -319,6 +319,12 @@ func _physics_process(delta):
 				highlighttrack(track)
 				current = track
 		
+		if Input.is_action_just_pressed("unrotate"):
+			rotate_counterclockwise()
+		elif Input.is_action_just_pressed("rotate"):
+			rotate_clockwise()
+		
+		
 		if mode == "object":
 			$Previews.show()
 			var pos = intersection.position
@@ -365,10 +371,6 @@ func _physics_process(delta):
 							inst = load("res://objects/borderbar.tscn").instantiate()
 			if item != "none":
 				get_node("Previews/" + item).position = pos -Vector3(0,pos.y,0)
-				if Input.is_action_just_pressed("unrotate"):
-					get_node("Previews/" + item).rotation_degrees.y += 15
-				elif Input.is_action_just_pressed("rotate"):
-					get_node("Previews/" + item).rotation_degrees.y -= 15
 			if inst != null:
 				redoobj = []
 				connect("EXPORT", Callable(inst, "EXPORT"))
@@ -593,3 +595,15 @@ func _on_redo_pressed():
 			redoobj.remove_at(redoobj.size()-1)
 			stored.show()
 			objnodes.append(stored)
+
+
+func rotate_clockwise():
+	if mode == "object":
+		if item != "none":
+			get_node("Previews/" + item).rotation_degrees.y -= 15
+
+
+func rotate_counterclockwise():
+	if mode == "object":
+		if item != "none":
+			get_node("Previews/" + item).rotation_degrees.y += 15
