@@ -137,7 +137,20 @@ func LoadLevel(name):
 				inst = preload("res://objects/obstaclethro.tscn").instantiate()
 			if content[8].begins_with("            name: Fzr_EnemyCarBattery"):
 				inst = preload("res://objects/battery.tscn").instantiate()
-			
+			if content[8].begins_with("            name: Fzr_EnemyCar"):
+				if float(content[13].erase(17).lstrip("            param: ")) == 7:
+					inst = preload("res://objects/shortbrokencar.tscn").instantiate()
+				#else:
+					
+			if content[8].begins_with("            name: Fzr_EnemyTrailer"): #long car
+				if float(content[13].erase(17).lstrip("            param: ")) == 7:
+					inst = preload("res://objects/longbrokencar.tscn").instantiate()
+				#else:
+					
+			if content[8].begins_with("            name: Fzr_Stop"): #long car
+				inst = preload("res://objects/borderbarsmall.tscn").instantiate()
+			if content[8].begins_with("            name: Fzr_Stop2"): #long car
+				inst = preload("res://objects/borderbar.tscn").instantiate()
 			if content[8].begins_with("            name: Fzr_Dash"):
 				if not content[8].begins_with("            name: Fzr_Dash2"):
 					inst = preload("res://objects/dash.tscn").instantiate()

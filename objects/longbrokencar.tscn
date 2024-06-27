@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://im7q4k8inr42"]
+
+[ext_resource type="Script" path="res://shared scripts/BaseObject.gd" id="1_dux2f"]
+[ext_resource type="PackedScene" uid="uid://cx1v8sow1572n" path="res://models/LongBrokenCar.fbx" id="2_8l5fq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mllj4"]
+size = Vector3(25.3242, 12.7352, 143.788)
+
+[node name="brokencarlong" type="Node3D"]
+script = ExtResource("1_dux2f")
+meshes = Array[NodePath]([NodePath("car/RootNode/Armature/Skeleton3D/Fzr_Car03T__Mat_Fzr_Car03")])
+DataName = "EnemyTrailer"
+Param2 = 7.0
+
+[node name="car" parent="." instance=ExtResource("2_8l5fq")]
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.7601, 0)
+shape = SubResource("BoxShape3D_mllj4")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]
+
+[editable path="car"]

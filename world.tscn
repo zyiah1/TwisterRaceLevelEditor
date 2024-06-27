@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=3 uid="uid://cmqyq6acq27sr"]
+[gd_scene load_steps=101 format=3 uid="uid://cmqyq6acq27sr"]
 
 [ext_resource type="Script" path="res://button.gd" id="2"]
 [ext_resource type="Script" path="res://Track.gd" id="2_nq3cm"]
@@ -29,8 +29,10 @@
 [ext_resource type="Texture2D" uid="uid://bilv5lbcvktm3" path="res://ui/objects/car.png" id="21_qv3hg"]
 [ext_resource type="Texture2D" uid="uid://di2y1k6brrg7t" path="res://ui/objects/obstacle.png" id="24_0h0dc"]
 [ext_resource type="Texture2D" uid="uid://bgydvpv7rmnfx" path="res://ui/objects/light.png" id="24_crc6g"]
+[ext_resource type="Texture2D" uid="uid://ddijbgmthpa8k" path="res://ui/objects/shortbroke.png" id="25_bjyr7"]
 [ext_resource type="Texture2D" uid="uid://cns5g5bp6vw3h" path="res://ui/objects/battery.png" id="25_pnuh3"]
 [ext_resource type="Texture2D" uid="uid://bh44vmw8bq5ky" path="res://ui/objects/bar.png" id="25_vcjwe"]
+[ext_resource type="Texture2D" uid="uid://b18gjkn808ddk" path="res://ui/objects/longbroke.png" id="26_34m6y"]
 [ext_resource type="Script" path="res://preview.gd" id="26_itfsx"]
 [ext_resource type="Texture2D" uid="uid://b35o0c3p4q0xk" path="res://ui/tools/trash.png" id="26_o2fjb"]
 [ext_resource type="Texture2D" uid="uid://yckgcndd5rfb" path="res://ui/tools/deletetrack.png" id="27_7o5da"]
@@ -38,6 +40,7 @@
 [ext_resource type="Texture2D" uid="uid://bq0xdnmxv7pi4" path="res://ui/tools/backwardtrack.png" id="29_ce4f2"]
 [ext_resource type="Script" path="res://setup.gd" id="29_mp26l"]
 [ext_resource type="Script" path="res://positionoffsetbutton.gd" id="30_fr64e"]
+[ext_resource type="Texture2D" uid="uid://d3f24m327othn" path="res://ui/objects/stopshort.png" id="30_g41cf"]
 [ext_resource type="FontFile" uid="uid://cvxewx0ydkm2o" path="res://fonts/f_zero_snes/F-ZeroSNES.ttf" id="30_mwt0d"]
 [ext_resource type="Script" path="res://back.gd" id="31_jwafk"]
 [ext_resource type="Texture2D" uid="uid://mk8pfdx1nfxr" path="res://ui/tools/undo.png" id="32_kx13i"]
@@ -59,58 +62,10 @@
 [ext_resource type="Texture2D" uid="uid://ckerv0kqafw71" path="res://models/Obstacle2-45c66466b66d3a05394b479af0e4c600_Fzr_Obstacle01_Alb.png" id="52_5fwxv"]
 [ext_resource type="Texture2D" uid="uid://4cfvvq87k4ys" path="res://models/Obstacle2-45c66466b66d3a05394b479af0e4c600_Fzr_Obstacle01_Emm.png" id="53_3tjas"]
 [ext_resource type="PackedScene" uid="uid://b66ig4ex88nor" path="res://models/battery.fbx" id="55_enqaj"]
-
-[sub_resource type="Animation" id="Animation_62vs6"]
-resource_name = "saving"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("saving:text")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["[center]saving..."]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("saving:theme_override_colors/default_color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("saving:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1370, 733)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("saving:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
+[ext_resource type="PackedScene" uid="uid://cx1v8sow1572n" path="res://models/LongBrokenCar.fbx" id="58_rncwu"]
+[ext_resource type="PackedScene" uid="uid://cbeu060eq54ty" path="res://models/SmallBrokenCar.fbx" id="59_mibru"]
+[ext_resource type="PackedScene" uid="uid://scaox002vyuf" path="res://models/stop1.fbx" id="62_2r3p5"]
+[ext_resource type="PackedScene" uid="uid://g3y3ule1vlrk" path="res://models/stop2.fbx" id="63_viqgt"]
 
 [sub_resource type="Animation" id="Animation_tm8r0"]
 length = 0.001
@@ -163,6 +118,47 @@ tracks/3/keys = {
 "values": [Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_wdjl6"]
+resource_name = "copied"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("saving:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["[center]copied!
+"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("saving:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0.0823529, 0.878431, 1), Color(0, 0.290196, 0.533333, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("saving:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1.23114),
+"update": 0,
+"values": [Vector2(1370, 733)]
+}
+
 [sub_resource type="Animation" id="Animation_k44ui"]
 resource_name = "saved"
 length = 0.8
@@ -203,9 +199,9 @@ tracks/2/keys = {
 "values": [Vector2(1370, 733)]
 }
 
-[sub_resource type="Animation" id="Animation_wdjl6"]
-resource_name = "copied"
-length = 0.8
+[sub_resource type="Animation" id="Animation_62vs6"]
+resource_name = "saving"
+length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -216,20 +212,19 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["[center]copied!
-"]
+"values": ["[center]saving..."]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("saving:modulate")
+tracks/1/path = NodePath("saving:theme_override_colors/default_color")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.2, 0.8),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0, 0.0823529, 0.878431, 1), Color(0, 0.290196, 0.533333, 0)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -238,10 +233,22 @@ tracks/2/path = NodePath("saving:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.2),
-"transitions": PackedFloat32Array(1.23114),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1370, 733)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("saving:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6u6sb"]
@@ -789,7 +796,6 @@ albedo_texture = ExtResource("51_lpdy1")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bgb6v"]
 resource_name = "Mat_Obst01"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 metallic = 0.4
 roughness = 0.272166
 
@@ -825,7 +831,6 @@ albedo_texture = ExtResource("51_lpdy1")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kh6ps"]
 resource_name = "Mat_Obst01.001"
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("52_5fwxv")
 metallic = 0.4
 roughness = 0.272166
@@ -977,7 +982,7 @@ offset_top = 900.0
 offset_right = 1367.0
 offset_bottom = 1008.0
 mouse_filter = 2
-alignment = 1
+alignment = 2
 
 [node name="dash" type="Button" parent="CanvasLayer/Obstacles"]
 layout_mode = 2
@@ -1062,6 +1067,24 @@ icon = ExtResource("24_0h0dc")
 icon_alignment = 1
 script = ExtResource("17_dhc3k")
 
+[node name="shortcarbroke" type="Button" parent="CanvasLayer/Obstacles"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_pogl6")
+toggle_mode = true
+icon = ExtResource("25_bjyr7")
+icon_alignment = 1
+script = ExtResource("17_dhc3k")
+
+[node name="longcarbroke" type="Button" parent="CanvasLayer/Obstacles"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_pogl6")
+toggle_mode = true
+icon = ExtResource("26_34m6y")
+icon_alignment = 1
+script = ExtResource("17_dhc3k")
+
 [node name="battery" type="Button" parent="CanvasLayer/Obstacles"]
 layout_mode = 2
 focus_mode = 0
@@ -1086,6 +1109,15 @@ focus_mode = 0
 theme = ExtResource("3_pogl6")
 toggle_mode = true
 icon = ExtResource("25_vcjwe")
+icon_alignment = 1
+script = ExtResource("17_dhc3k")
+
+[node name="stop" type="Button" parent="CanvasLayer/Obstacles"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_pogl6")
+toggle_mode = true
+icon = ExtResource("30_g41cf")
 icon_alignment = 1
 script = ExtResource("17_dhc3k")
 
@@ -1560,6 +1592,21 @@ skin = SubResource("Skin_wvo5l")
 [node name="battery" parent="Previews" instance=ExtResource("55_enqaj")]
 script = ExtResource("26_itfsx")
 
+[node name="longcarbroke" parent="Previews" instance=ExtResource("58_rncwu")]
+script = ExtResource("26_itfsx")
+
+[node name="shortcarbroke" parent="Previews" instance=ExtResource("59_mibru")]
+script = ExtResource("26_itfsx")
+
+[node name="stop" type="Node3D" parent="Previews"]
+transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -1, 3.48787e-16, -4.37114e-08, 0, 0, 0)
+script = ExtResource("26_itfsx")
+
+[node name="stopshort" parent="Previews/stop" instance=ExtResource("62_2r3p5")]
+
+[node name="stoplong" parent="Previews/stop" instance=ExtResource("63_viqgt")]
+visible = false
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.736203, -0.676761, -1.20318e-08, 0.0493045, 0.0536351, 0.997343, -0.674962, -0.734247, 0.0728536, 0, 43.7753, -200.575)
 
@@ -1598,9 +1645,12 @@ visible = false
 [connection signal="pressed" from="CanvasLayer/Obstacles/carline" to="CanvasLayer/Obstacles/carline" method="_on_straight_pressed"]
 [connection signal="pressed" from="CanvasLayer/Obstacles/bomb" to="CanvasLayer/Obstacles/bomb" method="_on_straight_pressed"]
 [connection signal="pressed" from="CanvasLayer/Obstacles/obstacle" to="CanvasLayer/Obstacles/obstacle" method="_on_straight_pressed"]
+[connection signal="pressed" from="CanvasLayer/Obstacles/shortcarbroke" to="CanvasLayer/Obstacles/shortcarbroke" method="_on_straight_pressed"]
+[connection signal="pressed" from="CanvasLayer/Obstacles/longcarbroke" to="CanvasLayer/Obstacles/longcarbroke" method="_on_straight_pressed"]
 [connection signal="pressed" from="CanvasLayer/Obstacles/battery" to="CanvasLayer/Obstacles/battery" method="_on_straight_pressed"]
 [connection signal="pressed" from="CanvasLayer/Obstacles/light" to="CanvasLayer/Obstacles/light" method="_on_straight_pressed"]
 [connection signal="pressed" from="CanvasLayer/Obstacles/bar" to="CanvasLayer/Obstacles/bar" method="_on_straight_pressed"]
+[connection signal="pressed" from="CanvasLayer/Obstacles/stop" to="CanvasLayer/Obstacles/stop" method="_on_straight_pressed"]
 [connection signal="pressed" from="CanvasLayer/tools/trash" to="CanvasLayer/tools/trash" method="_on_straight_pressed"]
 [connection signal="pressed" from="CanvasLayer/tools/undo" to="." method="_on_undo_pressed"]
 [connection signal="pressed" from="CanvasLayer/tools/redo" to="." method="_on_redo_pressed"]

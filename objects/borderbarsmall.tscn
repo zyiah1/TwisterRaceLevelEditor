@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://csfxe5emqlplw"]
+
+[ext_resource type="Script" path="res://shared scripts/BaseObject.gd" id="1_pgox8"]
+[ext_resource type="PackedScene" uid="uid://scaox002vyuf" path="res://models/stop1.fbx" id="2_anie3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ldg4h"]
+size = Vector3(36.1452, 23.7312, 14.5416)
+
+[node name="stop" type="Node3D"]
+transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -1, 3.48787e-16, -4.37114e-08, 0, 0, 0)
+script = ExtResource("1_pgox8")
+meshes = Array[NodePath]([NodePath("border/RootNode/Armature/Skeleton3D/Fzr_Stop__Mat_Fzr_Stop")])
+DataName = "Stop"
+
+[node name="border" parent="." instance=ExtResource("2_anie3")]
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -133.412, 8.81334, -4.54751)
+shape = SubResource("BoxShape3D_ldg4h")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 135.059, 8.81334, -4.54751)
+shape = SubResource("BoxShape3D_ldg4h")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]
+
+[editable path="border"]

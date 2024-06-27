@@ -288,6 +288,8 @@ func _physics_process(delta):
 	
 	
 	if shift == true:
+		$Previews/stop/stoplong.show()
+		$Previews/stop/stopshort.hide()
 		$Previews/wind/windBig.hide()
 		$Previews/wind/windSmall.show()
 		$Previews/dash/dashBig.hide()
@@ -297,7 +299,10 @@ func _physics_process(delta):
 		$CanvasLayer/Obstacles/wind.icon = preload("res://ui/objects/windsmall.png")
 		$CanvasLayer/Obstacles/dash.icon = preload("res://ui/objects/dash.png")
 		$CanvasLayer/Obstacles/obstacle.icon = preload("res://ui/objects/obstaclethro.png")
+		$CanvasLayer/Obstacles/stop.icon = preload("res://ui/objects/stoplong.png")
 	else:
+		$Previews/stop/stoplong.hide()
+		$Previews/stop/stopshort.show()
 		$Previews/wind/windBig.show()
 		$Previews/wind/windSmall.hide()
 		$Previews/dash/dashBig.show()
@@ -307,6 +312,7 @@ func _physics_process(delta):
 		$CanvasLayer/Obstacles/wind.icon = preload("res://ui/objects/windbig.png")
 		$CanvasLayer/Obstacles/dash.icon = preload("res://ui/objects/dash2.png")
 		$CanvasLayer/Obstacles/obstacle.icon = preload("res://ui/objects/obstacle.png")
+		$CanvasLayer/Obstacles/stop.icon = preload("res://ui/objects/stopshort.png")
 	
 	if not intersection.is_empty():
 		if mode == "track":
@@ -349,6 +355,14 @@ func _physics_process(delta):
 						inst = load("res://objects/obstacle.tscn").instantiate()
 						if shift:
 							inst = load("res://objects/obstaclethro.tscn").instantiate()
+					"shortcarbroke":
+						inst = load("res://objects/shortbrokencar.tscn").instantiate()
+					"longcarbroke":
+						inst = load("res://objects/longbrokencar.tscn").instantiate()
+					"stop":
+						inst = load("res://objects/borderbarsmall.tscn")
+						if shift:
+							inst = load("res://objects/borderbar.tscn")
 			if item != "none":
 				get_node("Previews/" + item).position = pos -Vector3(0,pos.y,0)
 			if inst != null:

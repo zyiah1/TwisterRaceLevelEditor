@@ -10,7 +10,6 @@ albedo_texture = ExtResource("2_xrgoa")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kh6ps"]
 resource_name = "Mat_Obst01.001"
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("3_3k4br")
 metallic = 0.4
 roughness = 0.272166
