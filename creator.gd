@@ -369,7 +369,14 @@ func _physics_process(delta):
 						if shift:
 							inst = load("res://objects/borderbar.tscn").instantiate()
 			if item != "none":
-				get_node("Previews/" + item).position = pos -Vector3(0,pos.y,0)
+				if Input.is_action_pressed("yrotate"):
+					if get_node("Previews/" + item).position != pos -Vector3(0,pos.y,0):
+						get_node("Previews/" + item).look_at(pos -Vector3(0,pos.y,0))
+						get_node("Previews/" + item).rotation.x = 0
+						get_node("Previews/" + item).rotation.z = 0
+				else:
+					get_node("Previews/" + item).position = pos -Vector3(0,pos.y,0) #y pos = 0
+			
 			if inst != null:
 				redoobj = []
 				connect("EXPORT", Callable(inst, "EXPORT"))
@@ -378,7 +385,7 @@ func _physics_process(delta):
 				$Objects.add_child(inst)
 				objnodes.append(inst)
 				trackid += 1 
-	else:
+	elif !Input.is_action_pressed("yrotate"):
 		$Previews.hide()
 	get_input(delta)
 	update_buttons()
