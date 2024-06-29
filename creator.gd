@@ -8,7 +8,6 @@ var star = preload("res://objects/star.tscn")
 var jump = preload("res://objects/jump.tscn")
 var dash = preload("res://objects/dash.tscn")
 var dart = preload("res://objects/dartpile.tscn")
-var wind = preload("res://objects/wind.tscn")
 var bomb = preload("res://objects/bomb.tscn")
 var light = preload("res://objects/light.tscn")
 
@@ -334,13 +333,13 @@ func _physics_process(delta):
 					"bomb":
 						inst = bomb.instantiate()
 					"wind":
-						inst = wind.instantiate()
+						inst = load("res://objects/windbig.tscn").instantiate()
 						if shift == true:
-							inst.small = true
+							inst = load("res://objects/windsmall.tscn").instantiate()
 					"dash":
-						inst = dash.instantiate()
+						inst = load("res://objects/dash2.tscn").instantiate()
 						if shift == true:
-							inst.small = true
+							inst = dash.instantiate()
 					"dartpile":
 						inst = dart.instantiate()
 					"jump":

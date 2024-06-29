@@ -7,7 +7,6 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cofdl"]
 resource_name = "Mat_Fzr_Car02"
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("3_4d37l")
 metallic = 0.9
 roughness = 0.8

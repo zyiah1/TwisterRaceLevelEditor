@@ -7,7 +7,6 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_huf6a"]
 resource_name = "Mat_Fzr_Car03"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("2_jrdwg")
 metallic = 0.81
 metallic_specular = 1.0

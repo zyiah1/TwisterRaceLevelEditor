@@ -125,8 +125,6 @@ func LoadLevel(name):
 				inst = preload("res://objects/jump.tscn").instantiate()
 			if content[8].begins_with("            name: Fzr_Dart"):
 				inst = preload("res://objects/dartpile.tscn").instantiate()
-			if content[8].begins_with("            name: Fzr_Dash2"):
-				inst = preload("res://objects/dash.tscn").instantiate()
 			if content[8].begins_with("            name: Fzr_Star"):
 				inst = preload("res://objects/star.tscn").instantiate()
 			if content[8].begins_with("            name: Fzr_Bar"):
@@ -154,14 +152,14 @@ func LoadLevel(name):
 			if content[8].begins_with("            name: Fzr_Stop2"): #long car
 				inst = preload("res://objects/borderbar.tscn").instantiate()
 			if content[8].begins_with("            name: Fzr_Dash"):
-				if not content[8].begins_with("            name: Fzr_Dash2"):
-					inst = preload("res://objects/dash.tscn").instantiate()
-					inst.small = true
+				inst = preload("res://objects/dash.tscn").instantiate()
+				if content[8].begins_with("            name: Fzr_Dash2"):
+					inst = preload("res://objects/dash2.tscn").instantiate()
 			if content[8].begins_with("            name: Fzr_Wind"):
-				inst = preload("res://objects/wind.tscn").instantiate()
+				inst = preload("res://objects/windbig.tscn").instantiate()
 				var param1 = int(content[10].lstrip("            param1: "))
 				if param1 == -1:
-					inst.small = true
+					inst = preload("res://objects/windsmall.tscn").instantiate()
 			if inst != null:
 				cycle = 27
 				scene.connect("EXPORT", Callable(inst, "EXPORT"))

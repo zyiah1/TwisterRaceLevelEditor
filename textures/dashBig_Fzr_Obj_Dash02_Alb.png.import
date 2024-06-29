@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtswp8djchtfl"
-path.s3tc="res://.godot/imported/dashSmall_Fzr_Obj_Dash01_Alb.png-4a56cc79cb71f2dff106be0b8e76e527.s3tc.ctex"
+uid="uid://caaliexqf0lyd"
+path.s3tc="res://.godot/imported/dashBig_Fzr_Obj_Dash02_Alb.png-88fb4d42e3058f1428817bd0edeb3fc6.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://models/dashSmall_Fzr_Obj_Dash01_Alb.png"
-dest_files=["res://.godot/imported/dashSmall_Fzr_Obj_Dash01_Alb.png-4a56cc79cb71f2dff106be0b8e76e527.s3tc.ctex"]
+source_file="res://textures/dashBig_Fzr_Obj_Dash02_Alb.png"
+dest_files=["res://.godot/imported/dashBig_Fzr_Obj_Dash02_Alb.png-88fb4d42e3058f1428817bd0edeb3fc6.s3tc.ctex"]
 
 [params]
 
