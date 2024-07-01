@@ -27,7 +27,7 @@ root:
             param7: -1
             param8: -1
             param9: -1
-            pos_x: -4670
+            pos_x: -6070
             pos_y: 0
             pos_z: 0
             scale_x: 1.00000
@@ -54,7 +54,7 @@ root:
             param7: -1
             param8: -1
             param9: -1
-            pos_x: -4500
+            pos_x: -5900
             pos_y: 0.00000000000208
             pos_z: -0.00000743093824
             scale_x: 200.00000
@@ -81,9 +81,9 @@ root:
             param7: -1
             param8: -1
             param9: -1
-            pos_x: -4100
+            pos_x: -5495
             pos_y: 0
-            pos_z: 0
+            pos_z: 0.00006097740334
             scale_x: 1.00000
             scale_y: 1.00000
             scale_z: 1.00000
@@ -108,9 +108,9 @@ root:
             param7: -1
             param8: -1
             param9: -1
-            pos_x: -3400
+            pos_x: -4795
             pos_y: 0
-            pos_z: -0.00003059797746
+            pos_z: 0.00003037942224
             scale_x: 1.00000
             scale_y: 1.00000
             scale_z: 1.00000
@@ -135,17 +135,44 @@ root:
             param7: -1
             param8: -1
             param9: -1
-            pos_x: -2700
+            pos_x: -4095
             pos_y: 0
-            pos_z: -0.00006119595491
+            pos_z: -0.00000021855699
             scale_x: 1.00000
+            scale_y: 1.00000
+            scale_z: 1.00000
+          - comment: !l -1
+            dir_x: 0.00000000000002
+            dir_y: -90
+            dir_z: 0.00000000000002
+            id_name: obj3
+            layer: LC
+            link_info: []
+            link_num: !l 0
+            name: Fzr_GoalLine
+            param0: 0
+            param1: -1
+            param10: -1
+            param11: -1
+            param2: -1
+            param3: -1
+            param4: -1
+            param5: -1
+            param6: -1
+            param7: -1
+            param8: -1
+            param9: -1
+            pos_x: -4095
+            pos_y: 0.00000000000208
+            pos_z: -0.00000021855908
+            scale_x: 200.00000
             scale_y: 1.00000
             scale_z: 1.00000
           - comment: !l -1
             dir_x: -0
             dir_y: 90
             dir_z: 0
-            id_name: obj3
+            id_name: obj4
             layer: LC
             link_info: []
             link_num: !l 0
@@ -162,21 +189,21 @@ root:
             param7: -1
             param8: -1
             param9: -1
-            pos_x: -2000
-            pos_y: 0
-            pos_z: -0.00009179393965
+            pos_x: -3395
+            pos_y: 0.00000000000441
+            pos_z: -0.00009201250214
             scale_x: 1.00000
             scale_y: 1.00000
             scale_z: 1.00000
           - comment: !l -1
             dir_x: -0
-            dir_y: 0
+            dir_y: 90
             dir_z: 0
-            id_name: obj4
+            id_name: obj5
             layer: LC
             link_info: []
             link_num: !l 0
-            name: Fzr_Jump
+            name: Fzr_FieldParts01
             param0: -1
             param1: -1
             param10: -1
@@ -189,9 +216,63 @@ root:
             param7: -1
             param8: -1
             param9: -1
-            pos_x: -3504.5166015625
-            pos_y: 0
-            pos_z: 9.37841415405273
+            pos_x: -2695
+            pos_y: 0.00000000000441
+            pos_z: -0.00012261047959
+            scale_x: 1.00000
+            scale_y: 1.00000
+            scale_z: 1.00000
+          - comment: !l -1
+            dir_x: 0.00000000000002
+            dir_y: -90
+            dir_z: 0.00000000000002
+            id_name: obj8
+            layer: LC
+            link_info: []
+            link_num: !l 0
+            name: Fzr_NormalShutter
+            param0: -1
+            param1: 4
+            param10: -1
+            param11: -1
+            param2: -1
+            param3: -1
+            param4: -1
+            param5: -1
+            param6: -1
+            param7: -1
+            param8: -1
+            param9: -1
+            pos_x: -1995
+            pos_y: 0.00000000000441
+            pos_z: -0.00015320845705
+            scale_x: 1.00000
+            scale_y: 1.00000
+            scale_z: 1.00000
+          - comment: !l -1
+            dir_x: -0
+            dir_y: 90
+            dir_z: 0
+            id_name: obj9
+            layer: LC
+            link_info: []
+            link_num: !l 0
+            name: Fzr_FieldParts01
+            param0: -1
+            param1: -1
+            param10: -1
+            param11: -1
+            param2: -1
+            param3: -1
+            param4: -1
+            param5: -1
+            param6: -1
+            param7: -1
+            param8: -1
+            param9: -1
+            pos_x: -1995
+            pos_y: 0.00000000000441
+            pos_z: -0.00015320845705
             scale_x: 1.00000
             scale_y: 1.00000
             scale_z: 1.00000

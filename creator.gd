@@ -233,6 +233,8 @@ func _physics_process(delta):
 			straightinst = straight.instantiate()
 		if item == "end":
 			straightinst = endtrack.instantiate()
+		if item == "shutter":
+			straightinst = load("res://tracks/shutter.tscn").instantiate()
 		if item == "endload":#no added track
 			straightinst = endtrack.instantiate()
 		if item == "wide":
@@ -466,7 +468,8 @@ func get_input(delta):
 func highlighttrack(track):
 	if track.get_node_or_null("RootNode/road") != null:
 		for node in get_tree().get_nodes_in_group("track"):
-			node.get_node("RootNode/road").material_overlay = null
+			if node.get_node_or_null("RootNode/road") != null:
+				node.get_node("RootNode/road").material_overlay = null
 		track.get_node("RootNode/road").material_overlay = load("res://track select.tres")
 
 func save():
