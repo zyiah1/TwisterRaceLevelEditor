@@ -1,4 +1,4 @@
-[gd_scene load_steps=106 format=3 uid="uid://cmqyq6acq27sr"]
+[gd_scene load_steps=107 format=3 uid="uid://cmqyq6acq27sr"]
 
 [ext_resource type="Script" path="res://button.gd" id="2"]
 [ext_resource type="Script" path="res://Track.gd" id="2_nq3cm"]
@@ -49,6 +49,7 @@
 [ext_resource type="Texture2D" uid="uid://covnssjyra3qt" path="res://ui/tools/rotate counter clock.png" id="38_fhtwh"]
 [ext_resource type="PackedScene" uid="uid://faxky36xraxs" path="res://trash.tscn" id="39_i6oxl"]
 [ext_resource type="PackedScene" uid="uid://cwm3wxy6xm7nr" path="res://models/bar.fbx" id="42_4bec0"]
+[ext_resource type="Theme" uid="uid://byc6mamepavt5" path="res://fzero.tres" id="42_aswap"]
 [ext_resource type="PackedScene" uid="uid://bkqvt1dq2vdrv" path="res://models/Light.fbx" id="43_d08nw"]
 [ext_resource type="PackedScene" uid="uid://bftbbin31pfej" path="res://objects/bomb.tscn" id="43_tn2ol"]
 [ext_resource type="PackedScene" uid="uid://cq7lpfj7ij53o" path="res://objects/wind.tscn" id="45_jew7o"]
@@ -1315,6 +1316,7 @@ offset_left = -1254.0
 offset_top = 3.0
 offset_right = -278.0
 offset_bottom = 891.0
+theme = ExtResource("42_aswap")
 
 [node name="startoffsetlevels" type="HBoxContainer" parent="nonmoving/setup/Panel"]
 layout_mode = 0
@@ -1425,6 +1427,26 @@ text = "back"
 icon_alignment = 1
 script = ExtResource("31_jwafk")
 
+[node name="testoffset" type="LineEdit" parent="nonmoving/setup/Panel" groups=["enter"]]
+offset_left = 269.0
+offset_top = 240.0
+offset_right = 726.0
+offset_bottom = 329.0
+theme_override_fonts/font = ExtResource("30_mwt0d")
+theme_override_font_sizes/font_size = 34
+placeholder_text = "0"
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="nonmoving/setup/Panel"]
+layout_mode = 0
+offset_top = 25.0
+offset_right = 976.0
+offset_bottom = 93.0
+theme_override_fonts/normal_font = ExtResource("30_mwt0d")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[center]Level Offsets"
+
 [node name="back" type="Button" parent="nonmoving"]
 offset_left = 9.0
 offset_top = 918.0
@@ -1456,16 +1478,6 @@ offset_bottom = 105.0
 theme_override_fonts/font = ExtResource("30_mwt0d")
 theme_override_font_sizes/font_size = 34
 placeholder_text = "untitled"
-alignment = 1
-
-[node name="testoffset" type="LineEdit" parent="nonmoving" groups=["enter"]]
-offset_left = 985.0
-offset_top = 8.0
-offset_right = 1442.0
-offset_bottom = 97.0
-theme_override_fonts/font = ExtResource("30_mwt0d")
-theme_override_font_sizes/font_size = 34
-placeholder_text = "0"
 alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="nonmoving"]
@@ -1725,8 +1737,8 @@ visible = false
 [connection signal="pressed" from="CanvasLayer/trackoptions/redo" to="." method="_on_redo_pressed"]
 [connection signal="pressed" from="nonmoving/export" to="." method="save"]
 [connection signal="pressed" from="nonmoving/done" to="." method="_on_done_pressed"]
+[connection signal="text_changed" from="nonmoving/setup/Panel/testoffset" to="." method="_on_testoffset_text_changed"]
 [connection signal="pressed" from="nonmoving/back" to="." method="_on_back_pressed"]
-[connection signal="text_changed" from="nonmoving/testoffset" to="." method="_on_testoffset_text_changed"]
 [connection signal="timeout" from="audio/clack/delay" to="." method="_on_delay_timeout"]
 [connection signal="timeout" from="autosave" to="." method="save"]
 
