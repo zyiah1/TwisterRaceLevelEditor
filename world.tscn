@@ -78,7 +78,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("saving:text")
+tracks/0/path = NodePath("export/saving:text")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -90,7 +90,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("saving:theme_override_colors/default_color")
+tracks/1/path = NodePath("export/saving:theme_override_colors/default_color")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -102,22 +102,10 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("saving:position")
+tracks/2/path = NodePath("export/saving:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1370, 733)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("saving:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -130,7 +118,7 @@ length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("saving:text")
+tracks/0/path = NodePath("export/saving:text")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -143,7 +131,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("saving:modulate")
+tracks/1/path = NodePath("export/saving:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -152,18 +140,6 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(0, 0.0823529, 0.878431, 1), Color(0, 0.290196, 0.533333, 0)]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("saving:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.2),
-"transitions": PackedFloat32Array(1.23114),
-"update": 0,
-"values": [Vector2(1370, 733)]
-}
 
 [sub_resource type="Animation" id="Animation_k44ui"]
 resource_name = "saved"
@@ -171,7 +147,7 @@ length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("saving:text")
+tracks/0/path = NodePath("export/saving:text")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -183,7 +159,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("saving:modulate")
+tracks/1/path = NodePath("export/saving:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -192,18 +168,6 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(1, 0.984314, 0, 1), Color(1, 0.984314, 0, 0)]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("saving:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.2),
-"transitions": PackedFloat32Array(1.23114),
-"update": 0,
-"values": [Vector2(1370, 733)]
-}
 
 [sub_resource type="Animation" id="Animation_62vs6"]
 resource_name = "saving"
@@ -211,7 +175,7 @@ length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("saving:text")
+tracks/0/path = NodePath("export/saving:text")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -223,7 +187,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("saving:theme_override_colors/default_color")
+tracks/1/path = NodePath("export/saving:theme_override_colors/default_color")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -235,22 +199,10 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("saving:position")
+tracks/2/path = NodePath("export/saving:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1370, 733)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("saving:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -439,82 +391,70 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("nonmoving/done:position")
+tracks/0/path = NodePath("CanvasLayer/TrackPieces:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(12, 796)]
+"update": 1,
+"values": [true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("nonmoving/back:position")
+tracks/1/path = NodePath("CanvasLayer/Obstacles:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(9, 918)]
+"update": 1,
+"values": [false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("nonmoving/back:disabled")
+tracks/2/path = NodePath("CanvasLayer/tools:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer/TrackPieces:position")
+tracks/3/path = NodePath("CanvasLayer/trackoptions:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 782)]
+"update": 1,
+"values": [true]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("CanvasLayer/Obstacles:position")
+tracks/4/path = NodePath("nonmoving/back:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2.08165e-12, 900)]
+"update": 1,
+"values": [true]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("CanvasLayer/trackoptions:visible")
+tracks/5/path = NodePath("nonmoving/done:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("CanvasLayer/tools:visible")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -527,31 +467,31 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("nonmoving/done:position")
+tracks/0/path = NodePath("nonmoving/done:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(0.406126, 1),
-"update": 0,
-"values": [Vector2(12, 792), Vector2(12, 900)]
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("nonmoving/back:position")
+tracks/1/path = NodePath("nonmoving/back:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(0.466516, 1),
-"update": 0,
-"values": [Vector2(9, 918), Vector2(9, 790)]
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("nonmoving/back:disabled")
+tracks/2/path = NodePath("CanvasLayer/trackoptions:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -563,31 +503,31 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer/TrackPieces:position")
+tracks/3/path = NodePath("CanvasLayer/tools:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(0.378929, 1),
-"update": 0,
-"values": [Vector2(0, 782), Vector2(2.08165e-12, 900)]
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("CanvasLayer/Obstacles:position")
+tracks/4/path = NodePath("CanvasLayer/Obstacles:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(0.217638, 0.406126),
-"update": 0,
-"values": [Vector2(2.08165e-12, 900), Vector2(2.08165e-12, 782)]
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("CanvasLayer/trackoptions:visible")
+tracks/5/path = NodePath("CanvasLayer/TrackPieces:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -596,101 +536,77 @@ tracks/5/keys = {
 "update": 1,
 "values": [false]
 }
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("CanvasLayer/tools:visible")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
-[sub_resource type="Animation" id="Animation_ij1by"]
+[sub_resource type="Animation" id="Animation_8hw3u"]
 resource_name = "done<-export"
-length = 0.5
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("nonmoving/done:position")
+tracks/0/path = NodePath("CanvasLayer/TrackPieces:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(0.406, 0.406126),
-"update": 0,
-"values": [Vector2(11, 956), Vector2(11, 789)]
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("nonmoving/back:position")
+tracks/1/path = NodePath("CanvasLayer/Obstacles:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(0.406126, 1),
-"update": 0,
-"values": [Vector2(9, 790), Vector2(9, 918)]
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("nonmoving/back:disabled")
+tracks/2/path = NodePath("CanvasLayer/tools:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer/TrackPieces:position")
+tracks/3/path = NodePath("CanvasLayer/trackoptions:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(0.450625, 1),
-"update": 0,
-"values": [Vector2(2.08165e-12, 900), Vector2(2.08165e-12, 782)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("CanvasLayer/Obstacles:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(0.517632, 0.392292),
-"update": 0,
-"values": [Vector2(2.08165e-12, 782), Vector2(2.08165e-12, 900)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("CanvasLayer/trackoptions:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
 }
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("CanvasLayer/tools:visible")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("nonmoving/back:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("nonmoving/done:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -701,7 +617,7 @@ tracks/6/keys = {
 _data = {
 "RESET": SubResource("Animation_6opuq"),
 "done->export": SubResource("Animation_qehdt"),
-"done<-export": SubResource("Animation_ij1by")
+"done<-export": SubResource("Animation_8hw3u")
 }
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iwi7m"]
@@ -906,11 +822,20 @@ script = ExtResource("2_nq3cm")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="TrackPieces" type="HBoxContainer" parent="CanvasLayer"]
-offset_top = 782.0
-offset_right = 1367.0
-offset_bottom = 890.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -683.5
+offset_top = -108.0
+offset_right = 683.5
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 10
 mouse_filter = 2
-alignment = 2
+alignment = 1
 
 [node name="straight" type="Button" parent="CanvasLayer/TrackPieces"]
 layout_mode = 2
@@ -1009,11 +934,19 @@ icon_alignment = 1
 script = ExtResource("2")
 
 [node name="Obstacles" type="HBoxContainer" parent="CanvasLayer"]
-offset_top = 900.0
-offset_right = 1367.0
-offset_bottom = 1008.0
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -590.5
+offset_top = -108.0
+offset_right = 590.5
+grow_horizontal = 2
+grow_vertical = 0
 mouse_filter = 2
-alignment = 2
+alignment = 1
 
 [node name="dash" type="Button" parent="CanvasLayer/Obstacles"]
 layout_mode = 2
@@ -1155,10 +1088,13 @@ script = ExtResource("17_dhc3k")
 [node name="tools" type="HBoxContainer" parent="CanvasLayer"]
 visible = false
 modulate = Color(1, 1, 1, 0.839216)
-offset_left = 208.0
-offset_top = 690.0
-offset_right = 1395.0
-offset_bottom = 798.0
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.828
+anchor_right = 0.664
+anchor_bottom = 0.843
+offset_left = -174.0
+offset_top = -50.0
 scale = Vector2(0.8, 0.8)
 mouse_filter = 2
 alignment = 1
@@ -1206,10 +1142,17 @@ icon_alignment = 1
 
 [node name="trackoptions" type="HBoxContainer" parent="CanvasLayer"]
 modulate = Color(1, 1, 1, 0.839216)
-offset_left = 208.0
-offset_top = 690.0
-offset_right = 1395.0
-offset_bottom = 798.0
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.828
+anchor_right = 0.664
+anchor_bottom = 0.843
+offset_left = -593.5
+offset_top = -54.0
+offset_right = 593.5
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.8, 0.8)
 mouse_filter = 2
 alignment = 1
@@ -1279,30 +1222,54 @@ far = 8192.0
 [node name="nonmoving" type="CanvasLayer" parent="."]
 
 [node name="export" type="Button" parent="nonmoving"]
-offset_left = 1365.0
-offset_top = 763.0
-offset_right = 1594.0
-offset_bottom = 893.0
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -229.0
+offset_top = -130.0
+grow_horizontal = 0
+grow_vertical = 0
 focus_mode = 0
 theme = ExtResource("3_pogl6")
 text = "export"
 icon_alignment = 1
 
+[node name="saving" type="RichTextLabel" parent="nonmoving/export"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(222, 35)
+layout_mode = 0
+offset_left = 4.0
+offset_top = -34.0
+offset_right = 226.0
+offset_bottom = 1.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("30_mwt0d")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]saving..."
+
 [node name="done" type="Button" parent="nonmoving"]
-offset_left = 12.0
-offset_top = 796.0
-offset_right = 204.0
-offset_bottom = 896.0
+visible = false
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -100.0
+offset_right = 192.0
+grow_vertical = 0
 focus_mode = 0
 theme = ExtResource("3_pogl6")
 text = "Object"
 icon_alignment = 1
 
 [node name="setup" type="Button" parent="nonmoving"]
-offset_left = 1449.0
-offset_top = 5.0
-offset_right = 1599.0
-offset_bottom = 105.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -150.0
+offset_bottom = 100.0
+grow_horizontal = 0
 focus_mode = 0
 theme = ExtResource("3_pogl6")
 text = "..."
@@ -1428,6 +1395,7 @@ icon_alignment = 1
 script = ExtResource("31_jwafk")
 
 [node name="testoffset" type="LineEdit" parent="nonmoving/setup/Panel" groups=["enter"]]
+layout_mode = 0
 offset_left = 269.0
 offset_top = 240.0
 offset_right = 726.0
@@ -1448,33 +1416,20 @@ bbcode_enabled = true
 text = "[center]Level Offsets"
 
 [node name="back" type="Button" parent="nonmoving"]
-offset_left = 9.0
-offset_top = 918.0
-offset_right = 209.0
-offset_bottom = 1018.0
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -100.0
+offset_right = 200.0
+grow_vertical = 0
 focus_mode = 0
 theme = ExtResource("3_pogl6")
-disabled = true
 text = "track"
 icon_alignment = 1
 
-[node name="saving" type="RichTextLabel" parent="nonmoving"]
-modulate = Color(1, 1, 1, 0)
-offset_left = 1370.0
-offset_top = 733.0
-offset_right = 1592.0
-offset_bottom = 768.0
-theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_fonts/normal_font = ExtResource("30_mwt0d")
-theme_override_font_sizes/normal_font_size = 30
-bbcode_enabled = true
-text = "[center]saving..."
-
 [node name="name" type="LineEdit" parent="nonmoving" groups=["enter"]]
-offset_left = 20.0
-offset_top = 16.0
-offset_right = 477.0
-offset_bottom = 105.0
+offset_right = 457.0
+offset_bottom = 89.0
 theme_override_fonts/font = ExtResource("30_mwt0d")
 theme_override_font_sizes/font_size = 34
 placeholder_text = "untitled"

@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var oldtext = $settings/autosavetime/time.text
+@onready var oldtext = $Panel/settings/autosavetime/time.text
 
 func _notification(what): #if game quit
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
@@ -21,20 +21,20 @@ func _draw():
 
 func _ready():
 	if Options.trackfreecam == false:
-		$settings/freecam.text = "freecam off"
+		$Panel/settings/freecam.text = "freecam off"
 	else:
-		$settings/freecam.text = "freecam on"
+		$Panel/settings/freecam.text = "freecam on"
 	if Options.saveonexit == false:
-		$settings/saveonexit.text = "save when exit off"
+		$Panel/settings/saveonexit.text = "save when exit off"
 	else:
-		$settings/saveonexit.text = "save when exit on"
+		$Panel/settings/saveonexit.text = "save when exit on"
 	if Options.autosave == false:
-		$settings/autosave.text = "autosave off"
+		$Panel/settings/autosave.text = "autosave off"
 	else:
-		$settings/autosave.text = "autosave on"
-	$settings/defaultname/name.text = Options.defaultfilename
-	$settings/autosavetime/time.text = str(Options.autosavetime)
-	oldtext = $settings/autosavetime/time.text
+		$Panel/settings/autosave.text = "autosave on"
+	$Panel/settings/defaultname/name.text = Options.defaultfilename
+	$Panel/settings/autosavetime/time.text = str(Options.autosavetime)
+	oldtext = $Panel/settings/autosavetime/time.text
 
 func _on_freecam_pressed():
 	Options.trackfreecam = not Options.trackfreecam
@@ -72,8 +72,8 @@ func _on_name_text_changed(newtext):
 
 func _on_time_text_changed(newtext):
 	if not newtext.is_valid_int() or int(newtext) != abs(int(newtext)):
-		$settings/autosavetime/time.text = oldtext
-		$settings/autosavetime/time.caret_column = 999
+		$Panel/settings/autosavetime/time.text = oldtext
+		$Panel/settings/autosavetime/time.caret_column = 999
 		return
 	oldtext = newtext
 	Options.autosavetime = int(newtext)

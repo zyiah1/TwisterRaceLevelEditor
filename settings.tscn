@@ -56,23 +56,31 @@ texture = ExtResource("4_q1qkn")
 gravity = Vector2(2.08165e-12, 2.08165e-12)
 scale_amount_curve = SubResource("Curve_c7i7e")
 
-[node name="Button" type="Button" parent="."]
-offset_left = 357.0
-offset_right = 1257.0
+[node name="Panel" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 350.0
+offset_right = 1250.0
 offset_bottom = 900.0
+grow_horizontal = 2
+grow_vertical = 2
 focus_mode = 0
 theme = ExtResource("1_yp5e0")
 theme_override_styles/normal = SubResource("StyleBoxTexture_v63e1")
 theme_override_styles/hover = SubResource("StyleBoxTexture_v63e1")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_v63e1")
 
-[node name="settings" type="VBoxContainer" parent="."]
-offset_left = 400.0
+[node name="settings" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 43.0
 offset_top = 71.0
-offset_right = 1215.0
+offset_right = 858.0
 offset_bottom = 771.0
 
-[node name="Filepath" type="Button" parent="settings"]
+[node name="Filepath" type="Button" parent="Panel/settings"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_outline_color = Color(0, 0.255066, 0.431333, 1)
@@ -87,27 +95,27 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_d7te4")
 text = "change filepath"
 alignment = 0
 
-[node name="freecam" parent="settings" instance=ExtResource("6_5c0hj")]
+[node name="freecam" parent="Panel/settings" instance=ExtResource("6_5c0hj")]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0.255066, 0.431333, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = SubResource("FontVariation_g6rgj")
 
-[node name="saveonexit" parent="settings" instance=ExtResource("6_5c0hj")]
+[node name="saveonexit" parent="Panel/settings" instance=ExtResource("6_5c0hj")]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0.255066, 0.431333, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = SubResource("FontVariation_g6rgj")
 text = "save-on-exit off"
 
-[node name="autosave" parent="settings" instance=ExtResource("6_5c0hj")]
+[node name="autosave" parent="Panel/settings" instance=ExtResource("6_5c0hj")]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0.255066, 0.431333, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = SubResource("FontVariation_g6rgj")
 text = "autosave on"
 
-[node name="autosavetime" type="Button" parent="settings"]
+[node name="autosavetime" type="Button" parent="Panel/settings"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -123,7 +131,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_d7te4")
 text = "autosave time"
 alignment = 0
 
-[node name="time" type="LineEdit" parent="settings/autosavetime" groups=["hide"]]
+[node name="time" type="LineEdit" parent="Panel/settings/autosavetime" groups=["hide"]]
 layout_mode = 0
 offset_left = 430.0
 offset_top = 4.0
@@ -137,7 +145,7 @@ theme_override_font_sizes/font_size = 50
 text = "45"
 alignment = 1
 
-[node name="defaultname" type="Button" parent="settings"]
+[node name="defaultname" type="Button" parent="Panel/settings"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -153,7 +161,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_d7te4")
 text = "default name"
 alignment = 0
 
-[node name="name" type="LineEdit" parent="settings/defaultname" groups=["hide"]]
+[node name="name" type="LineEdit" parent="Panel/settings/defaultname" groups=["hide"]]
 layout_mode = 0
 offset_left = 402.0
 offset_right = 807.0
@@ -166,10 +174,11 @@ theme_override_font_sizes/font_size = 50
 text = "Untitled"
 alignment = 1
 
-[node name="back" type="Button" parent="."]
-offset_left = 395.0
+[node name="back" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 38.0
 offset_top = 779.0
-offset_right = 612.0
+offset_right = 255.0
 offset_bottom = 864.0
 theme_override_fonts/font = ExtResource("5_r4m5h")
 theme_override_font_sizes/font_size = 65
@@ -189,11 +198,11 @@ file_mode = 2
 access = 2
 filters = PackedStringArray("folder")
 
-[connection signal="pressed" from="settings/Filepath" to="." method="_on_filepath_pressed"]
-[connection signal="pressed" from="settings/freecam" to="." method="_on_freecam_pressed"]
-[connection signal="pressed" from="settings/saveonexit" to="." method="_on_saveonexit_pressed"]
-[connection signal="pressed" from="settings/autosave" to="." method="_on_autosave_pressed"]
-[connection signal="text_changed" from="settings/autosavetime/time" to="." method="_on_time_text_changed"]
-[connection signal="text_changed" from="settings/defaultname/name" to="." method="_on_name_text_changed"]
-[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Panel/settings/Filepath" to="." method="_on_filepath_pressed"]
+[connection signal="pressed" from="Panel/settings/freecam" to="." method="_on_freecam_pressed"]
+[connection signal="pressed" from="Panel/settings/saveonexit" to="." method="_on_saveonexit_pressed"]
+[connection signal="pressed" from="Panel/settings/autosave" to="." method="_on_autosave_pressed"]
+[connection signal="text_changed" from="Panel/settings/autosavetime/time" to="." method="_on_time_text_changed"]
+[connection signal="text_changed" from="Panel/settings/defaultname/name" to="." method="_on_name_text_changed"]
+[connection signal="pressed" from="Panel/back" to="." method="_on_back_pressed"]
 [connection signal="dir_selected" from="FileDialog" to="." method="_on_file_dialog_dir_selected"]

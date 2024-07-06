@@ -14,6 +14,11 @@ var data = [filepath,str(trackfreecam),str(saveonexit),str(autosave),str(autosav
 var firstopen = true
 
 
+
+func _process(delta):
+	if Input.is_action_just_pressed("open folder"):
+		OS.shell_open(str("file://" + ProjectSettings.globalize_path(Options.filepath)))
+
 func _ready():
 	get_tree().set_auto_accept_quit(false)
 	var file = FileAccess.file_exists("res://Fzero.settings")

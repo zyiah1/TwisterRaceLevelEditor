@@ -64,7 +64,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Load/Sprite2D:skew")
+tracks/0/path = NodePath("CanvasLayer/logo/Sprite2D:skew")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -81,7 +81,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Load/Sprite2D:skew")
+tracks/0/path = NodePath("CanvasLayer/logo/Sprite2D:skew")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -98,6 +98,7 @@ _data = {
 }
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tl7rt"]
+ground_bottom_color = Color(0.00259631, 0.197413, 0.249327, 1)
 
 [sub_resource type="Sky" id="Sky_tetkg"]
 sky_material = SubResource("ProceduralSkyMaterial_tl7rt")
@@ -197,10 +198,15 @@ light_indirect_energy = 16.221
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Load" type="Button" parent="CanvasLayer"]
-offset_left = 1142.0
-offset_top = 480.0
-offset_right = 1542.0
-offset_bottom = 880.0
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -400.0
+offset_top = -400.0
+grow_horizontal = 0
+grow_vertical = 0
 focus_mode = 0
 theme = ExtResource("1_x8gv4")
 theme_override_styles/normal = SubResource("StyleBoxTexture_e14ek")
@@ -211,10 +217,6 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_54dvj")
 icon = ExtResource("2_ks8ct")
 icon_alignment = 1
 script = ExtResource("2_pq2n2")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Load"]
-position = Vector2(-314.421, -225.5)
-texture = ExtResource("1_g2ghb")
 
 [node name="FileDialog" type="FileDialog" parent="CanvasLayer/Load"]
 title = "Open a File"
@@ -244,10 +246,12 @@ text = "Paste"
 icon_alignment = 1
 
 [node name="New" type="Button" parent="CanvasLayer"]
-offset_left = 151.0
-offset_top = 480.0
-offset_right = 551.0
-offset_bottom = 880.0
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -400.0
+offset_right = 400.0
+grow_vertical = 0
 focus_mode = 0
 theme = ExtResource("1_x8gv4")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_47ak7")
@@ -260,10 +264,16 @@ icon_alignment = 1
 script = ExtResource("1_yj1ny")
 
 [node name="Settings" type="Button" parent="CanvasLayer"]
-offset_left = 623.0
-offset_top = 480.0
-offset_right = 1023.0
-offset_bottom = 879.999
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -399.999
+offset_right = 200.0
+grow_horizontal = 2
+grow_vertical = 0
 focus_mode = 0
 theme = ExtResource("1_x8gv4")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_47ak7")
@@ -274,16 +284,6 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_47ak7")
 icon = ExtResource("8_lf0xu")
 icon_alignment = 1
 script = ExtResource("8_3i4kb")
-
-[node name="version" type="RichTextLabel" parent="CanvasLayer/Settings"]
-layout_mode = 0
-offset_left = -622.0
-offset_top = -480.0
-offset_right = -347.0
-offset_bottom = -373.0
-theme_override_fonts/normal_font = ExtResource("16_f5kqn")
-theme_override_font_sizes/normal_font_size = 27
-text = "Beta 2"
 
 [node name="patchnotes" type="Panel" parent="CanvasLayer"]
 visible = false
@@ -355,6 +355,30 @@ ok_button_text = "Select Current Folder"
 file_mode = 2
 access = 2
 filters = PackedStringArray("folder")
+
+[node name="logo" type="Control" parent="CanvasLayer" groups=["delete"]]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -406.0
+offset_right = 406.0
+offset_bottom = 506.0
+grow_horizontal = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/logo"]
+position = Vector2(400, 250)
+texture = ExtResource("1_g2ghb")
+
+[node name="version" type="RichTextLabel" parent="CanvasLayer" groups=["delete"]]
+custom_minimum_size = Vector2(275, 107)
+offset_left = 2.0
+offset_top = 3.0
+offset_right = 277.0
+offset_bottom = 110.0
+theme_override_fonts/normal_font = ExtResource("16_f5kqn")
+theme_override_font_sizes/normal_font_size = 27
+text = "Beta 2"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." groups=["delete"]]
 environment = SubResource("Environment_lgbbv")
