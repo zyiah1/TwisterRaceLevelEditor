@@ -48,28 +48,22 @@ func start():
 	LoadLevel(name)
 
 func LoadLevel(name):
+	# hide stuff we don't want
 	for nodes in get_tree().get_nodes_in_group("delete"):
 		nodes.queue_free()
 	content = content.split("\n")
-	var cycle = 8
-	
-	get_node("../New").hide()
-	get_node("../Settings").hide()
 	hide()
 	
-	
+	# scene setup
 	get_parent().add_child(world)
-	
 	var scene = get_parent().get_node("Creator")
 	scene.get_node("Camera3D").current = true
 	scene.get_node("nonmoving/name").text = name
-	var nextid = 0
-	var overide = 0
+	var cycle = 8
 	if not content[0].begins_with("Version: 1"):
 		print("invalid")
 		return
 	while content.size() > 10:
-		overide = 0
 		cycle -= 1
 		if cycle + 1 > 0:
 			content.remove_at(0)
@@ -77,15 +71,13 @@ func LoadLevel(name):
 			var inst = null
 			var track = false
 			
-			#if not content[8].begins_with("            name: "):
-				#scene.load = true
-				#print("whoops ",content[8])
-				#return
+			# set the start object position
 			if content[8].begins_with("            name: Fzr_Shutter"):
-				#set the start object position
 				scene.startposition = Vector3(float(content[21].lstrip("            pos_x: ")),float(content[22].lstrip("            pos_y: ")),float(content[23].lstrip("            pos_z: "))) - Vector3(170,0,0)
 				scene.startrotation = Vector3(float(content[1].lstrip("            dir_x: ")),float(content[2].lstrip("            dir_y: ")),float(content[3].lstrip("            dir_z: "))) - Vector3(0,180,0)
 				print("hey")
+			
+			# import tracks
 			if content[8].begins_with("            name: Fzr_NormalShutter"):
 				inst = load("res://tracks/shutter.tscn").instantiate()
 			if content[8].begins_with("            name: Fzr_FieldParts"):
@@ -113,11 +105,10 @@ func LoadLevel(name):
 						inst = load("res://tracks/hard_l.tscn").instantiate()
 					14:
 						inst = load("res://tracks/hard_r.tscn").instantiate()
-			
-			
 			if content[8].begins_with("            name: Fzr_GoalLine"):
 				inst = load("res://tracks/end.tscn").instantiate()
 			
+			# import objects
 			if content[8].begins_with("            name: Fzr_Bomb"):
 				inst = preload("res://objects/bomb.tscn").instantiate()
 			if content[8].begins_with("            name: Fzr_Denchu"): #Fzr_DenchuSTL current import
@@ -161,25 +152,22 @@ func LoadLevel(name):
 				var param1 = int(content[10].lstrip("            param1: "))
 				if param1 == -1:
 					inst = preload("res://objects/windsmall.tscn").instantiate()
+					
+			# add objects to scene
 			if inst != null:
 				cycle = 27
 				scene.connect("EXPORT", Callable(inst, "EXPORT"))
-				if track: #track specific things
+				if track: # track specific things
 					scene.get_node("Track").add_child(inst)
 					scene.nodes.append(inst)
 					scene.current = inst
 					inst.add_to_group("track")
 					
-				else: #object specific things
+				else: # object specific things
 					scene.get_node("Objects").add_child(inst)
 					scene.objnodes.append(inst)
 				inst.global_position = Vector3(float(content[21].lstrip("            pos_x: ")),float(content[22].lstrip("            pos_y: ")),float(content[23].lstrip("            pos_z: ")))
 				inst.global_rotation_degrees = Vector3(float(content[1].lstrip("            dir_x: ")),float(content[2].lstrip("            dir_y: ")),float(content[3].lstrip("            dir_z: ")))
-				
-				# keep data:
-				
-				
-				
 				
 				# keep data:
 				inst.DataName = content[8].erase(0,22)
@@ -195,7 +183,7 @@ func LoadLevel(name):
 				inst.Param7 = float(content[18].erase(17).lstrip("            param: "))
 				inst.Param8 = float(content[19].erase(17).lstrip("            param: "))
 				inst.Param9 = float(content[20].erase(17).lstrip("            param: "))
-		if cycle < 0:
+		if cycle < 0: # delete stuff so it won't get stuck
 			print("ERR Not Recognized:" + content[0])
 			content.remove_at(0)
 		

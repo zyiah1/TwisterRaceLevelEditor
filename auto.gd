@@ -3,6 +3,8 @@ extends Button
 var path: String
 var content
 
+signal movelevel(Pos)
+
 func _pressed():
 	$FileDialog.current_dir = Options.filepath
 	$FileDialog.popup_centered()
@@ -20,3 +22,4 @@ func _on_file_dialog_file_selected(input):
 		print("NO GOAL FOund")
 	var goalpos = Vector3(float(content[GoalLine+13].lstrip("            pos_x: ")),float(content[GoalLine+14].lstrip("            pos_y: ")),float(content[GoalLine+15].lstrip("            pos_z: ")))
 	print(goalpos)
+	emit_signal("movelevel",goalpos)

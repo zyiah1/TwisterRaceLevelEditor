@@ -245,7 +245,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_54dvj")
 text = "Paste"
 icon_alignment = 1
 
-[node name="New" type="Button" parent="CanvasLayer"]
+[node name="New" type="Button" parent="CanvasLayer" groups=["delete"]]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -263,7 +263,7 @@ icon = ExtResource("6_50wmv")
 icon_alignment = 1
 script = ExtResource("1_yj1ny")
 
-[node name="Settings" type="Button" parent="CanvasLayer"]
+[node name="Settings" type="Button" parent="CanvasLayer" groups=["delete"]]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0

@@ -616,3 +616,15 @@ func rotate_counterclockwise():
 	if mode == "object":
 		if item != "none":
 			get_node("Previews/" + item).rotation_degrees.y += 15
+
+
+func _on_auto_movelevel(Pos):
+	var distance: Vector3 = Pos - startinst.global_position
+	print(distance)
+	startinst.global_position.z = Pos.z
+	for child in $Track.get_children():
+		if not child.is_in_group("ignore"):
+			child.global_position.z += distance.z
+	for child in $Objects.get_children():
+		if not child.is_in_group("ignore"):
+			child.global_position.z += distance.z

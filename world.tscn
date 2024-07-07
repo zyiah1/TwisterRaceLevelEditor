@@ -818,7 +818,9 @@ script = ExtResource("2_nq3cm")
 
 [node name="Objects" type="Node3D" parent="."]
 
-[node name="redo" type="Node3D" parent="Objects"]
+[node name="redo" type="Node3D" parent="Objects" groups=["ignore"]]
+
+[node name="Rails" type="Node3D" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -927,6 +929,7 @@ icon_alignment = 1
 script = ExtResource("2")
 
 [node name="shutter" type="Button" parent="CanvasLayer/TrackPieces"]
+visible = false
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("3_pogl6")
@@ -1298,6 +1301,7 @@ placeholder_text = "untitled"
 alignment = 1
 
 [node name="Panel" type="Panel" parent="nonmoving"]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1467,16 +1471,17 @@ icon_alignment = 1
 script = ExtResource("46_akjwq")
 
 [node name="FileDialog" type="FileDialog" parent="nonmoving/Panel/leveloffset/auto"]
-title = "Open a File"
+title = "Choose Previous Level"
 position = Vector2i(0, 36)
 size = Vector2i(1400, 850)
 theme = ExtResource("42_aswap")
-ok_button_text = "Open"
+cancel_button_text = "close"
 file_mode = 0
 access = 2
 filters = PackedStringArray("*.txt")
 
 [node name="manual" type="Button" parent="nonmoving/Panel/leveloffset"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
@@ -1743,6 +1748,7 @@ visible = false
 [connection signal="pressed" from="nonmoving/done" to="." method="_on_done_pressed"]
 [connection signal="pressed" from="nonmoving/back" to="." method="_on_back_pressed"]
 [connection signal="text_changed" from="nonmoving/Panel/testoffset" to="." method="_on_testoffset_text_changed"]
+[connection signal="movelevel" from="nonmoving/Panel/leveloffset/auto" to="." method="_on_auto_movelevel"]
 [connection signal="file_selected" from="nonmoving/Panel/leveloffset/auto/FileDialog" to="nonmoving/Panel/leveloffset/auto" method="_on_file_dialog_file_selected"]
 [connection signal="timeout" from="audio/clack/delay" to="." method="_on_delay_timeout"]
 [connection signal="timeout" from="autosave" to="." method="save"]
