@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://0lyqg2xeq2ni"]
+[gd_scene load_steps=15 format=3 uid="uid://0lyqg2xeq2ni"]
 
 [ext_resource type="Script" path="res://settingsmenu.gd" id="1_sqru2"]
 [ext_resource type="Theme" uid="uid://bthoilsoep1wp" path="res://button.tres" id="1_yp5e0"]
@@ -9,6 +9,7 @@
 [ext_resource type="FontFile" uid="uid://cvxewx0ydkm2o" path="res://fonts/f_zero_snes/F-ZeroSNES.ttf" id="5_r4m5h"]
 [ext_resource type="PackedScene" uid="uid://4hcipc8yuce0" path="res://settingsbutton.tscn" id="6_5c0hj"]
 [ext_resource type="Texture2D" uid="uid://bb2mfux2hqp7p" path="res://ui/buttons/blue.png" id="7_a0gld"]
+[ext_resource type="Theme" uid="uid://byc6mamepavt5" path="res://fzero.tres" id="10_3ihj5"]
 
 [sub_resource type="Curve" id="Curve_c7i7e"]
 max_value = 4.0
@@ -193,6 +194,7 @@ text = "back"
 title = "Open a Directory"
 position = Vector2i(0, 36)
 size = Vector2i(1400, 850)
+theme = ExtResource("10_3ihj5")
 ok_button_text = "Select Current Folder"
 file_mode = 2
 access = 2

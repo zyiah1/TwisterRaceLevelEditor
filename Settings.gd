@@ -1,9 +1,11 @@
 extends Button
 
-var settings = preload("res://Settings.gd")
+func _ready():
+	if Options.firstopen and Options.filepath == "res://":
+		$FileDialog.popup_centered()
 
 func _on_pressed():
-	get_tree().change_scene_to_file("res://Settings.tscn")
+	get_tree().change_scene_to_file("res://settings.tscn")
 
 func _notification(what): #if game quit
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
@@ -15,4 +17,9 @@ func _on_file_dialog_dir_selected(dir):
 
 
 func _on_file_dialog_canceled():
-	pass # Replace with function body.
+	$FileDialog.show()
+
+
+func _on_file_dialog_file_selected(path):
+	Options.firstopen = false
+	Options.filepath = path

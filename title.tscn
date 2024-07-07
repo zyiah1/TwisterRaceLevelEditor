@@ -285,6 +285,17 @@ icon = ExtResource("8_lf0xu")
 icon_alignment = 1
 script = ExtResource("8_3i4kb")
 
+[node name="FileDialog" type="FileDialog" parent="CanvasLayer/Settings"]
+mode = 4
+title = "Where to save your levels?"
+position = Vector2i(0, 36)
+size = Vector2i(1782, 850)
+theme = ExtResource("7_v8s7v")
+dialog_close_on_escape = false
+file_mode = 2
+access = 2
+filters = PackedStringArray("folder")
+
 [node name="patchnotes" type="Panel" parent="CanvasLayer"]
 visible = false
 offset_left = 140.0
@@ -346,15 +357,6 @@ libraries = {
 "": SubResource("AnimationLibrary_e28o5")
 }
 autoplay = "load"
-
-[node name="FileDialog" type="FileDialog" parent="CanvasLayer"]
-title = "Open a Directory"
-position = Vector2i(100, 36)
-size = Vector2i(1400, 850)
-ok_button_text = "Select Current Folder"
-file_mode = 2
-access = 2
-filters = PackedStringArray("folder")
 
 [node name="logo" type="Control" parent="CanvasLayer" groups=["delete"]]
 layout_mode = 3
@@ -439,7 +441,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 700)
 [connection signal="pressed" from="CanvasLayer/Load/Paste" to="CanvasLayer/Load" method="_on_paste_pressed"]
 [connection signal="pressed" from="CanvasLayer/New" to="CanvasLayer/New" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/Settings" to="CanvasLayer/Settings" method="_on_pressed"]
+[connection signal="canceled" from="CanvasLayer/Settings/FileDialog" to="CanvasLayer/Settings" method="_on_file_dialog_canceled"]
+[connection signal="file_selected" from="CanvasLayer/Settings/FileDialog" to="CanvasLayer/Settings" method="_on_file_dialog_file_selected"]
 [connection signal="pressed" from="CanvasLayer/patchnotes/Nah" to="." method="_on_decline_pressed"]
 [connection signal="pressed" from="CanvasLayer/patchnotes/sure" to="." method="_on_accept_pressed"]
-[connection signal="canceled" from="CanvasLayer/FileDialog" to="CanvasLayer/Settings" method="_on_file_dialog_canceled"]
-[connection signal="dir_selected" from="CanvasLayer/FileDialog" to="CanvasLayer/Settings" method="_on_file_dialog_dir_selected"]

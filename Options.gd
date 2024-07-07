@@ -1,7 +1,7 @@
 extends Node
 
 #settings
-var filepath: String = "res://"
+var filepath: String = OS.get_executable_path().get_base_dir()
 var trackfreecam: bool = true
 var saveonexit: bool = false
 var autosave: bool = true
@@ -53,8 +53,9 @@ func _ready():
 	else:
 		file = FileAccess.open("res://Fzero.settings",FileAccess.WRITE)
 		print("Creating New Settings File...")
-		if file.open(Options.filepath + "test" + ".txt", file.WRITE):
-			file.open(Options.filepath + "test" + ".txt", file.WRITE)
+		
+		if file.open("res://Fzero.settings", file.WRITE):
+			file.open("res://Fzero.settings", file.WRITE)
 			for line in data:
 				file.store_line(line)
 			file.close()

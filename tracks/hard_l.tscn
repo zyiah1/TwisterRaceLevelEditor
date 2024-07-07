@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://b5miu6bh5d67m"]
 
-[ext_resource type="Script" path="res://tracks/BaseTrack.gd" id="1_i808b"]
+[ext_resource type="Script" path="res://tracks/Basetrack.gd" id="1_i808b"]
 [ext_resource type="Texture2D" uid="uid://nnu47jolyxi4" path="res://fzero/Fzr_Tesu_ao_0_Alb.png" id="2_iedsw"]
 [ext_resource type="Material" uid="uid://b1tdqehcdc2fx" path="res://models/Mat_Fzr_ao_009.material" id="3_gpfic"]
 [ext_resource type="Texture2D" uid="uid://cvg3pop5hhsro" path="res://fzero/Fzr_side_01_Alb.png" id="4_hsqng"]
