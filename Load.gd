@@ -75,7 +75,7 @@ func LoadLevel(name):
 			if content[8].begins_with("            name: Fzr_Shutter"):
 				scene.startposition = Vector3(float(content[21].lstrip("            pos_x: ")),float(content[22].lstrip("            pos_y: ")),float(content[23].lstrip("            pos_z: "))) - Vector3(170,0,0)
 				scene.startrotation = Vector3(float(content[1].lstrip("            dir_x: ")),float(content[2].lstrip("            dir_y: ")),float(content[3].lstrip("            dir_z: "))) - Vector3(0,180,0)
-				print("hey")
+				
 			
 			# import tracks
 			if content[8].begins_with("            name: Fzr_NormalShutter"):

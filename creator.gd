@@ -213,6 +213,8 @@ func loadfinished():
 	connect("EXPORT", Callable(startinst.get_node("shutter"), "EXPORT"))
 	if Options.autosave == true:
 		$autosave.start(Options.autosavetime)
+	$Camera3D.position = startinst.global_position
+	$Camera3D.position.y = 500
 
 func _physics_process(delta):
 	if load == true:

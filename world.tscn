@@ -1471,10 +1471,11 @@ icon_alignment = 1
 script = ExtResource("46_akjwq")
 
 [node name="FileDialog" type="FileDialog" parent="nonmoving/Panel/leveloffset/auto"]
-title = "Choose Previous Level"
+title = "Open a File"
 position = Vector2i(0, 36)
 size = Vector2i(1400, 850)
 theme = ExtResource("42_aswap")
+ok_button_text = "Open"
 cancel_button_text = "close"
 file_mode = 0
 access = 2
