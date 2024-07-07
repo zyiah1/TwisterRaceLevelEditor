@@ -2,4 +2,4 @@ extends Button
 
 
 func _pressed():
-	$Panel.visible = true
+	get_parent().get_node("Panel").show()

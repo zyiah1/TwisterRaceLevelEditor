@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=3 uid="uid://cmqyq6acq27sr"]
+[gd_scene load_steps=108 format=3 uid="uid://cmqyq6acq27sr"]
 
 [ext_resource type="Script" path="res://button.gd" id="2"]
 [ext_resource type="Script" path="res://Track.gd" id="2_nq3cm"]
@@ -53,6 +53,7 @@
 [ext_resource type="PackedScene" uid="uid://bkqvt1dq2vdrv" path="res://models/Light.fbx" id="43_d08nw"]
 [ext_resource type="PackedScene" uid="uid://bftbbin31pfej" path="res://objects/bomb.tscn" id="43_tn2ol"]
 [ext_resource type="PackedScene" uid="uid://cq7lpfj7ij53o" path="res://objects/wind.tscn" id="45_jew7o"]
+[ext_resource type="Script" path="res://auto.gd" id="46_akjwq"]
 [ext_resource type="PackedScene" uid="uid://dhtyu4rmt21j5" path="res://models/buildings.glb" id="46_ox4ke"]
 [ext_resource type="PackedScene" uid="uid://cbghysdmvry50" path="res://objects/dartpile.tscn" id="46_sypkx"]
 [ext_resource type="PackedScene" uid="uid://buvw34m7n1smj" path="res://objects/jump.tscn" id="48_6mejv"]
@@ -1276,145 +1277,6 @@ text = "..."
 icon_alignment = 1
 script = ExtResource("29_mp26l")
 
-[node name="Panel" type="Panel" parent="nonmoving/setup"]
-visible = false
-layout_mode = 0
-offset_left = -1254.0
-offset_top = 3.0
-offset_right = -278.0
-offset_bottom = 891.0
-theme = ExtResource("42_aswap")
-
-[node name="startoffsetlevels" type="HBoxContainer" parent="nonmoving/setup/Panel"]
-layout_mode = 0
-offset_top = 101.0
-offset_right = 964.0
-offset_bottom = 224.0
-
-[node name="1" type="Button" parent="nonmoving/setup/Panel/startoffsetlevels" groups=["startoffset"]]
-layout_mode = 2
-size_flags_horizontal = 3
-focus_mode = 0
-theme = ExtResource("3_pogl6")
-text = "1"
-icon_alignment = 1
-script = ExtResource("30_fr64e")
-
-[node name="3" type="Button" parent="nonmoving/setup/Panel/startoffsetlevels" groups=["startoffset"]]
-layout_mode = 2
-size_flags_horizontal = 3
-focus_mode = 0
-theme = ExtResource("3_pogl6")
-text = "3"
-icon_alignment = 1
-script = ExtResource("30_fr64e")
-startoffset = -6070.0
-
-[node name="4" type="Button" parent="nonmoving/setup/Panel/startoffsetlevels" groups=["startoffset"]]
-layout_mode = 2
-size_flags_horizontal = 3
-focus_mode = 0
-theme = ExtResource("3_pogl6")
-text = "4"
-icon_alignment = 1
-script = ExtResource("30_fr64e")
-startoffset = -7470.0
-
-[node name="5" type="Button" parent="nonmoving/setup/Panel/startoffsetlevels" groups=["startoffset"]]
-layout_mode = 2
-size_flags_horizontal = 3
-focus_mode = 0
-theme = ExtResource("3_pogl6")
-text = "5"
-icon_alignment = 1
-script = ExtResource("30_fr64e")
-startoffset = -7470.0
-
-[node name="7" type="Button" parent="nonmoving/setup/Panel/startoffsetlevels" groups=["startoffset"]]
-layout_mode = 2
-size_flags_horizontal = 3
-focus_mode = 0
-theme = ExtResource("3_pogl6")
-text = "7"
-icon_alignment = 1
-script = ExtResource("30_fr64e")
-startoffset = -5970.0
-
-[node name="9" type="Button" parent="nonmoving/setup/Panel/startoffsetlevels" groups=["startoffset"]]
-layout_mode = 2
-size_flags_horizontal = 3
-focus_mode = 0
-theme = ExtResource("3_pogl6")
-text = "9"
-icon_alignment = 1
-script = ExtResource("30_fr64e")
-startoffset = -5270.0
-
-[node name="10" type="Button" parent="nonmoving/setup/Panel/startoffsetlevels" groups=["startoffset"]]
-layout_mode = 2
-size_flags_horizontal = 3
-focus_mode = 0
-theme = ExtResource("3_pogl6")
-text = "10"
-icon_alignment = 1
-script = ExtResource("30_fr64e")
-startoffset = -6070.0
-
-[node name="11" type="Button" parent="nonmoving/setup/Panel/startoffsetlevels" groups=["startoffset"]]
-layout_mode = 2
-size_flags_horizontal = 3
-focus_mode = 0
-theme = ExtResource("3_pogl6")
-text = "11"
-icon_alignment = 1
-script = ExtResource("30_fr64e")
-startoffset = -5370.0
-
-[node name="12" type="Button" parent="nonmoving/setup/Panel/startoffsetlevels" groups=["startoffset"]]
-layout_mode = 2
-size_flags_horizontal = 3
-focus_mode = 0
-theme = ExtResource("3_pogl6")
-text = "12
-"
-icon_alignment = 1
-script = ExtResource("30_fr64e")
-startoffset = -6070.0
-
-[node name="back" type="Button" parent="nonmoving/setup/Panel"]
-layout_mode = 0
-offset_left = 15.0
-offset_top = 783.0
-offset_right = 233.0
-offset_bottom = 876.0
-size_flags_horizontal = 3
-focus_mode = 0
-theme = ExtResource("3_pogl6")
-text = "back"
-icon_alignment = 1
-script = ExtResource("31_jwafk")
-
-[node name="testoffset" type="LineEdit" parent="nonmoving/setup/Panel" groups=["enter"]]
-layout_mode = 0
-offset_left = 269.0
-offset_top = 240.0
-offset_right = 726.0
-offset_bottom = 329.0
-theme_override_fonts/font = ExtResource("30_mwt0d")
-theme_override_font_sizes/font_size = 34
-placeholder_text = "0"
-alignment = 1
-
-[node name="RichTextLabel" type="RichTextLabel" parent="nonmoving/setup/Panel"]
-layout_mode = 0
-offset_top = 25.0
-offset_right = 976.0
-offset_bottom = 93.0
-theme_override_fonts/normal_font = ExtResource("30_mwt0d")
-theme_override_font_sizes/normal_font_size = 60
-bbcode_enabled = true
-text = "[center]Level Offsets"
-
 [node name="back" type="Button" parent="nonmoving"]
 anchors_preset = 2
 anchor_top = 1.0
@@ -1434,6 +1296,193 @@ theme_override_fonts/font = ExtResource("30_mwt0d")
 theme_override_font_sizes/font_size = 34
 placeholder_text = "untitled"
 alignment = 1
+
+[node name="Panel" type="Panel" parent="nonmoving"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -488.0
+offset_top = -444.0
+offset_right = 488.0
+offset_bottom = 444.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("42_aswap")
+
+[node name="startoffsetlevels" type="HBoxContainer" parent="nonmoving/Panel"]
+layout_mode = 0
+offset_top = 101.0
+offset_right = 964.0
+offset_bottom = 224.0
+
+[node name="1" type="Button" parent="nonmoving/Panel/startoffsetlevels" groups=["startoffset"]]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("3_pogl6")
+text = "1"
+icon_alignment = 1
+script = ExtResource("30_fr64e")
+
+[node name="3" type="Button" parent="nonmoving/Panel/startoffsetlevels" groups=["startoffset"]]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("3_pogl6")
+text = "3"
+icon_alignment = 1
+script = ExtResource("30_fr64e")
+startoffset = -6070.0
+
+[node name="4" type="Button" parent="nonmoving/Panel/startoffsetlevels" groups=["startoffset"]]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("3_pogl6")
+text = "4"
+icon_alignment = 1
+script = ExtResource("30_fr64e")
+startoffset = -7470.0
+
+[node name="5" type="Button" parent="nonmoving/Panel/startoffsetlevels" groups=["startoffset"]]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("3_pogl6")
+text = "5"
+icon_alignment = 1
+script = ExtResource("30_fr64e")
+startoffset = -7470.0
+
+[node name="7" type="Button" parent="nonmoving/Panel/startoffsetlevels" groups=["startoffset"]]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("3_pogl6")
+text = "7"
+icon_alignment = 1
+script = ExtResource("30_fr64e")
+startoffset = -5970.0
+
+[node name="9" type="Button" parent="nonmoving/Panel/startoffsetlevels" groups=["startoffset"]]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("3_pogl6")
+text = "9"
+icon_alignment = 1
+script = ExtResource("30_fr64e")
+startoffset = -5270.0
+
+[node name="10" type="Button" parent="nonmoving/Panel/startoffsetlevels" groups=["startoffset"]]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("3_pogl6")
+text = "10"
+icon_alignment = 1
+script = ExtResource("30_fr64e")
+startoffset = -6070.0
+
+[node name="11" type="Button" parent="nonmoving/Panel/startoffsetlevels" groups=["startoffset"]]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("3_pogl6")
+text = "11"
+icon_alignment = 1
+script = ExtResource("30_fr64e")
+startoffset = -5370.0
+
+[node name="12" type="Button" parent="nonmoving/Panel/startoffsetlevels" groups=["startoffset"]]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("3_pogl6")
+text = "12
+"
+icon_alignment = 1
+script = ExtResource("30_fr64e")
+startoffset = -6070.0
+
+[node name="back" type="Button" parent="nonmoving/Panel"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 783.0
+offset_right = 233.0
+offset_bottom = 876.0
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("3_pogl6")
+text = "back"
+icon_alignment = 1
+script = ExtResource("31_jwafk")
+
+[node name="testoffset" type="LineEdit" parent="nonmoving/Panel" groups=["enter"]]
+layout_mode = 0
+offset_left = 269.0
+offset_top = 240.0
+offset_right = 726.0
+offset_bottom = 329.0
+theme_override_fonts/font = ExtResource("30_mwt0d")
+theme_override_font_sizes/font_size = 34
+placeholder_text = "0"
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="nonmoving/Panel"]
+layout_mode = 0
+offset_top = 25.0
+offset_right = 976.0
+offset_bottom = 93.0
+theme_override_fonts/normal_font = ExtResource("30_mwt0d")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[center]Start Offsets"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="nonmoving/Panel"]
+layout_mode = 0
+offset_top = 349.0
+offset_right = 976.0
+offset_bottom = 417.0
+theme_override_fonts/normal_font = ExtResource("30_mwt0d")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[center]Level Offset"
+
+[node name="leveloffset" type="HBoxContainer" parent="nonmoving/Panel"]
+layout_mode = 0
+offset_top = 404.0
+offset_right = 975.0
+offset_bottom = 527.0
+
+[node name="auto" type="Button" parent="nonmoving/Panel/leveloffset"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("3_pogl6")
+text = "Auto"
+icon_alignment = 1
+script = ExtResource("46_akjwq")
+
+[node name="FileDialog" type="FileDialog" parent="nonmoving/Panel/leveloffset/auto"]
+title = "Open a File"
+position = Vector2i(0, 36)
+size = Vector2i(1400, 850)
+theme = ExtResource("42_aswap")
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.txt")
+
+[node name="manual" type="Button" parent="nonmoving/Panel/leveloffset"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("3_pogl6")
+text = "Manual"
+icon_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="nonmoving"]
 libraries = {
@@ -1692,8 +1741,9 @@ visible = false
 [connection signal="pressed" from="CanvasLayer/trackoptions/redo" to="." method="_on_redo_pressed"]
 [connection signal="pressed" from="nonmoving/export" to="." method="save"]
 [connection signal="pressed" from="nonmoving/done" to="." method="_on_done_pressed"]
-[connection signal="text_changed" from="nonmoving/setup/Panel/testoffset" to="." method="_on_testoffset_text_changed"]
 [connection signal="pressed" from="nonmoving/back" to="." method="_on_back_pressed"]
+[connection signal="text_changed" from="nonmoving/Panel/testoffset" to="." method="_on_testoffset_text_changed"]
+[connection signal="file_selected" from="nonmoving/Panel/leveloffset/auto/FileDialog" to="nonmoving/Panel/leveloffset/auto" method="_on_file_dialog_file_selected"]
 [connection signal="timeout" from="audio/clack/delay" to="." method="_on_delay_timeout"]
 [connection signal="timeout" from="autosave" to="." method="save"]
 

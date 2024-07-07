@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://b66t5wyem3rei"]
+[gd_scene load_steps=48 format=3 uid="uid://b66t5wyem3rei"]
 
 [ext_resource type="Script" path="res://tracks/end.gd" id="1_sh3fv"]
 [ext_resource type="Texture2D" uid="uid://chvxx20ra7gyv" path="res://textures/Fzr_Tonnel_gara01_Alb.png" id="2_h7wyr"]
@@ -465,6 +465,9 @@ bind/4/name = &"ton02_DFR"
 bind/4/bone = -1
 bind/4/pose = Transform3D(0.0001, 0, 0, 0, 0.0001, 1.62921e-11, 0, -1.62921e-11, 0.0001, 0, 0, 0)
 
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_i1nm0"]
+data = PackedVector3Array(-1.1343, 1.134, -6.6662, -1.1202, 1.1399, -1.37, -1.1343, 1.1357, -1.3659, -1.1402, -0.0858, -0.2441, -1.1402, -0.08, -6.6662, -1.1402, 1.1199, -6.6662, 1.1202, -0.1, -0.23, 1.1202, -0.1, -6.6662, 1.0575, -0.1, -6.6662, 1.1344, -0.0958, -0.2341, 1.1402, -0.08, -6.6662, 1.1344, -0.0941, -6.6662, -1.1343, 1.134, -6.6662, -1.1202, 1.1399, -6.6662, -1.1202, 1.1399, -1.37, -1.1402, -0.0858, -0.2441, -1.1343, -0.0941, -6.6662, -1.1402, -0.08, -6.6662, 1.1202, -0.1, -0.23, 1.1344, -0.0941, -6.6662, 1.1202, -0.1, -6.6662, 1.1344, -0.0958, -0.2341, 1.1402, -0.0858, -0.2441, 1.1402, -0.08, -6.6662, -1.1202, 1.1399, -1.37, 0, 1.1399, -6.6662, 0, 1.1399, -1.37, -1.1402, 1.1256, -1.3559, -1.1402, 1.1199, -6.6662, -1.1343, 1.1357, -1.3659, -1.1343, -0.0958, -0.2341, -1.1202, -0.1, -6.6662, -1.1343, -0.0941, -6.6662, 1.1402, -0.08, -6.6662, 1.1402, 1.1256, -1.3559, 1.1402, 1.1199, -6.6662, -1.1202, 1.1399, -1.37, -1.1202, 1.1399, -6.6662, 0, 1.1399, -6.6662, -1.1402, 1.1199, -6.6662, -1.1343, 1.134, -6.6662, -1.1343, 1.1357, -1.3659, -1.1343, -0.0958, -0.2341, -1.1202, -0.1, -0.23, -1.1202, -0.1, -6.6662, 1.1402, -0.08, -6.6662, 1.1402, -0.0858, -0.2441, 1.1402, 1.1256, -1.3559, 1.1344, 1.134, -6.6662, 1.1344, 1.1357, -1.3659, 1.1202, 1.1399, -6.6662, -1.1202, -0.1, -6.6662, -1.1202, -0.1, -0.23, -1.0575, -0.1, -0.23, 1.1402, 1.1199, -6.6662, 1.1402, 1.1256, -1.3559, 1.1344, 1.134, -6.6662, 1.1202, 1.1399, -6.6662, 1.1202, 1.1399, -1.37, 0, 1.1399, -1.37, -1.1202, -0.1, -6.6662, -1.0575, -0.1, -0.23, -1.0575, -0.1, -6.6662, 1.1402, 1.1256, -1.3559, 1.1344, 1.1357, -1.3659, 1.1344, 1.134, -6.6662, 1.1202, 1.1399, -6.6662, 0, 1.1399, -1.37, 0, 1.1399, -6.6662, -1.1343, -0.0958, -0.2341, -1.1343, -0.0941, -6.6662, -1.1402, -0.0858, -0.2441, 1.1344, -0.0958, -0.2341, 1.1344, -0.0941, -6.6662, 1.1202, -0.1, -0.23, 1.1202, 1.1399, -6.6662, 1.1344, 1.1357, -1.3659, 1.1202, 1.1399, -1.37, -1.1402, -0.0858, -0.2441, -1.1402, 1.1199, -6.6662, -1.1402, 1.1256, -1.3559, 1.1202, -0.1, -0.23, 1.0575, -0.1, -6.6662, 1.0575, -0.1, -0.23)
+
 [sub_resource type="Animation" id="Animation_vo8eo"]
 length = 0.001
 tracks/0/type = "value"
@@ -686,7 +689,7 @@ skin = SubResource("10")
 skeleton = NodePath("../Armature")
 
 [node name="ton01_DR__Mat_Fzr_tonnel_ura" type="MeshInstance3D" parent="RootNode"]
-transform = Transform3D(100, -1.25978e-20, -1.71346e-12, 3.98288e-21, 100, 9.30578e-21, 1.84921e-12, 1.08254e-20, 100, 0, 0, 0)
+transform = Transform3D(100, -1.81489e-20, -2.62296e-12, 3.98288e-21, 100, 1.6082e-20, 2.59427e-12, 1.63765e-20, 100, 0, 0, 0)
 mesh = SubResource("11")
 skin = SubResource("12")
 skeleton = NodePath("../Armature")
@@ -780,7 +783,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
 
 [node name="Fzr_T021__Mat_Fzr_Tonnel_gure_naka" type="MeshInstance3D" parent="RootNode"]
-transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+transform = Transform3D(100, -7.04667e-21, -8.03968e-13, 3.98288e-21, 100, 2.52952e-21, 1.10415e-12, 5.27425e-21, 100, 0, 0, 0)
 mesh = SubResource("15")
 skin = SubResource("16")
 skeleton = NodePath("../Armature001")
@@ -798,28 +801,35 @@ skin = SubResource("20")
 skeleton = NodePath("../Armature001")
 
 [node name="ton02_DBL__Mat_Fzr_tonnel_oku" type="MeshInstance3D" parent="RootNode"]
-transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+transform = Transform3D(100, -7.04667e-21, -8.03968e-13, 3.98288e-21, 100, 2.52952e-21, 1.10415e-12, 5.27425e-21, 100, 0, 0, 0)
 mesh = SubResource("23")
 skin = SubResource("24")
 skeleton = NodePath("../Armature001")
 
 [node name="ton02_DBL__Mat_Fzr_tonnel_oku_B" type="MeshInstance3D" parent="RootNode"]
-transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+transform = Transform3D(100, -1.25978e-20, -1.71346e-12, 3.98288e-21, 100, 9.30578e-21, 1.84921e-12, 1.08254e-20, 100, 0, 0, 0)
 mesh = SubResource("25")
 skin = SubResource("26")
 skeleton = NodePath("../Armature001")
 
 [node name="ton02_DBR__Mat_Fzr_tonnel_oku" type="MeshInstance3D" parent="RootNode"]
-transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+transform = Transform3D(100, -7.04667e-21, -8.03968e-13, 3.98288e-21, 100, 2.52952e-21, 1.10415e-12, 5.27425e-21, 100, 0, 0, 0)
 mesh = SubResource("27")
 skin = SubResource("28")
 skeleton = NodePath("../Armature001")
 
 [node name="ton02_DBR__Mat_Fzr_tonnel_oku_B" type="MeshInstance3D" parent="RootNode"]
-transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+transform = Transform3D(100, -7.04667e-21, -8.03968e-13, 3.98288e-21, 100, 2.52952e-21, 1.10415e-12, 5.27425e-21, 100, 0, 0, 0)
 mesh = SubResource("29")
 skin = SubResource("30")
 skeleton = NodePath("../Armature001")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="RootNode"]
+transform = Transform3D(1, -1.4238e-22, -2.6798e-14, 9.27683e-23, 1, 1.45997e-22, 3.44273e-14, 7.18245e-23, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RootNode/StaticBody3D"]
+transform = Transform3D(0.01, 2.47947e-25, -6.51949e-17, -2.47947e-25, 0.01, -1.49887e-24, 6.51949e-17, 1.49887e-24, 0.01, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_i1nm0")
 
 [node name="offset" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, -700)
