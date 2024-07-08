@@ -1112,6 +1112,15 @@ icon = ExtResource("26_o2fjb")
 icon_alignment = 1
 script = ExtResource("17_dhc3k")
 
+[node name="property" type="Button" parent="CanvasLayer/tools"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_pogl6")
+toggle_mode = true
+icon = ExtResource("29_ce4f2")
+icon_alignment = 1
+script = ExtResource("17_dhc3k")
+
 [node name="undo" type="Button" parent="CanvasLayer/tools"]
 layout_mode = 2
 focus_mode = 0
@@ -1490,6 +1499,43 @@ theme = ExtResource("3_pogl6")
 text = "Manual"
 icon_alignment = 1
 
+[node name="Properties" type="Panel" parent="nonmoving"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -395.0
+offset_top = -444.0
+offset_right = 395.0
+offset_bottom = 444.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("42_aswap")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="nonmoving/Properties"]
+offset_top = 9.0
+offset_right = 786.0
+offset_bottom = 72.0
+theme_override_fonts/normal_font = ExtResource("30_mwt0d")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[center]Data"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="nonmoving/Properties"]
+layout_mode = 0
+offset_top = 61.0
+offset_right = 788.0
+offset_bottom = 837.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="nonmoving/Properties/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="nonmoving"]
 libraries = {
 "": SubResource("AnimationLibrary_6u6sb")
@@ -1561,6 +1607,9 @@ script = ExtResource("26_itfsx")
 script = ExtResource("26_itfsx")
 
 [node name="trash" parent="Previews" instance=ExtResource("39_i6oxl")]
+script = ExtResource("26_itfsx")
+
+[node name="property" parent="Previews" instance=ExtResource("39_i6oxl")]
 script = ExtResource("26_itfsx")
 
 [node name="light" parent="Previews" instance=ExtResource("43_d08nw")]
@@ -1736,6 +1785,7 @@ visible = false
 [connection signal="pressed" from="CanvasLayer/Obstacles/bar" to="CanvasLayer/Obstacles/bar" method="_on_straight_pressed"]
 [connection signal="pressed" from="CanvasLayer/Obstacles/stop" to="CanvasLayer/Obstacles/stop" method="_on_straight_pressed"]
 [connection signal="pressed" from="CanvasLayer/tools/trash" to="CanvasLayer/tools/trash" method="_on_straight_pressed"]
+[connection signal="pressed" from="CanvasLayer/tools/property" to="CanvasLayer/tools/property" method="_on_straight_pressed"]
 [connection signal="pressed" from="CanvasLayer/tools/undo" to="." method="_on_undo_pressed"]
 [connection signal="pressed" from="CanvasLayer/tools/redo" to="." method="_on_redo_pressed"]
 [connection signal="pressed" from="CanvasLayer/tools/rclock" to="." method="rotate_clockwise"]

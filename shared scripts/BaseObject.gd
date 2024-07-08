@@ -25,13 +25,20 @@ var data: PackedStringArray
 
 var hover: bool = false
 
+signal SendData(data)
+
+func _ready():
+	connect("SendData",Callable(creator,"EditProperties"))
 
 func _physics_process(delta):
 	id = creator.nodes.find(self)
-	if hover == true:
-		if creator.item == "trash":
-			if Input.is_action_just_pressed("click"):
-				queue_free()
+	
+	if Input.is_action_just_pressed("click"):
+		if hover == true:
+			match creator.item:
+				"trash":
+					queue_free()
+					
 
 
 func EXPORT():
