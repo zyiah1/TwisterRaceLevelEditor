@@ -287,10 +287,11 @@ script = ExtResource("8_3i4kb")
 
 [node name="FileDialog" type="FileDialog" parent="CanvasLayer/Settings"]
 mode = 4
-title = "Where to save your levels?"
+title = "Open a Directory"
 position = Vector2i(0, 36)
 size = Vector2i(1782, 850)
 theme = ExtResource("7_v8s7v")
+ok_button_text = "Select Current Folder"
 dialog_close_on_escape = false
 file_mode = 2
 access = 2

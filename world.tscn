@@ -1517,6 +1517,7 @@ size_flags_vertical = 4
 theme = ExtResource("42_aswap")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="nonmoving/Properties"]
+layout_mode = 0
 offset_top = 9.0
 offset_right = 786.0
 offset_bottom = 72.0
@@ -1525,16 +1526,27 @@ theme_override_font_sizes/normal_font_size = 60
 bbcode_enabled = true
 text = "[center]Data"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="nonmoving/Properties"]
+[node name="Data" type="ScrollContainer" parent="nonmoving/Properties"]
 layout_mode = 0
 offset_top = 61.0
 offset_right = 788.0
 offset_bottom = 837.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="nonmoving/Properties/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="nonmoving/Properties/Data"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="done" type="Button" parent="nonmoving/Properties"]
+offset_left = 94.0
+offset_top = 816.0
+offset_right = 706.0
+offset_bottom = 876.0
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("3_pogl6")
+text = "done"
+icon_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="nonmoving"]
 libraries = {
@@ -1801,6 +1813,7 @@ visible = false
 [connection signal="text_changed" from="nonmoving/Panel/testoffset" to="." method="_on_testoffset_text_changed"]
 [connection signal="movelevel" from="nonmoving/Panel/leveloffset/auto" to="." method="_on_auto_movelevel"]
 [connection signal="file_selected" from="nonmoving/Panel/leveloffset/auto/FileDialog" to="nonmoving/Panel/leveloffset/auto" method="_on_file_dialog_file_selected"]
+[connection signal="pressed" from="nonmoving/Properties/done" to="." method="_on_Datadone_pressed"]
 [connection signal="timeout" from="audio/clack/delay" to="." method="_on_delay_timeout"]
 [connection signal="timeout" from="autosave" to="." method="save"]
 

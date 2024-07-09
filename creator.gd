@@ -3,6 +3,8 @@ extends Node3D
 @onready var filename = $nonmoving/name.text
 @onready var current = $Track
 
+@onready var PropertyDataContainer = $nonmoving/Properties/Data/VBoxContainer
+
 var car = preload("res://objects/car.tscn")
 var star = preload("res://objects/star.tscn")
 var jump = preload("res://objects/jump.tscn")
@@ -41,6 +43,7 @@ var rails: PackedStringArray = []
 var redotrack = []
 var redoobj = []
 
+var editednode = null
 
 signal EXPORT
 
@@ -630,3 +633,27 @@ func _on_auto_movelevel(Pos):
 	for child in $Objects.get_children():
 		if not child.is_in_group("ignore"):
 			child.global_position.z += distance.z
+
+
+func EditProperties(data, node):
+	var text = load("res://UpdateLineText.tscn")
+	
+	editednode = node
+	
+	for child in PropertyDataContainer.get_children():
+		child.queue_free()
+	for line in data:
+		var inst = text.instantiate()
+		inst.editable = true
+		inst.text = line
+		PropertyDataContainer.add_child(inst)
+	$nonmoving/Properties.show()
+
+
+func _on_Datadone_pressed():
+	var newdata: PackedStringArray = []
+	for child in PropertyDataContainer.get_children():
+		newdata.append(child.text)
+	editednode.data = newdata
+	editednode.reposition()
+	$nonmoving/Properties.hide()
