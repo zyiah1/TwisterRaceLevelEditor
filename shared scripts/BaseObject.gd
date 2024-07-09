@@ -44,8 +44,7 @@ func _physics_process(delta):
 					emit_signal("SendData",data,self)
 
 func reposition(): # stole this from zelda/metriod project aab
-	if data.size() > 25:
-		print(data)
+	if data.size() > 25: # random failsafe, should delete
 		global_position = Vector3(float(data[21].lstrip("            pos_x: ")),float(data[22].lstrip("            pos_y: ")),float(data[23].lstrip("            pos_z: ")))
 		global_rotation_degrees = Vector3(float(data[1].lstrip("            dir_x: ")),float(data[2].lstrip("            dir_y: ")),float(data[3].lstrip("            dir_z: ")))
 		#if Scalable:

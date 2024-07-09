@@ -3,7 +3,7 @@ extends Node3D
 @onready var filename = $nonmoving/name.text
 @onready var current = $Track
 
-@onready var PropertyDataContainer = $nonmoving/Properties/Data/VBoxContainer
+@onready var PropertyDataContainer = $"nonmoving/Properties/TabContainer/Raw Data/Data/VBoxContainer"
 
 var car = preload("res://objects/car.tscn")
 var star = preload("res://objects/star.tscn")
@@ -501,11 +501,7 @@ func save():
 	
 	
 
-func _on_done_pressed():
-	mode = "object"
-	$uiAnimaiton.play("done->export")
-	for node in get_tree().get_nodes_in_group("track"):
-		node.get_node("RootNode/road").material_overlay = null
+
 
 
 func cam2in():
@@ -516,16 +512,6 @@ func cam2out():
 	$Camera2.position = $Camera3D.position
 	cam2 = "out"
 
-
-
-
-
-func _on_back_pressed():
-	for buttons in get_tree().get_nodes_in_group("button"):
-		buttons.disabled = false
-	mode = "track"
-	$uiAnimaiton.play("done<-export")
-	highlighttrack(current)
 
 
 func _on_delay_timeout():
@@ -657,3 +643,17 @@ func _on_Datadone_pressed():
 	editednode.data = newdata
 	editednode.reposition()
 	$nonmoving/Properties.hide()
+
+
+func swap_mode():
+	if mode == "track":
+		mode = "object"
+		$uiAnimaiton.play("done->export")
+		for node in get_tree().get_nodes_in_group("track"):
+			node.get_node("RootNode/road").material_overlay = null
+	elif mode == "object":
+		for buttons in get_tree().get_nodes_in_group("button"):
+			buttons.disabled = false
+		mode = "track"
+		$uiAnimaiton.play("done<-export")
+		highlighttrack(current)
