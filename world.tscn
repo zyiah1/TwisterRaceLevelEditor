@@ -440,14 +440,14 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("nonmoving/swap:visible")
+tracks/4/path = NodePath("nonmoving/swap:text")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": ["Object"]
 }
 
 [sub_resource type="Animation" id="Animation_qehdt"]
@@ -456,31 +456,31 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("nonmoving/swap:visible")
+tracks/0/path = NodePath("CanvasLayer/trackoptions:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/trackoptions:visible")
+tracks/1/path = NodePath("CanvasLayer/tools:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/tools:visible")
+tracks/2/path = NodePath("CanvasLayer/Obstacles:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -492,26 +492,26 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer/Obstacles:visible")
+tracks/3/path = NodePath("CanvasLayer/TrackPieces:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("CanvasLayer/TrackPieces:visible")
+tracks/4/path = NodePath("nonmoving/swap:text")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": ["Track"]
 }
 
 [sub_resource type="Animation" id="Animation_8hw3u"]
@@ -568,14 +568,14 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("nonmoving/swap:visible")
+tracks/4/path = NodePath("nonmoving/swap:text")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": ["Object"]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oj46n"]
@@ -1228,7 +1228,6 @@ bbcode_enabled = true
 text = "[center]saving..."
 
 [node name="swap" type="Button" parent="nonmoving"]
-visible = false
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -1468,18 +1467,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("42_aswap")
 
-[node name="done" type="Button" parent="nonmoving/Properties"]
-layout_mode = 0
-offset_left = 94.0
-offset_top = 816.0
-offset_right = 706.0
-offset_bottom = 876.0
-size_flags_horizontal = 3
-focus_mode = 0
-theme = ExtResource("3_pogl6")
-text = "done"
-icon_alignment = 1
-
 [node name="TabContainer" type="TabContainer" parent="nonmoving/Properties"]
 layout_mode = 1
 anchors_preset = 8
@@ -1499,6 +1486,7 @@ theme = ExtResource("42_aswap")
 layout_mode = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="nonmoving/Properties/TabContainer/Raw Data"]
+visible = false
 layout_mode = 0
 offset_left = -3.0
 offset_top = -29.0
@@ -1520,6 +1508,18 @@ offset_bottom = 799.0
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="done" type="Button" parent="nonmoving/Properties"]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 816.0
+offset_right = 706.0
+offset_bottom = 876.0
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("3_pogl6")
+text = "done"
+icon_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="nonmoving"]
 libraries = {

@@ -415,12 +415,8 @@ func get_input(delta):
 		backwards = false
 	
 	if Input.is_action_just_pressed("tab"):
-		if mode == "track":
-			_on_done_pressed()
-			return
-		if mode == "object":
-			_on_back_pressed()
-			return
+		swap_mode()
+		return
 	elif Input.is_action_just_pressed("enter"):
 		$Camera3D.paused = false
 		for node in get_tree().get_nodes_in_group("enter"):#any node that wants release focus when entered
@@ -478,16 +474,15 @@ func highlighttrack(track):
 		track.get_node("RootNode/road").material_overlay = load("res://track select.tres")
 
 func save():
-	if namefocus == true:
+	if namefocus == true: # don't save while entering a name
 		return
 	
-	var prename = $nonmoving/name.text
+	var path = Options.filepath + "/" + $nonmoving/name.text + ".txt"
 	if $nonmoving/name.text == "":
-		$nonmoving/name.text = Options.defaultfilename
+		path = Options.filepath + "/" + Options.defaultfilename + ".txt"
 	filename = $nonmoving/name.text
 	$nonmoving/AnimationPlayer.play("saving")
 	emit_signal("EXPORT")
-	var path = Options.filepath + "/" + $nonmoving/name.text + ".txt"
 	var file = FileAccess.open(path,FileAccess.WRITE)
 	var text = map + track + objects + rails + end
 	if file.open(path, file.WRITE):
@@ -495,7 +490,6 @@ func save():
 		for content in text:
 			file.store_line(content)
 		file.close()
-		$nonmoving/name.text = prename
 	track = []
 	$nonmoving/AnimationPlayer.play("saved")
 	
