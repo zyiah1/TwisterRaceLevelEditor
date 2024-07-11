@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=3 uid="uid://cmqyq6acq27sr"]
+[gd_scene load_steps=109 format=3 uid="uid://cmqyq6acq27sr"]
 
 [ext_resource type="Script" path="res://button.gd" id="2"]
 [ext_resource type="Script" path="res://Track.gd" id="2_nq3cm"]
@@ -56,6 +56,7 @@
 [ext_resource type="Script" path="res://auto.gd" id="46_akjwq"]
 [ext_resource type="PackedScene" uid="uid://dhtyu4rmt21j5" path="res://models/buildings.glb" id="46_ox4ke"]
 [ext_resource type="PackedScene" uid="uid://cbghysdmvry50" path="res://objects/dartpile.tscn" id="46_sypkx"]
+[ext_resource type="PackedScene" uid="uid://b5p008dlpo2nb" path="res://PropertyLineText.tscn" id="47_prsgx"]
 [ext_resource type="PackedScene" uid="uid://buvw34m7n1smj" path="res://objects/jump.tscn" id="48_6mejv"]
 [ext_resource type="PackedScene" uid="uid://ddle12bsgamuu" path="res://objects/star.tscn" id="49_l453l"]
 [ext_resource type="PackedScene" uid="uid://k6ah4g0ki07r" path="res://objects/car.tscn" id="50_4ngm2"]
@@ -1485,18 +1486,6 @@ theme = ExtResource("42_aswap")
 [node name="Raw Data" type="Control" parent="nonmoving/Properties/TabContainer"]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="nonmoving/Properties/TabContainer/Raw Data"]
-visible = false
-layout_mode = 0
-offset_left = -3.0
-offset_top = -29.0
-offset_right = 783.0
-offset_bottom = 34.0
-theme_override_fonts/normal_font = ExtResource("30_mwt0d")
-theme_override_font_sizes/normal_font_size = 60
-bbcode_enabled = true
-text = "[center]Data"
-
 [node name="Data" type="ScrollContainer" parent="nonmoving/Properties/TabContainer/Raw Data"]
 layout_mode = 0
 offset_left = -3.0
@@ -1508,6 +1497,105 @@ offset_bottom = 799.0
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="Properties" type="Control" parent="nonmoving/Properties/TabContainer"]
+layout_mode = 2
+
+[node name="PositionText" type="RichTextLabel" parent="nonmoving/Properties/TabContainer/Properties"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 248.0
+offset_right = 786.0
+offset_bottom = 292.0
+bbcode_enabled = true
+text = "[center]Position"
+
+[node name="RotationText" type="RichTextLabel" parent="nonmoving/Properties/TabContainer/Properties"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 64.0
+offset_right = 786.0
+offset_bottom = 108.0
+bbcode_enabled = true
+text = "[center]Rotation"
+
+[node name="Rotation" type="HBoxContainer" parent="nonmoving/Properties/TabContainer/Properties"]
+layout_mode = 0
+offset_top = 104.0
+offset_right = 785.0
+offset_bottom = 231.0
+
+[node name="RotationText" type="RichTextLabel" parent="nonmoving/Properties/TabContainer/Properties/Rotation"]
+custom_minimum_size = Vector2(75, 2.08165e-12)
+layout_mode = 2
+bbcode_enabled = true
+text = "
+[center]X"
+
+[node name="X" parent="nonmoving/Properties/TabContainer/Properties/Rotation" instance=ExtResource("47_prsgx")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RotationText2" type="RichTextLabel" parent="nonmoving/Properties/TabContainer/Properties/Rotation"]
+custom_minimum_size = Vector2(75, 2.08165e-12)
+layout_mode = 2
+bbcode_enabled = true
+text = "
+[center]Y"
+
+[node name="Y" parent="nonmoving/Properties/TabContainer/Properties/Rotation" instance=ExtResource("47_prsgx")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RotationText3" type="RichTextLabel" parent="nonmoving/Properties/TabContainer/Properties/Rotation"]
+custom_minimum_size = Vector2(75, 2.08165e-12)
+layout_mode = 2
+bbcode_enabled = true
+text = "
+[center]Z"
+
+[node name="Z" parent="nonmoving/Properties/TabContainer/Properties/Rotation" instance=ExtResource("47_prsgx")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Position" type="HBoxContainer" parent="nonmoving/Properties/TabContainer/Properties"]
+layout_mode = 0
+offset_top = 288.0
+offset_right = 785.0
+offset_bottom = 415.0
+
+[node name="RotationText" type="RichTextLabel" parent="nonmoving/Properties/TabContainer/Properties/Position"]
+custom_minimum_size = Vector2(75, 2.08165e-12)
+layout_mode = 2
+bbcode_enabled = true
+text = "
+[center]X"
+
+[node name="X" parent="nonmoving/Properties/TabContainer/Properties/Position" instance=ExtResource("47_prsgx")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RotationText2" type="RichTextLabel" parent="nonmoving/Properties/TabContainer/Properties/Position"]
+custom_minimum_size = Vector2(75, 2.08165e-12)
+layout_mode = 2
+bbcode_enabled = true
+text = "
+[center]Y"
+
+[node name="Y" parent="nonmoving/Properties/TabContainer/Properties/Position" instance=ExtResource("47_prsgx")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RotationText3" type="RichTextLabel" parent="nonmoving/Properties/TabContainer/Properties/Position"]
+custom_minimum_size = Vector2(75, 2.08165e-12)
+layout_mode = 2
+bbcode_enabled = true
+text = "
+[center]Z"
+
+[node name="Z" parent="nonmoving/Properties/TabContainer/Properties/Position" instance=ExtResource("47_prsgx")]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="done" type="Button" parent="nonmoving/Properties"]
 layout_mode = 0

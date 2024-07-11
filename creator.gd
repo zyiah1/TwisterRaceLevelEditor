@@ -616,7 +616,7 @@ func _on_auto_movelevel(Pos):
 
 
 func EditProperties(data, node):
-	var text = load("res://UpdateLineText.tscn")
+	var text = load("res://PropertyLineText.tscn")
 	
 	editednode = node
 	
@@ -628,7 +628,13 @@ func EditProperties(data, node):
 		inst.text = line
 		PropertyDataContainer.add_child(inst)
 	$nonmoving/Properties.show()
-
+	# set property panel values
+	$nonmoving/Properties/TabContainer/Properties/Position/X.text = str(editednode.global_position.x)
+	$nonmoving/Properties/TabContainer/Properties/Position/Y.text = str(editednode.global_position.y)
+	$nonmoving/Properties/TabContainer/Properties/Position/Z.text = str(editednode.global_position.z)
+	$nonmoving/Properties/TabContainer/Properties/Rotation/X.text = str(editednode.global_rotation_degrees.x)
+	$nonmoving/Properties/TabContainer/Properties/Rotation/Y.text = str(editednode.global_rotation_degrees.y)
+	$nonmoving/Properties/TabContainer/Properties/Rotation/Z.text = str(editednode.global_rotation_degrees.z)
 
 func _on_Datadone_pressed():
 	var newdata: PackedStringArray = []

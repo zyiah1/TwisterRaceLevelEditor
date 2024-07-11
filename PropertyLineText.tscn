@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://b5p008dlpo2nb"]
+
+[node name="UpdateLineText" type="LineEdit"]
+theme_override_colors/font_uneditable_color = Color(1, 1, 1, 1)
