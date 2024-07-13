@@ -26,12 +26,33 @@ extends Node3D
 
 var data: PackedStringArray
 
-func applyoffset():
-	add_to_group("track")
-	if positionoffset != Vector3.ZERO:
-		position += positionoffset
+func _physics_process(delta):
+	id = creator.nodes.find(self)
 
-func EXPORT():
+func reposition(): # stole this from zelda/metriod project aab
+	if data.size() > 25: # random failsafe, should delete
+		global_position = Vector3(float(data[21].lstrip("            pos_x: ")),float(data[22].lstrip("            pos_y: ")),float(data[23].lstrip("            pos_z: ")))
+		global_rotation_degrees = Vector3(float(data[1].lstrip("            dir_x: ")),float(data[2].lstrip("            dir_y: ")),float(data[3].lstrip("            dir_z: ")))
+		#if Scalable:
+		#	scale = Vector3(float(data[26].lstrip("            scale_x: ")),float(data[27].lstrip("            scale_y: ")),float(data[28].lstrip("            scale_z: ")))
+		var oldname = DataName
+		DataName = data[8].erase(0,22)
+		Param0 = int(data[9].erase(0,20))
+		Param1 = int(data[10].erase(0,20))
+		Param10 = int(data[11].erase(0,21))
+		Param11 = int(data[12].erase(0,21))
+		Param2 = int(data[13].erase(0,20))
+		Param3 = int(data[14].erase(0,20))
+		Param4 = int(data[15].erase(0,20))
+		Param5 = int(data[16].erase(0,20))
+		Param6 = int(data[17].erase(0,20))
+		Param7 = int(data[18].erase(0,20))
+		Param8 = int(data[19].erase(0,20))
+		Param9 = int(data[21].erase(0,20))
+		id = int(data[4].erase(0,24))
+		refreshData()
+
+func refreshData():
 	data = [
 "          - comment: !l -1",
 "            dir_x: "+str(global_rotation_degrees.x),
@@ -60,6 +81,14 @@ func EXPORT():
 "            scale_x: 1.00000",
 "            scale_y: 1.00000",
 "            scale_z: 1.00000"]
+
+func applyoffset():
+	add_to_group("track")
+	if positionoffset != Vector3.ZERO:
+		position += positionoffset
+
+func EXPORT():
+	refreshData()
 	creator.track += data
 
 

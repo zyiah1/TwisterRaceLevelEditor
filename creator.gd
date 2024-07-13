@@ -192,6 +192,10 @@ func _ready():
 	Options.creator = self #stores reference to this node
 	for node in get_tree().get_nodes_in_group("startoffset"):
 		node.connect("pressed",Callable(self,"offset_button_pressed").bind(node.startoffset))
+	
+	for node in get_tree().get_nodes_in_group("propertytext"):
+		node.connect("text_changed",Callable(self,"property_text"))
+	
 	$nonmoving/name.placeholder_text = Options.defaultfilename
 	if get_tree().current_scene.name == "Creator": #to see if we are loading
 		startinst.position = startposition
@@ -523,6 +527,12 @@ func _on_delete_pressed():
 				current = nodes[nodes.size() - 1]
 				highlighttrack(current)
 
+func _on_property_pressed():
+	if mode == "track":
+		if current != $Track:
+			current.refreshData()
+			EditProperties(current.data, current)
+
 
 func _on_testoffset_text_changed(new_text):
 	startinst.position.x = int(new_text)
@@ -614,11 +624,8 @@ func _on_auto_movelevel(Pos):
 		if not child.is_in_group("ignore"):
 			child.global_position.z += distance.z
 
-
-func EditProperties(data, node):
+func refreshLines(data):
 	var text = load("res://PropertyLineText.tscn")
-	
-	editednode = node
 	
 	for child in PropertyDataContainer.get_children():
 		child.queue_free()
@@ -627,6 +634,10 @@ func EditProperties(data, node):
 		inst.editable = true
 		inst.text = line
 		PropertyDataContainer.add_child(inst)
+
+func EditProperties(data, node):
+	editednode = node
+	refreshLines(data)
 	$nonmoving/Properties.show()
 	# set property panel values
 	$nonmoving/Properties.PositionText.x.text = str(editednode.global_position.x)
@@ -635,8 +646,57 @@ func EditProperties(data, node):
 	$nonmoving/Properties.RotationText.x.text = str(editednode.global_rotation_degrees.x)
 	$nonmoving/Properties.RotationText.y.text = str(editednode.global_rotation_degrees.y)
 	$nonmoving/Properties.RotationText.z.text = str(editednode.global_rotation_degrees.z)
+	
+	$nonmoving/Properties.ParamText[0].text = str(editednode.Param0)
+	$nonmoving/Properties.ParamText[1].text = str(editednode.Param1)
+	$nonmoving/Properties.ParamText[2].text = str(editednode.Param2)
+	$nonmoving/Properties.ParamText[3].text = str(editednode.Param3)
+	$nonmoving/Properties.ParamText[4].text = str(editednode.Param4)
+	$nonmoving/Properties.ParamText[5].text = str(editednode.Param5)
+	$nonmoving/Properties.ParamText[6].text = str(editednode.Param6)
+	$nonmoving/Properties.ParamText[7].text = str(editednode.Param7)
+	$nonmoving/Properties.ParamText[8].text = str(editednode.Param8)
+	$nonmoving/Properties.ParamText[9].text = str(editednode.Param9)
+	$nonmoving/Properties.ParamText[10].text = str(editednode.Param10)
+	$nonmoving/Properties.ParamText[11].text = str(editednode.Param11)
+	
+	$Camera3D.paused = true
+
+
+
+
+func property_text(newtext):
+	editednode.global_position.x = float($nonmoving/Properties.PositionText.x.text)
+	editednode.global_position.y = float($nonmoving/Properties.PositionText.y.text)
+	editednode.global_position.z = float($nonmoving/Properties.PositionText.z.text)
+	editednode.global_rotation_degrees.x = float($nonmoving/Properties.RotationText.x.text)
+	editednode.global_rotation_degrees.y = float($nonmoving/Properties.RotationText.y.text)
+	editednode.global_rotation_degrees.z = float($nonmoving/Properties.RotationText.z.text)
+	
+	
+	editednode.Param0 = float($nonmoving/Properties.ParamText[0].text)
+	editednode.Param1 = float($nonmoving/Properties.ParamText[1].text)
+	editednode.Param2 = float($nonmoving/Properties.ParamText[2].text)
+	editednode.Param3 = float($nonmoving/Properties.ParamText[3].text)
+	editednode.Param4 = float($nonmoving/Properties.ParamText[4].text)
+	editednode.Param5 = float($nonmoving/Properties.ParamText[5].text)
+	editednode.Param6 = float($nonmoving/Properties.ParamText[6].text)
+	editednode.Param7 = float($nonmoving/Properties.ParamText[7].text)
+	editednode.Param8 = float($nonmoving/Properties.ParamText[8].text)
+	editednode.Param9 = float($nonmoving/Properties.ParamText[9].text)
+	editednode.Param10 = float($nonmoving/Properties.ParamText[10].text)
+	editednode.Param11 = float($nonmoving/Properties.ParamText[11].text)
+	
+	editednode.refreshData()
+	refreshLines(editednode.data)
+
+
+
+
+
 
 func _on_Datadone_pressed():
+	$Camera3D.paused = false
 	var newdata: PackedStringArray = []
 	for child in PropertyDataContainer.get_children():
 		newdata.append(child.text)
@@ -657,3 +717,5 @@ func swap_mode():
 		mode = "track"
 		$uiAnimaiton.play("done<-export")
 		highlighttrack(current)
+
+

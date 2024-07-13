@@ -1,4 +1,4 @@
-[gd_scene load_steps=110 format=3 uid="uid://cmqyq6acq27sr"]
+[gd_scene load_steps=112 format=3 uid="uid://cmqyq6acq27sr"]
 
 [ext_resource type="Script" path="res://button.gd" id="2"]
 [ext_resource type="Script" path="res://Track.gd" id="2_nq3cm"]
@@ -42,12 +42,14 @@
 [ext_resource type="FontFile" uid="uid://cvxewx0ydkm2o" path="res://fonts/f_zero_snes/F-ZeroSNES.ttf" id="30_mwt0d"]
 [ext_resource type="Script" path="res://back.gd" id="31_jwafk"]
 [ext_resource type="Texture2D" uid="uid://mk8pfdx1nfxr" path="res://ui/tools/undo.png" id="32_kx13i"]
+[ext_resource type="Texture2D" uid="uid://doega8q34gljc" path="res://ui/tools/property.png" id="33_dh0nf"]
 [ext_resource type="Texture2D" uid="uid://bqmfsah0jv5eb" path="res://ui/tools/redo.png" id="33_rt0tr"]
 [ext_resource type="Texture2D" uid="uid://d300vxl052ol2" path="res://textures/sky/kiri_Alb.png" id="35_wskat"]
 [ext_resource type="AudioStream" uid="uid://c2p85b344tmcq" path="res://sfx/clack-85854.mp3" id="36_moef1"]
 [ext_resource type="Texture2D" uid="uid://budyaqweb3tgx" path="res://ui/tools/rotate clock.png" id="37_ywdyh"]
 [ext_resource type="Texture2D" uid="uid://covnssjyra3qt" path="res://ui/tools/rotate counter clock.png" id="38_fhtwh"]
 [ext_resource type="PackedScene" uid="uid://faxky36xraxs" path="res://trash.tscn" id="39_i6oxl"]
+[ext_resource type="Texture2D" uid="uid://j8cjgy01b1aq" path="res://ui/tools/edittrack.png" id="39_krbmd"]
 [ext_resource type="PackedScene" uid="uid://cwm3wxy6xm7nr" path="res://models/bar.fbx" id="42_4bec0"]
 [ext_resource type="Theme" uid="uid://byc6mamepavt5" path="res://fzero.tres" id="42_aswap"]
 [ext_resource type="PackedScene" uid="uid://bkqvt1dq2vdrv" path="res://models/Light.fbx" id="43_d08nw"]
@@ -1083,7 +1085,7 @@ layout_mode = 2
 focus_mode = 0
 theme = ExtResource("3_pogl6")
 toggle_mode = true
-icon = ExtResource("29_ce4f2")
+icon = ExtResource("33_dh0nf")
 icon_alignment = 1
 script = ExtResource("17_dhc3k")
 
@@ -1142,6 +1144,14 @@ focus_mode = 0
 theme = ExtResource("3_pogl6")
 toggle_mode = true
 icon = ExtResource("27_7o5da")
+icon_alignment = 1
+
+[node name="property" type="Button" parent="CanvasLayer/trackoptions"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_pogl6")
+toggle_mode = true
+icon = ExtResource("39_krbmd")
 icon_alignment = 1
 
 [node name="Spacer" type="Button" parent="CanvasLayer/trackoptions"]
@@ -1486,7 +1496,6 @@ grow_vertical = 2
 theme = ExtResource("42_aswap")
 
 [node name="Raw Data" type="Control" parent="nonmoving/Properties/TabContainer"]
-visible = false
 layout_mode = 2
 
 [node name="Data" type="ScrollContainer" parent="nonmoving/Properties/TabContainer/Raw Data"]
@@ -1502,6 +1511,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Properties" type="Control" parent="nonmoving/Properties/TabContainer"]
+visible = false
 layout_mode = 2
 
 [node name="PositionText" type="RichTextLabel" parent="nonmoving/Properties/TabContainer/Properties"]
@@ -1544,7 +1554,7 @@ bbcode_enabled = true
 text = "
 [center]X"
 
-[node name="X" parent="nonmoving/Properties/TabContainer/Properties/Rotation" instance=ExtResource("47_prsgx")]
+[node name="X" parent="nonmoving/Properties/TabContainer/Properties/Rotation" groups=["propertytext"] instance=ExtResource("47_prsgx")]
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -1555,7 +1565,7 @@ bbcode_enabled = true
 text = "
 [center]Y"
 
-[node name="Y" parent="nonmoving/Properties/TabContainer/Properties/Rotation" instance=ExtResource("47_prsgx")]
+[node name="Y" parent="nonmoving/Properties/TabContainer/Properties/Rotation" groups=["propertytext"] instance=ExtResource("47_prsgx")]
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -1566,7 +1576,7 @@ bbcode_enabled = true
 text = "
 [center]Z"
 
-[node name="Z" parent="nonmoving/Properties/TabContainer/Properties/Rotation" instance=ExtResource("47_prsgx")]
+[node name="Z" parent="nonmoving/Properties/TabContainer/Properties/Rotation" groups=["propertytext"] instance=ExtResource("47_prsgx")]
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -1583,7 +1593,7 @@ bbcode_enabled = true
 text = "
 [center]X"
 
-[node name="X" parent="nonmoving/Properties/TabContainer/Properties/Position" instance=ExtResource("47_prsgx")]
+[node name="X" parent="nonmoving/Properties/TabContainer/Properties/Position" groups=["propertytext"] instance=ExtResource("47_prsgx")]
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -1594,7 +1604,7 @@ bbcode_enabled = true
 text = "
 [center]Y"
 
-[node name="Y" parent="nonmoving/Properties/TabContainer/Properties/Position" instance=ExtResource("47_prsgx")]
+[node name="Y" parent="nonmoving/Properties/TabContainer/Properties/Position" groups=["propertytext"] instance=ExtResource("47_prsgx")]
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -1605,7 +1615,7 @@ bbcode_enabled = true
 text = "
 [center]Z"
 
-[node name="Z" parent="nonmoving/Properties/TabContainer/Properties/Position" instance=ExtResource("47_prsgx")]
+[node name="Z" parent="nonmoving/Properties/TabContainer/Properties/Position" groups=["propertytext"] instance=ExtResource("47_prsgx")]
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -1628,7 +1638,7 @@ bbcode_enabled = true
 text = "[center]0"
 fit_content = true
 
-[node name="0" parent="nonmoving/Properties/TabContainer/Properties/Parameters/0-5" instance=ExtResource("47_prsgx")]
+[node name="0" parent="nonmoving/Properties/TabContainer/Properties/Parameters/0-5" groups=["propertytext"] instance=ExtResource("47_prsgx")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1642,7 +1652,7 @@ bbcode_enabled = true
 text = "[center]1"
 fit_content = true
 
-[node name="1" parent="nonmoving/Properties/TabContainer/Properties/Parameters/0-5" instance=ExtResource("47_prsgx")]
+[node name="1" parent="nonmoving/Properties/TabContainer/Properties/Parameters/0-5" groups=["propertytext"] instance=ExtResource("47_prsgx")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1656,7 +1666,7 @@ bbcode_enabled = true
 text = "[center]2"
 fit_content = true
 
-[node name="2" parent="nonmoving/Properties/TabContainer/Properties/Parameters/0-5" instance=ExtResource("47_prsgx")]
+[node name="2" parent="nonmoving/Properties/TabContainer/Properties/Parameters/0-5" groups=["propertytext"] instance=ExtResource("47_prsgx")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1670,7 +1680,7 @@ bbcode_enabled = true
 text = "[center]3"
 fit_content = true
 
-[node name="3" parent="nonmoving/Properties/TabContainer/Properties/Parameters/0-5" instance=ExtResource("47_prsgx")]
+[node name="3" parent="nonmoving/Properties/TabContainer/Properties/Parameters/0-5" groups=["propertytext"] instance=ExtResource("47_prsgx")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1684,7 +1694,7 @@ bbcode_enabled = true
 text = "[center]4"
 fit_content = true
 
-[node name="4" parent="nonmoving/Properties/TabContainer/Properties/Parameters/0-5" instance=ExtResource("47_prsgx")]
+[node name="4" parent="nonmoving/Properties/TabContainer/Properties/Parameters/0-5" groups=["propertytext"] instance=ExtResource("47_prsgx")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1698,7 +1708,7 @@ bbcode_enabled = true
 text = "[center]5"
 fit_content = true
 
-[node name="5" parent="nonmoving/Properties/TabContainer/Properties/Parameters/0-5" instance=ExtResource("47_prsgx")]
+[node name="5" parent="nonmoving/Properties/TabContainer/Properties/Parameters/0-5" groups=["propertytext"] instance=ExtResource("47_prsgx")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1716,7 +1726,7 @@ bbcode_enabled = true
 text = "[center]6"
 fit_content = true
 
-[node name="6" parent="nonmoving/Properties/TabContainer/Properties/Parameters/6-11" instance=ExtResource("47_prsgx")]
+[node name="6" parent="nonmoving/Properties/TabContainer/Properties/Parameters/6-11" groups=["propertytext"] instance=ExtResource("47_prsgx")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1730,7 +1740,7 @@ bbcode_enabled = true
 text = "[center]7"
 fit_content = true
 
-[node name="7" parent="nonmoving/Properties/TabContainer/Properties/Parameters/6-11" instance=ExtResource("47_prsgx")]
+[node name="7" parent="nonmoving/Properties/TabContainer/Properties/Parameters/6-11" groups=["propertytext"] instance=ExtResource("47_prsgx")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1744,7 +1754,7 @@ bbcode_enabled = true
 text = "[center]8"
 fit_content = true
 
-[node name="8" parent="nonmoving/Properties/TabContainer/Properties/Parameters/6-11" instance=ExtResource("47_prsgx")]
+[node name="8" parent="nonmoving/Properties/TabContainer/Properties/Parameters/6-11" groups=["propertytext"] instance=ExtResource("47_prsgx")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1758,7 +1768,7 @@ bbcode_enabled = true
 text = "[center]9"
 fit_content = true
 
-[node name="9" parent="nonmoving/Properties/TabContainer/Properties/Parameters/6-11" instance=ExtResource("47_prsgx")]
+[node name="9" parent="nonmoving/Properties/TabContainer/Properties/Parameters/6-11" groups=["propertytext"] instance=ExtResource("47_prsgx")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1772,7 +1782,7 @@ bbcode_enabled = true
 text = "[center]10"
 fit_content = true
 
-[node name="10" parent="nonmoving/Properties/TabContainer/Properties/Parameters/6-11" instance=ExtResource("47_prsgx")]
+[node name="10" parent="nonmoving/Properties/TabContainer/Properties/Parameters/6-11" groups=["propertytext"] instance=ExtResource("47_prsgx")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1786,7 +1796,7 @@ bbcode_enabled = true
 text = "[center]11"
 fit_content = true
 
-[node name="11" parent="nonmoving/Properties/TabContainer/Properties/Parameters/6-11" instance=ExtResource("47_prsgx")]
+[node name="11" parent="nonmoving/Properties/TabContainer/Properties/Parameters/6-11" groups=["propertytext"] instance=ExtResource("47_prsgx")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -2065,6 +2075,7 @@ visible = false
 [connection signal="pressed" from="CanvasLayer/tools/rclock" to="." method="rotate_clockwise"]
 [connection signal="pressed" from="CanvasLayer/tools/rcounterclock" to="." method="rotate_counterclockwise"]
 [connection signal="pressed" from="CanvasLayer/trackoptions/delete" to="." method="_on_delete_pressed"]
+[connection signal="pressed" from="CanvasLayer/trackoptions/property" to="." method="_on_property_pressed"]
 [connection signal="pressed" from="CanvasLayer/trackoptions/forward" to="." method="_on_forward_pressed"]
 [connection signal="pressed" from="CanvasLayer/trackoptions/back" to="." method="_on_backwards_pressed"]
 [connection signal="pressed" from="CanvasLayer/trackoptions/undo" to="." method="_on_undo_pressed"]
