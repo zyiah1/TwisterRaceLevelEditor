@@ -1,4 +1,4 @@
-[gd_scene load_steps=109 format=3 uid="uid://cmqyq6acq27sr"]
+[gd_scene load_steps=110 format=3 uid="uid://cmqyq6acq27sr"]
 
 [ext_resource type="Script" path="res://button.gd" id="2"]
 [ext_resource type="Script" path="res://Track.gd" id="2_nq3cm"]
@@ -56,6 +56,7 @@
 [ext_resource type="Script" path="res://auto.gd" id="46_akjwq"]
 [ext_resource type="PackedScene" uid="uid://dhtyu4rmt21j5" path="res://models/buildings.glb" id="46_ox4ke"]
 [ext_resource type="PackedScene" uid="uid://cbghysdmvry50" path="res://objects/dartpile.tscn" id="46_sypkx"]
+[ext_resource type="Script" path="res://Properties.gd" id="47_75vdh"]
 [ext_resource type="PackedScene" uid="uid://b5p008dlpo2nb" path="res://PropertyLineText.tscn" id="47_prsgx"]
 [ext_resource type="PackedScene" uid="uid://buvw34m7n1smj" path="res://objects/jump.tscn" id="48_6mejv"]
 [ext_resource type="PackedScene" uid="uid://ddle12bsgamuu" path="res://objects/star.tscn" id="49_l453l"]
@@ -1467,6 +1468,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("42_aswap")
+script = ExtResource("47_75vdh")
 
 [node name="TabContainer" type="TabContainer" parent="nonmoving/Properties"]
 layout_mode = 1
@@ -1484,6 +1486,7 @@ grow_vertical = 2
 theme = ExtResource("42_aswap")
 
 [node name="Raw Data" type="Control" parent="nonmoving/Properties/TabContainer"]
+visible = false
 layout_mode = 2
 
 [node name="Data" type="ScrollContainer" parent="nonmoving/Properties/TabContainer/Raw Data"]
@@ -1504,9 +1507,9 @@ layout_mode = 2
 [node name="PositionText" type="RichTextLabel" parent="nonmoving/Properties/TabContainer/Properties"]
 layout_mode = 0
 offset_left = -1.0
-offset_top = 248.0
+offset_top = 232.0
 offset_right = 786.0
-offset_bottom = 292.0
+offset_bottom = 276.0
 bbcode_enabled = true
 text = "[center]Position"
 
@@ -1519,11 +1522,20 @@ offset_bottom = 108.0
 bbcode_enabled = true
 text = "[center]Rotation"
 
+[node name="ParamText" type="RichTextLabel" parent="nonmoving/Properties/TabContainer/Properties"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 375.0
+offset_right = 788.0
+offset_bottom = 419.0
+bbcode_enabled = true
+text = "[center]Parameters"
+
 [node name="Rotation" type="HBoxContainer" parent="nonmoving/Properties/TabContainer/Properties"]
 layout_mode = 0
 offset_top = 104.0
 offset_right = 785.0
-offset_bottom = 231.0
+offset_bottom = 204.0
 
 [node name="RotationText" type="RichTextLabel" parent="nonmoving/Properties/TabContainer/Properties/Rotation"]
 custom_minimum_size = Vector2(75, 2.08165e-12)
@@ -1560,9 +1572,9 @@ size_flags_horizontal = 3
 
 [node name="Position" type="HBoxContainer" parent="nonmoving/Properties/TabContainer/Properties"]
 layout_mode = 0
-offset_top = 288.0
+offset_top = 272.0
 offset_right = 785.0
-offset_bottom = 415.0
+offset_bottom = 372.0
 
 [node name="RotationText" type="RichTextLabel" parent="nonmoving/Properties/TabContainer/Properties/Position"]
 custom_minimum_size = Vector2(75, 2.08165e-12)
@@ -1597,12 +1609,201 @@ text = "
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="done" type="Button" parent="nonmoving/Properties"]
+[node name="Parameters" type="HBoxContainer" parent="nonmoving/Properties/TabContainer/Properties"]
 layout_mode = 0
-offset_left = 94.0
-offset_top = 816.0
-offset_right = 706.0
-offset_bottom = 876.0
+offset_left = 18.0
+offset_top = 402.0
+offset_right = 765.0
+offset_bottom = 770.0
+
+[node name="0-5" type="VBoxContainer" parent="nonmoving/Properties/TabContainer/Properties/Parameters"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Param" type="RichTextLabel" parent="nonmoving/Properties/TabContainer/Properties/Parameters/0-5"]
+custom_minimum_size = Vector2(75, 2.08165e-12)
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[center]0"
+fit_content = true
+
+[node name="0" parent="nonmoving/Properties/TabContainer/Properties/Parameters/0-5" instance=ExtResource("47_prsgx")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Param2" type="RichTextLabel" parent="nonmoving/Properties/TabContainer/Properties/Parameters/0-5"]
+custom_minimum_size = Vector2(75, 2.08165e-12)
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[center]1"
+fit_content = true
+
+[node name="1" parent="nonmoving/Properties/TabContainer/Properties/Parameters/0-5" instance=ExtResource("47_prsgx")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Param3" type="RichTextLabel" parent="nonmoving/Properties/TabContainer/Properties/Parameters/0-5"]
+custom_minimum_size = Vector2(75, 2.08165e-12)
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[center]2"
+fit_content = true
+
+[node name="2" parent="nonmoving/Properties/TabContainer/Properties/Parameters/0-5" instance=ExtResource("47_prsgx")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Param4" type="RichTextLabel" parent="nonmoving/Properties/TabContainer/Properties/Parameters/0-5"]
+custom_minimum_size = Vector2(75, 2.08165e-12)
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[center]3"
+fit_content = true
+
+[node name="3" parent="nonmoving/Properties/TabContainer/Properties/Parameters/0-5" instance=ExtResource("47_prsgx")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Param5" type="RichTextLabel" parent="nonmoving/Properties/TabContainer/Properties/Parameters/0-5"]
+custom_minimum_size = Vector2(75, 2.08165e-12)
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[center]4"
+fit_content = true
+
+[node name="4" parent="nonmoving/Properties/TabContainer/Properties/Parameters/0-5" instance=ExtResource("47_prsgx")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Param6" type="RichTextLabel" parent="nonmoving/Properties/TabContainer/Properties/Parameters/0-5"]
+custom_minimum_size = Vector2(75, 2.08165e-12)
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[center]5"
+fit_content = true
+
+[node name="5" parent="nonmoving/Properties/TabContainer/Properties/Parameters/0-5" instance=ExtResource("47_prsgx")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="6-11" type="VBoxContainer" parent="nonmoving/Properties/TabContainer/Properties/Parameters"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Param" type="RichTextLabel" parent="nonmoving/Properties/TabContainer/Properties/Parameters/6-11"]
+custom_minimum_size = Vector2(75, 2.08165e-12)
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[center]6"
+fit_content = true
+
+[node name="6" parent="nonmoving/Properties/TabContainer/Properties/Parameters/6-11" instance=ExtResource("47_prsgx")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Param2" type="RichTextLabel" parent="nonmoving/Properties/TabContainer/Properties/Parameters/6-11"]
+custom_minimum_size = Vector2(75, 2.08165e-12)
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[center]7"
+fit_content = true
+
+[node name="7" parent="nonmoving/Properties/TabContainer/Properties/Parameters/6-11" instance=ExtResource("47_prsgx")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Param3" type="RichTextLabel" parent="nonmoving/Properties/TabContainer/Properties/Parameters/6-11"]
+custom_minimum_size = Vector2(75, 2.08165e-12)
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[center]8"
+fit_content = true
+
+[node name="8" parent="nonmoving/Properties/TabContainer/Properties/Parameters/6-11" instance=ExtResource("47_prsgx")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Param4" type="RichTextLabel" parent="nonmoving/Properties/TabContainer/Properties/Parameters/6-11"]
+custom_minimum_size = Vector2(75, 2.08165e-12)
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[center]9"
+fit_content = true
+
+[node name="9" parent="nonmoving/Properties/TabContainer/Properties/Parameters/6-11" instance=ExtResource("47_prsgx")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Param5" type="RichTextLabel" parent="nonmoving/Properties/TabContainer/Properties/Parameters/6-11"]
+custom_minimum_size = Vector2(75, 2.08165e-12)
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[center]10"
+fit_content = true
+
+[node name="10" parent="nonmoving/Properties/TabContainer/Properties/Parameters/6-11" instance=ExtResource("47_prsgx")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Param6" type="RichTextLabel" parent="nonmoving/Properties/TabContainer/Properties/Parameters/6-11"]
+custom_minimum_size = Vector2(75, 2.08165e-12)
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[center]11"
+fit_content = true
+
+[node name="11" parent="nonmoving/Properties/TabContainer/Properties/Parameters/6-11" instance=ExtResource("47_prsgx")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="done" type="Button" parent="nonmoving/Properties"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -306.0
+offset_top = -60.0
+offset_right = 306.0
+grow_horizontal = 2
+grow_vertical = 0
 size_flags_horizontal = 3
 focus_mode = 0
 theme = ExtResource("3_pogl6")

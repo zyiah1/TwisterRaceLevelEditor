@@ -629,12 +629,12 @@ func EditProperties(data, node):
 		PropertyDataContainer.add_child(inst)
 	$nonmoving/Properties.show()
 	# set property panel values
-	$nonmoving/Properties/TabContainer/Properties/Position/X.text = str(editednode.global_position.x)
-	$nonmoving/Properties/TabContainer/Properties/Position/Y.text = str(editednode.global_position.y)
-	$nonmoving/Properties/TabContainer/Properties/Position/Z.text = str(editednode.global_position.z)
-	$nonmoving/Properties/TabContainer/Properties/Rotation/X.text = str(editednode.global_rotation_degrees.x)
-	$nonmoving/Properties/TabContainer/Properties/Rotation/Y.text = str(editednode.global_rotation_degrees.y)
-	$nonmoving/Properties/TabContainer/Properties/Rotation/Z.text = str(editednode.global_rotation_degrees.z)
+	$nonmoving/Properties.PositionText.x.text = str(editednode.global_position.x)
+	$nonmoving/Properties.PositionText.y.text = str(editednode.global_position.y)
+	$nonmoving/Properties.PositionText.z.text = str(editednode.global_position.z)
+	$nonmoving/Properties.RotationText.x.text = str(editednode.global_rotation_degrees.x)
+	$nonmoving/Properties.RotationText.y.text = str(editednode.global_rotation_degrees.y)
+	$nonmoving/Properties.RotationText.z.text = str(editednode.global_rotation_degrees.z)
 
 func _on_Datadone_pressed():
 	var newdata: PackedStringArray = []
