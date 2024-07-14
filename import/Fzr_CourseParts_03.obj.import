@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dhtjrxtytk6uo"
+path="res://.godot/imported/Fzr_CourseParts_03.obj-d5535b36b09cb927a8415a7d4c3ea824.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Fzr_CourseParts_03.obj-d5535b36b09cb927a8415a7d4c3ea824.mesh"]
+
+source_file="res://import/Fzr_CourseParts_03.obj"
+dest_files=["res://.godot/imported/Fzr_CourseParts_03.obj-d5535b36b09cb927a8415a7d4c3ea824.mesh", "res://.godot/imported/Fzr_CourseParts_03.obj-d5535b36b09cb927a8415a7d4c3ea824.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

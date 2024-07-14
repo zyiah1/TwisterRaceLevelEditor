@@ -381,12 +381,12 @@ func _physics_process(delta):
 							inst = load("res://objects/borderbar.tscn").instantiate()
 			if item != "none":
 				if Input.is_action_pressed("yrotate"):
-					if get_node("Previews/" + item).position != pos -Vector3(0,pos.y,0):
+					if get_node("Previews/" + item).position != pos:
 						get_node("Previews/" + item).look_at(pos -Vector3(0,pos.y,0))
 						get_node("Previews/" + item).rotation.x = 0
 						get_node("Previews/" + item).rotation.z = 0
 				else:
-					get_node("Previews/" + item).position = pos -Vector3(0,pos.y,0) #y pos = 0
+					get_node("Previews/" + item).position = pos
 			
 			if inst != null:
 				redoobj = []
